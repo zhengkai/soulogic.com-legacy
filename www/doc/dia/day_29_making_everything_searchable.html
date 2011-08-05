@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十九天：加入站台搜寻功能 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_28_labeling_form_elements.html" title="第二十八天：加上组件描述" />
+<link rel="next" href="day_30_creating_an_accessibility_statement.html" title="第三十天：撰写亲和力声明" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十九天：加入站台搜寻功能</h2>
+<p class="firstparagraph">每个网站都需要站台搜寻功能。至少就当代来说是如此。</p>
+
+<p>正确的站台搜寻准则：</p>
+
+<ol>
+<li>每一页都放搜寻对话盒，最好还要是「在褶层之上」（不需要卷动就看得到）。</li>
+<li>预设会搜寻所有的东西。如果你可以让使用者选择祇搜寻文章、祇搜寻回响或两者皆搜寻的话，请预设「两者都搜寻」。</li>
+<li>别让进阶选项（像是布林逻辑、大小写敏感或正规表示式）弄乱了你的搜寻对话盒。请预设使用类似 Google 的作用（比对所有的字，不比对部分的字，大小写不敏感，不使用正规表示式），同时在另一个「进阶搜寻」的页面里，提供所有的选项。</li>
+<li>让你的搜寻对话盒有<a href="day_28_labeling_form_elements.html" title="第二十八天：加上组件描述">合适的卷标</a>以及<a href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键">一组便捷键</a>。在此我建议使用 <code>accesskey="4"</code> （请注意：<a href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键">在第十五天里</a>，我示范了如何指定你的搜寻表单的 <code>accesskey</code> ，但是我弄错了。为了要达到最大的跨浏览器兼容性，你得把 <code>accesskey</code> 定义在 <code>&lt;label&gt;</code> ，而不是 <code>&lt;input&gt;</code> 。正确的语法请见下面的范例）。</li>
+</ol>
+
+<h3>谁因此获益？</h3>
+
+<p><a href="day_1_jackie.html">Jackie</a> 、 <a href="day_2_michael.html">Michael</a> 、 <a href="day_3_bill.html">Bill</a> 、 <a href="day_4_lillian.html">Lillian</a> 、 <a href="day_5_marcus.html">Marcus</a> 以及世界上其它许多人都从这个妥善采行的站台搜寻功能中获益了。尤其是对于网志或新闻导向的站台来说，内容主要是按照时间所整理；如果使用者每次寻找特定的文章时，都得要把页面不断地往下卷动的话，实在是让人苦不堪言。很少有人知道 Google 的「 site:domainname.com 」语法（用来把搜寻结果线订在某个网域里），而且 Google 每个月祇会重新建立一次索引，所以你该提供自己的站台搜寻功能。</p>
+
+<h3>怎么做</h3>
+
+<p>Greymatter 内建有搜寻功能，但是你得稍微修改模版，才能提供搜寻对话盒的 <code>accesskey</code> 。到「 Edit Templates 」，「 Miscellaneous Templates 」，「 Search Form Template 」，然后找到像这样的表单：</p>
+
+<blockquote>
+<p><code>&lt;FORM ACTION="{{cgiwebpath}}/gm-comments.cgi" METHOD=POST&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="gmsearch" SIZE=20&gt;<br />
+&lt;INPUT TYPE=SUBMIT VALUE="Search"&gt;<br />
+&lt;/FORM&gt;</code></p>
+</blockquote>
+
+<p>然后把他改成这样：</p>
+
+<blockquote>
+<p><code>&lt;FORM ACTION="{{cgiwebpath}}/gm-comments.cgi" METHOD=POST&gt;<br />
+<strong>&lt;label for="gmsearch" accesskey="4"&gt;寻找：&lt;/label&gt;</strong><br />
+&lt;INPUT TYPE=TEXT <strong>id="gmsearch"</strong> NAME="gmsearch" SIZE=20&gt;<br />
+&lt;INPUT TYPE=SUBMIT VALUE="搜寻"&gt;<br />
+&lt;/FORM&gt;</code></p>
+</blockquote>
+
+<p>Movable Type 的使用者可以试试看 <a href="http://www.jayallen.org/mt-search/">MT-Search</a> 外挂模块（译注：现在这个外挂模块已经整合到 Movable Type 套件里了）。我自己正在用由将来临的 <acronym title="Movable Type">MT</acronym> 架起来的站台。我在自己的主要网志（超过九百篇文章）上试了一下，稍微慢了点，不过在比较小的站台上应该还不赖才是。虽然它不会继续被发展下去，但就算是在最新版的 Movable Type 上，也还动得不错。（请注意：如果你用的是 MySQL 版本的  Movable Type 2.2 ，<a href="http://philringnalda.com/archives/002257.php">你还得稍微调整一下 mt-search.cgi 里的设定</a>）。</p>
+
+<p>如果你的网志有自己的网域名称，你还可以使用第三方的搜寻引擎来为你的内容建立索引，并按要求提供搜寻结果。比较为人所熟知的代用品包括像是 Blogger.com 所建议的 <a href="http://www.atomz.com/search/trial_account.htm">Atomz Express Search</a> 和我在我自己的网志上所采用的 <a href="http://www.google.com/services/free.html">Google Free Web Search</a> 。这两者都提供了某些程度的自由度，而且也相当快；祇不过他们建立你的站台索引后，并不会刻刻更新。这两个搜寻引擎都允许你自订搜寻对话盒的外貌。我用 Google 做出来的搜寻表单就像这样（请留意 <code>&lt;label&gt;</code> 和 <code>accesskey</code> 的使用）：</p>
+
+<blockquote>
+<p><code>&lt;form id="searchform" method="get" action="http://www.google.com/custom"&gt;<br />
+&lt;p id="searchlabel"&gt;<strong>&lt;label for="q" accesskey="4"&gt;Search this site:&lt;/label&gt;</strong>&lt;/p&gt;<br />
+&lt;p id="searchinput"&gt;&lt;input type="text" <strong>id="q"</strong> name="q" size="18" maxlength="255" value=" " /&gt;&lt;/p&gt;<br />
+&lt;p id="searchsubmit"&gt;&lt;input type="submit" value="Search" /&gt;<br />
+&lt;input type="hidden" name="cof" value="LW:116;L:http://diveintomark.org/images/eyes.jpg;LH:68;AH:left;GL:0;S:http://diveintomark.org/;AWFID:0d8ffcebe359c844;" /&gt;<br />
+&lt;input type="hidden" name="domains" value="diveintomark.org" /&gt;<br />
+&lt;input type="hidden" name="sitesearch" value="diveintomark.org" /&gt;<br />
+&lt;/p&gt;<br />
+&lt;/form&gt;</code></p>
+</blockquote>
+
+<p>请注意：你不能够就直接把这一段剪下来，然后贴进你的网志里。如果你想要用 Google Free Web Search 的话，你得先登入 Google ，并且取得后来会被放到隐藏的 <code>cof</code> 字段里的金钥。</p>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Jay Allen</cite>: <a href="http://www.jayallen.org/mt-search/">MT-Search</a>, Movable Type 的搜寻外挂模块。</li>
+<li><cite>Phil Ringnalda</cite>: <a href="http://philringnalda.com/archives/002257.php">mt-search.cgi and MySQL</a>. 这里有如何让 MT-Search 在 Movable Type 2.2 和 MySQL 里运作顺利的重要讯息。</li>
+<li><a href="http://www.atomz.com/search/trial_account.htm">Atomz Express Search</a>.</li>
+<li><a href="http://www.google.com/services/free.html">Google Free Web Search</a>.</li>
+<li><cite>Blogger.com</cite>: <a href="http://publicmind.blogger.com/enduser/group.jsp?node=185">How do I add a search engine to my blog?</a> 她们推荐使用 Atomz ，但是其它链结都没有列出。</li>
+<li><cite>Jukka Korpela</cite>: <a href="http://www.cs.tut.fi/~jkorpela/forms/accesskey.html">Improving accessibility with <code>accesskey</code> in HTML forms and links</a>. 接近尾声的地方，解释了为什么站台搜寻功能的 <code>accesskey</code> 要用「 4 」。</li>
+<li><cite>Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/20000109.html">Is Navigation Useful?</a>  <q>Users often rely on search as their main hunting strategy.</q></li>
+<li><cite>Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/9707b.html">Search Usability</a>. 这个地方虽然已经五岁了，但仍然不可思议地一直在更新。</li>
+<li><cite>PHP.net</cite>: <a href="http://www.php.net/urlhowto.php">URL HOWTO</a>.  PHP.net 上有我所看过最神奇的站台搜寻功能。除了标准的搜寻对话盒外，她们还有自订的 404 错误文件（通常别人祇会丢给你一个「页面找不到」的错误讯息而已），并且根据网址来聪明地寻找站台。所以你可以直接在浏览器的地址列输入像 <a href="http://php.net/phpinfo">php.net/phpinfo</a> 的地址，然后 php.net 会把你转向到 <a href="http://www.php.net/manual/en/function.phpinfo.php">phpinfo 函式的参考页面</a>。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_28_labeling_form_elements.html">&lt;&lt; 第二十八天：加上组件描述</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_30_creating_an_accessibility_statement.html">第三十天：撰写亲和力声明 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十九天：加入站台搜寻功能</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

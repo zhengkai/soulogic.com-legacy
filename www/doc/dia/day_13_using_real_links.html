@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十三天：使用真实链结 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_12_using_color_safely.html" title="第十二天：安全地使用色彩" />
+<link rel="next" href="day_14_adding_titles_to_links.html" title="第十四天：在链结上加入标题" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十三天：使用真实链结</h2>
+<p class="firstparagraph">网页设计的苦难根源乃是「 <code>javascript:</code> 」链结；这个假链结会在你按下的时候执行一段 Javascript 程序码。这个问题最常发生于网志用这种链结来在另一个窗口里显示回响。为什么这会是个问题呢？因为 <a title="TheCounter.com statistics on Javascript usage in browsers, April 2002" href="http://www.thecounter.com/stats/2002/April/javas.php">有 11% 的网际网络使用者因为某些原因而不使用 Javascript</a> ；这同时也包括许多残障的朋友，因为她们所能够使用的浏览器就是不支持。这种假链结对她们来说不能用，你应当改用真实的链结。</p>
+
+<p>虽然这个问题很容易描述及修改，但是无论我多么强调这个诀窍的重要性也都不为过。多数问题，像是<a href="day_11_skipping_over_navigation_links.html">不提供跳过导览列的「跳过链结」</a>都祇不过会在某种程度上减低可用性罢了，但至少你的页面还能够被读取。但是现在我们所遇到的这个问题，却会让重要的内容几乎完全无法被取得。如果你的回响被藏在某个「 <code>javascript:</code> 」链结之后，<em>就几乎不存在了</em>。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 并不支持 Javascript 。</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为 <a href="http://links.sourceforge.net/">Links</a> 并不支持 Javascript 。</li>
+<li><a href="day_4_lillian.html">Lillian</a> 从中获益了。虽然她用的是 Internet Explorer ，但是信息部门祇允许某些获准的站台使用 Javascript ，而把其它站台的 Javascript 给挡掉了；很不幸地，你的站台并不在这些获准的站台中。</li>
+<li><a href="http://www.google.com/">Google</a> 从中获益了。因为 Google 会跟著链结来寻找更多内容并加以建立索引，但是它却无法使用「 <code>javascript:</code> 」链结；因为当它索引网页时并不会执行任何 Javascript 程序码。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p><strong>现在 Movable Type 和 Radio 的预设模版都把这个部分处理好了</strong>，所以你无须再做任何处理。检视你的首页并搜寻「 <code>javascript:</code> 」；如果你完全找不到，那么你也就用不到今天的诀窍了。</p>
+
+<p>然而，如果你的 Movable Type 模版包含有像这样的链结：</p>
+
+<blockquote>
+<p><code>&lt;a href="javascript:OpenComments(&lt;$MTEntryID$&gt;)">Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</code></p>
+</blockquote>
+
+<p>就请把它改成这样：</p>
+
+<blockquote>
+<p><code>&lt;a href="&lt;$MTCGIPath$&gt;mt-comments.cgi?entry_id=&lt;$MTEntryID$&gt;" onclick="OpenComments(&lt;$MTEntryID$&gt;); return false"&gt;Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</code></p>
+</blockquote>
+
+<p>在支持 Javascript 的浏览器里，原来的链结仍会具有相同的作用；因为 <code>onclick</code> 属性会优先于 <code>href</code> 属性。所以在新版里，仍然会叫用 <code>OpenComments</code> 函式，然后弹出新窗口。然而在不支持 Javascript 的浏览器（还有 Google ）里，就会完全忽略 <code>onclick</code> 属性，而祇从 <code>href</code> 属性来连结，而用同一个窗口来显示评论。</p>
+
+<p>如果你因为其它原因而用了 <code>javascript:</code> 假链结的话，停。停下来。别继续下去，别继续领四千元，或之类的。在你的源码里套用上述的技巧，让不支持 Javasript 的浏览器至少还有机会能够使用真实链结。</p>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite title="Evolt.org">Jeff Howden</cite>: <a href="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/">Links &amp; JavaScript Living Together in Harmony</a>.</li>
+</ul>
+
+<h3>附注</h3>
+
+<p>甚至别开始用那些<a href="http://www.dynamicdrive.com/dynamicindex1/index.html">用 Javascript 做出来的动态选单系统</a>。他们确实让画面看起来很酷，不过抽烟也一样。用真实链结吧。</p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_12_using_color_safely.html">&lt;&lt; 第十二天：安全地使用色彩</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_14_adding_titles_to_links.html">第十四天：在链结上加入标题 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十三天：使用真实链结</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

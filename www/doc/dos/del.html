@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>DEL - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - DEL</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">删除一个或数个文件。
+
+DEL [/P] [/F] [/S] [/Q] [/A[[:]attributes]] names
+ERASE [/P] [/F] [/S] [/Q] [/A[[:]attributes]] names
+
+  names         指定一个或数个文件或目录列表。通配符可被用来
+                删除多个文件。如果指定了一个目录，目录中的所
+                有文件都会被删除。
+
+  /P            删除每一个文件之前提示确认。
+  /F            强制删除只读文件。
+  /S            从所有子目录删除指定文件。
+  /Q            安静模式。删除全局通配符时，不要求确认。
+  /A            根据属性选择要删除的文件。
+  attributes      R  只读文件                     S  系统文件
+                  H  隐藏文件                     A  存档文件
+                  -  表示“否”的前缀
+
+如果命令扩展名被启用，DEL 和 ERASE 会如下改变:
+
+/S 开关的显示句法会颠倒，即只显示已经
+删除的文件，而不显示找不到的文件。
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

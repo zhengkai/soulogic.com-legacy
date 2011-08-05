@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十六天：不要开出新窗口 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键" />
+<link rel="next" href="day_17_defining_acronyms.html" title="第十七天：定义头字语" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十六天：不要开出新窗口</h2>
+<p class="firstparagraph">几乎每个网页使用者都知道「上一页」这个按钮。这几乎也是浏览网页的必备动作了。连到某个链结，回到上一页；浏览某个搜寻结果，然后回到上一页。就算是我老爸也知道可以这样用，而他本人现在还因为第一次成功地在「 Internet 」图标上双击成功而兴奋不已。</p>
+
+<p>在所有的主流浏览器里，如果你用了 <code class="sgmltag">&lt;a target="_blank"&gt;</code> 卷标，就会强迫链结开出一个新窗口<em>而让「上一页」按钮失效</em>。这个新窗口不会保有前一个窗口的浏览历程，所以「上一页」按钮将会失去功效。即使是对有 10 年网页经验的我来说，这都会造成严重的混淆。在 2002 年的今日人们还会这样子用，实在是太不可思议了。别这样做。别强迫链结开启新窗口。</p>
+
+<p>请注意这个诀窍是针对网页设计师所提出的，而非针对网页使用者。如果<em>你</em>想要在<em>你</em>浏览网页的时候开出新窗口，请用后述的方法。在 Windows 上的 Internet Explorer 里，按下链结时同时按住 <kbd>Shift</kbd> 键，就可以把连结开到新窗口去。在 Netscape 6 和 Mozilla 里的话，则是同时按住 <kbd>Control</kbd> 。在 Mac 上的 Internet Explorer 里则需要按住 <kbd>Command</kbd> 。（另外像是 Opera 的某些浏览器，还支持进阶组合键，像是 <kbd>Control</kbd> + <kbd>Shift</kbd> + 点选，这样会在背景开出连结的新窗口。）这里的重点在于是否要开出新窗口应该要由使用者来选择，而不是由网页设计师。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="day_1_jackie.html">Jackie</a> 从中获益了。虽然 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会在连结开出新窗口时念出「 New browser window 」，但仍然容易在它念出链结文字和新页面内容之间被漏掉。 <a href="http://www-3.ibm.com/able/hpr.html">Home Page Reader</a> 提供了更好的解决方案：每当有新窗口开启时，它就会播放某个指定的声音。另外一个叫 <a href="http://www.gwmicro.com/windoweyes/windoweyes.htm">Window Eyes</a> 的屏幕朗读软体则完全不会提示有新窗口。</p>
+<p>无论如何，「上一页」按钮就此烂掉。如果 Jackie 没有听到「 new browser window 」的话，她就没办法瞥到工作列上开了两个浏览器窗口了。于是她就得去读整个已开启窗口清单；可能是透过 JAWS 指定的窗口清单快速键 <kbd>INSERT+F10</kbd> 或标准的 <kbd>ALT+TAB</kbd> 。</p></li>
+<li><p><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为她的 Internet Explorer 窗口总是最大化（这样她才看得见），所以新窗口开启的时候也会预设变成最大化。除此之外 Windows XP 还会把同一个应用程序的多个窗口群组整理在工作列上，所以在视觉上就更难发现新窗口被开出来了。突然之间，「上一页」按钮莫名其妙地失效了，而 Lillian 完全不知到为什么会这样。如果你预期她会很高兴地阅读连结后的内容，倒是可以略过这个问题。</p></li>
+<li><a href="day_3_bill.html">Bill</a> 从中获益了。他妹妹把 Mozilla 设定成多页浏览模式，所以 Bill 可以看到分页，然后很快地记住他开的是那个窗口，并且在那些分页间切换（在他灵巧华丽的延伸键盘上用 <kbd><acronym title="control">CTRL</acronym>+<acronym title="page up">PAGEUP</acronym></kbd> 和 <kbd><acronym title="control">CTRL</acronym>+<acronym title="page down">PAGEDOWN</acronym></kbd> ）。被强迫开出新窗口的连结会开出另外一个全新的 Mozilla 窗口。这不仅仅会越过分页浏览的偏好，还会让他所以已开启的窗口都不见；因为新的窗口上不会有任何前一个窗口上的分页。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<ol>
+<li>不要用 <code class="sgmltag">&lt;a target="_blank"&gt;</code> 来强迫连结开出新窗口。</li>
+<li>如果你一定得要把某个连结开到新窗口，请务必明确地警告读者。这祇是个不理想的权变方案，通常是随著某些「不得与外部内容相关联」的商业政策而来的。举例来说， <a href="http://www.cnn.com/US/sites.html">CNN 的「相关站台」页面</a>就是这样。</li>
+<li>如果你看到「在新窗口开启链结」核选框，请确定它按照预设值而处于<em>关闭</em>的状态。</li>
+</ol>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite title="Useit.com">Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/990530.html">The Top Ten <em>New</em> Mistakes of Web Design</a>.  "#1: Breaking or Slowing Down the Back Button.  #2: Opening New Browser Windows."</li>
+<li><cite>W3C Web Accessibility Initiative</cite>: <a href="http://www.w3.org/WAI/wcag-curric/sam77-0.htm">Example for Checkpoint 10.1</a> 举例说明了当某个链结一定得开启新窗口时，你该如何警告使用者。</li>
+<li><cite>W3C Validator mailing listl</cite>: <a href="http://lists.w3.org/Archives/Public/www-validator/2002Apr/0100.html">Re: opening a link in a new window</a>.  身为关心此类事情的人，你应该知道 <code>&lt;a&gt;</code> 卷标中的 <code>target</code> 属性是被反对使用的，而且会使得你的页面无法通过 <acronym title="hypertext markup language">HTML</acronym> 4.01 Strict, <acronym title="extensible hypertext markup language">XHTML</acronym> 1.0 Strict 或任何未来版本的认证。</li>
+<li><cite><acronym title="Web Accessibility In Mind">WebAIM</acronym> mailing list</cite>: <a href="http://www.webaim.org/discussion/mail_thread.php?thread=432"><code>mailto:</code> links open new windows</a>. 这里提出 <code>mailto:</code> 链结并非亲和力障碍，因为这个行为完全可以由用户端判断。网页接口的电子邮件表单（像是 Radio 所用的）也许是提供亲和力的更完整解决方案。网页接口的表单可以无须整合电子邮件用户端就让访客使用（而且不会有组态不当或情境不允许等问题，像是实验室的公用计算机），同时也可以在不使用不亲和的 Javascript 伎俩的情况下就保护你的电子邮件地址免遭垃圾信发送机器人的攻击。在另一方面，有一些人因为熟悉感、功能（像是内建拼字检查）或能够整理寄出的讯息等原因<em>真的喜欢</em>他们自己的电子邮件用户端软体；在这种情况下，我就不会建议你考虑这种方法了。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_15_defining_keyboard_shortcuts.html">&lt;&lt; 第十五天：定义快速键</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_17_defining_acronyms.html">第十七天：定义头字语 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十六天：不要开出新窗口</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

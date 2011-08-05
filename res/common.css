@@ -1,0 +1,248 @@
+
+/*
+	common
+ */
+
+div.outBox {
+	background-image: url("/img/head_bg.png");
+	background-position: 367px -40px;
+	width: 960px;
+	margin: 0 auto 50px;
+	min-height: 500px;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 22px;
+}
+
+p.site_error {
+	text-align: center;
+	padding: 50px 0;
+	font-size: 24px;
+}
+
+div.blog h4 {
+	font-size: 20px;
+	margin: 6px 0 0;
+	font-weight: normal;
+	clear: both;
+}
+
+div.blog h4 a.title {
+	line-height: 24px;
+	display: block;
+	float: left;
+}
+
+div.blog h4 a.title > span {
+	line-height: 80%;
+	font-size: 80%;
+	padding-left: 10px;
+}
+
+div.blog h4 a.title span span {
+	font-weight: normal;
+	margin-right: 3px;
+}
+
+body.blog p.date {
+	display: block;
+	font-size: 14px;
+	font-family: Verdana;
+	font-weight: normal;
+	color: gray;
+}
+
+div.siteTitle {
+	height: 120px;
+	width: 1000px;
+	margin-left: -20px;
+}
+
+div.siteTitle h1, div.siteTitle a {
+	font-size: 1px;
+	color: black;
+	height: 100px;
+	width: 487px;
+	margin: 10px 0 0;
+	font-weight: normal;
+	background-image: url("/img/site_title.png");
+	display: block;
+	border-width: 0;
+	background-position: 20px center;
+}
+
+div.siteTitle a:hover {
+	background-position: -480px center;
+}
+
+div.siteTitle img {
+	padding: 10px 0 10px 100px;
+}
+
+
+div.category {
+	margin: 0 0 20px -20px;
+	overflow: hidden;
+	width: 1000px;
+}
+
+div.category ul {
+	float: left;
+}
+
+div.category ul li {
+	float: left;
+	display: block;
+}
+
+div.category a,
+div.category li.hr,
+div.category div div {
+	background-image: url("/img/menu_bg.png");
+}
+
+div.category a {
+	text-align: center;
+	display: block;
+	width: 110px;
+	height: 47px;
+	padding-top: 6px;
+	border-width: 0;
+	font-size: 20px;
+	background-position: left top;
+}
+
+div.category a.select {
+	color: #fff;
+	background-position: 0 -60px;
+}
+
+div.category a:hover {
+	background-position: 0 -120px;
+}
+
+div.category li.hr {
+	background-position: -100px 0;
+}
+
+div.category li.hr a {
+	margin-left: 20px;
+}
+
+div.category span {
+	color: silver;
+	display: block;
+	font-size: 12px;
+	font-family: Verdana;
+}
+
+div.category a:hover span {
+	color: white;
+}
+
+div.category > div {
+	width: 1500px;
+}
+
+div.category div div {
+	float: left;
+	height: 53px;
+	background-repeat: repeat-x;
+	width: 200px;
+}
+
+body > div.highlight,
+body > div.highlight > div > div {
+	background-image: url("/img/foot_bg.png");
+	background-repeat: repeat-x;
+}
+
+body > div.highlight {
+	background-position: 0 -200px;
+}
+
+body > div.highlight > div > div {
+	margin: 0 2px;
+}
+
+body > div.highlight > div {
+	background-image: url("/img/foot_border.png");
+	background-repeat: repeat-x;
+	margin: 0 auto;
+	height: 100%;
+	width: 1002px;
+}
+
+body > div.footer {
+	height: 60px;
+}
+
+body > div.footer > div > div {
+	padding: 25px 19px 10px;
+	height: 25px;
+	vertical-align: bottom;
+}
+
+body > div.footer p {
+	font-size: 12px;
+	font-family: Verdana;
+	padding: 4px;
+}
+
+
+body > div.header {
+	height: 16px;
+}
+
+body > div.header > div > div {
+	padding: 0;
+	height: 16px;
+	text-align: right;
+	font-size: 1px;
+}
+
+/*
+	pageNumber
+ */
+
+p.pageNumber {
+	clear: both;
+	height: 20px;
+	padding: 7px 0;
+}
+
+p.pageNumber, p.pageNumber * {
+	font-size: 14px;
+	font-family: Verdana;
+}
+p.pageNumber a, p.pageNumber span.current {
+	padding: 5px 3px 1px;
+	margin: 0 4px;
+}
+
+p.pageNumber a:before, p.pageNumber span.current:before {
+	content: "[ ";
+}
+
+p.pageNumber a:after, p.pageNumber span.current:after {
+	content: " ]";
+}
+
+p.pageNumber, p.pageNumber span {
+	cursor: default;
+}
+
+p.pageNumber span.current {
+	color: #fff;
+}
+
+p.pageNumber span.dot {
+	padding: 0 4px;
+	color: gray;
+}

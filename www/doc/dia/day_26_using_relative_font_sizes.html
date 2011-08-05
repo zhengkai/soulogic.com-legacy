@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十六天：使用相对字型尺寸 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_25_using_real_horizontal_rules_or_faking_them_properly.html" title="第二十五天：使用真正的水平分割线（或以适当的方法伪造）" />
+<link rel="next" href="day_27_using_real_headers.html" title="第二十七天：使用真正的标头" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十六天：使用相对字型尺寸</h2>
+<p class="firstparagraph">网站的重点就是文字，几乎没什么例外。新闻、舆论、想法、理念、故事、创新的文学作品、电子商务：全都是文字。视觉设计跟图像当然很重要，但是如果人们连你的文字都读不到，那有什么用呢？</p>
+<p>2000 年秋天时，Jeffrey Zeldman 发表了一篇著名的文章，指出<a href="http://www.alistapart.com/stories/fear4/">使用相对字型尺寸是不可能的</a>，这是因为浏览器都有一大堆的错误，包括 Netscape 4 以及之后的众多浏览器也是如此。虽然 Netscape 4 仍然没有修正错误，而且也继续在被使用，但是至少我们都从中学到一些实作相对字型尺寸的方法（ Zeldman 也是。他最近重新设计的 <a href="http://www.webstandards.org/">Web Standards Project</a> 网站也使用下面描述的技术）。</p>
+<p>我们在能支持的浏览器里使用相对字型尺寸，而在不支持的 Netscape 4 里使用绝对字型尺寸。即使不使用多个样式表也能完成这项任务。
+我马上就会提供一个可以直接复制/贴上的解决方案，让你套用在 Movable Type 预设模版跟 Radio 的<em>所有</em>预设主题上。接著也会对技术本身作些罗唆的解释，好让你能够在其它模版上采行。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为 Lillian 上了年纪，眼睛没办法看清楚网页。就像其它 80% 的网际网络人口一样，她使用的是 Windows 上的 Internet Explorer 。除非网站设计师明确地指定相对字型尺寸，否则这将没办法支持相对字型。 Lillian 虽然有修改过浏览器的预设字型尺寸（在「检视」选单下的「字型」选项里），但它在使用绝对字型尺寸的网站上表现并不好。这些网站包括所有现有的网志模版。例如对 Lillian 来说，Movable Type 的预设模版看起来就像这样：</p></li>
+<p><a href="images/abs_sizing.gif" title="点选可连至全屏幕尺寸的版本 (35K)"><img alt="透过 Lillian 的眼睛所看到的 Movable Type 预设模版：文字都模糊地没办法读" title="" src="images/abs_sizing_thumb.gif" width="300" height="300" /></a></p>
+<p>假使这个模版使用的是相对字型尺寸，对大部分不需要修改字型尺寸的人来说，看起来是<strong><em>完全相同</em></strong>的。但是在 Lillian 眼中会是这样：</p>
+<p><a href="images/rel_sizing.gif" title="点选可连至全屏幕尺寸的版本 (79K)"><img alt="透过 Lillian 的眼睛所看到的 Movable Type 预设模版：文字仍然模糊，但大到足以阅读" title="" src="images/rel_sizing_thumb.gif" width="300" height="300" /></a></p>
+<p>我再强调一次：如果人们连你的文字都读不到，<em>那有什么用呢？</em></p>
+</li>
+</ol>
+
+<h3>怎么做： Radio</h3>
+
+<p>找出你 Home Page Template 里的 <code>&lt;style&gt;</code> 部分，最顶端的 CSS 规则看起来应该像这样：</p>
+
+<blockquote>
+<pre><code>body, td, th, p {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+}</code></pre>
+</blockquote>
+
+<p><em>保持原状</em>，但是在后面接上这些东西：</p>
+
+<blockquote>
+<pre><code>/*/*/a{}
+body,
+body td,
+body th,
+body p {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html>body,
+html>body td,
+html>body th
+html>body p {
+  font-size: small;
+}
+/* */</code></pre>
+</blockquote>
+
+<p>请确定你有在开头跟结尾的地方都加上那些批注，它们是一切的关键。在后面将会加以说明。</p>
+
+<h3>怎么做： Movable Type</h3>
+
+<p>Movable Type 的预设模版比 Radio 要复杂，不过我们做的事情还是一样，只不过这次份量又多了点。在你的样式表模版 (<code>styles-site.css</code>) 结尾处加上这些东西：</p>
+
+<blockquote>
+<pre><code>/*/*/a{}
+body,
+body a,
+body .calendar,
+body .calendarhead,
+body .title,
+body .sidetitle,
+body .syndicate,
+body .powered,
+body .comments-post,
+body .posted {
+  font-size: xx-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: x-small;
+}
+html>body,
+html>body a,
+html>body .calendar,
+html>body .calendarhead,
+html>body .title,
+html>body .sidetitle,
+html>body .syndicate,
+html>body .powered,
+html>body .comments-post,
+html>body .posted {
+  font-size: x-small;
+}
+
+body .date {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html>body .date {
+  font-size: small;
+}
+
+body #banner {
+  font-size: 200%;
+}
+
+body .description {
+  font-size: 60%;
+}
+
+body .blogbody {
+  font-size: 110%;
+}
+
+body .blogbody,
+body .calendar,
+body .calendarhead,
+body .side,
+body .title,
+body .sidetitle,
+body .syndicate,
+body .powered,
+body .comments-body {
+  line-height: 128%;
+}
+/* */</code></pre>
+</blockquote>
+
+<p>也请确定你有在开头跟结尾的地方都加上那些批注了。</p>
+
+<h3>怎么做：深入探讨</h3>
+
+<p>基本概念是使用字型尺寸关键词。它们（因为旧版浏览器的错误而）很少被用到，但其实它们有三个有趣的特性：</p>
+
+<ol>
+<li>它们不会加成 (compound)。如果你在「 main 」段落里使用了 <code>90%</code> 的字型尺寸，又在其中的「 post 」段落使用 <code>90%</code> 的字型尺寸，有些浏览器会用 81% (90% x 90%) 来显示「 post 」，但有些会用 90% 来显示。随著一层层的巢状套用（在使用表格制作版面时很常见），文字马上就会随著百分比的加成而缩小到看不见。然而如果你的「 main 」段落使用了 <code>small</code> 的字型尺寸，又在其中的「 post 」段落使用 <code>small</code> 的字型尺寸时，所有的浏览器都会用 <code>small</code> 的字型尺寸来显示「 post 」。</li>
+<li>它们改变字型尺寸的特性可以在 Windows 的 Internet Explorer 下正确显示。这点蛮神奇的，因为 <code>small</code> 听起来就像是个绝对字型尺寸（尤其是加上前面关于巢状的说明后），但是我发誓它真的可以运作。</li>
+<li>它们永远不会<em>太</em>小。 Lillian 在 Internet Explorer 里使用的「字型」设定可以自由修改尺寸。许多视力正常的人比较希望看到比正常字型来得小一点的字。使用百分比设定的字型尺寸当与预设的最小字型尺寸合成之后，就会变得模糊不清。但使用字型尺寸关键词总是可以至少维持在 9px，这在任何字体下都可以阅读（假设你的视力不错）。</li>
+</ol>
+<p>所以我们使用字型尺寸关键词来设定我们的基础大小。如果需要控制得更加精细的话，我们还可以使用百分比，但只能用在末端的文字上（像是可以用在「 post 」，但不能用在「 main 」），以避免百分比的加成及过小的问题。</p>
+<p>以下是使用字型尺寸关键词的基本概念：</p>
+
+<blockquote>
+<pre><code>p {
+  font-size: 12px;
+}
+
+/*/*/a{}
+body p {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html>body p {
+  font-size: small;
+}
+/* */</code></pre>
+</blockquote>
+
+<p>接下来的都很重要，所以请注意。</p>
+
+<ol>
+<li>首先，我们定义 &lt;p&gt; 的绝对尺寸 (12px) 。包括 Netscape 4 在内，所有的浏览器都会接受这个样式设定。</li>
+<li>接著我们加入「 /*/*/ 」这个古怪的批注。根据 Netscape 4 的错误，所有在这个批注之后的东西都会被忽略掉。如此一来，只有 Netscape 4 以外的浏览器才会看到之后的样式。</li>
+<li>紧接在那个古怪的批注之后，我们又加入一个空白的样式「 a {} 」。 Mac 上充满错误的 Opera 5 会忽略这个样式（只有这一个），而接受其它所有的。</li>
+<li>现在我们已经切出一个范围了，在这个范围内所定义的规则祇会套用在 Netscape 4 以外的其它浏览器上。接下来我们就可以开始定义相对字体尺寸（这也就是 Netscape 4 所无法处理的）了。首先我们要用「 body p 」选择子来重新定义 p 卷标的作用。因为 CSS 可行的关系，这将会覆写掉先前的 p 选择子（用技术名词来描述的话，就是「 body p 」选择子比「 p 」选择子<em>还要更具特定性</em>）。</li>
+<li>我们把所有 &lt;p&gt; 卷标的字体尺寸重新定义成 <code>x-small</code> 。这个字体尺寸关键词在预设的情况下，会被 Windows 上的 Internet Explorer 5 转译成 12px 。然而祇要使用者（从检视选单）更改了「字型」，这些文字就可能会依照使用者的设定而变得更大或更小。这也正是我们的目的（请注意：我们现在已经对 IE5/Win 定义了<em>两次</em>字体尺寸；不过这并没有关系，因为更特定的选择子总是会胜出，而让前一个选择子被忽略掉）。</li>
+<li>很不幸地 IE5/Win 在字体尺寸关键词上有一刻度的错误：世界上所有其它浏览器（包括 IE5/Mac 、 Netscape 6 、 Mozilla 、 IE6/Win）都会把 <code>x-small</code> 转译成 10px ，而非 12px 。不过很幸运地， IE5/Win 另外还有一个分析错误之处，可以被我们拿来加以利用：当他看到那个看起来很奇怪的 voice-family 时，会误以为整个「 body p 」选择子已经结束了，然后就忽略掉「 } 」之后的那几列。</li>
+<li><em>现在</em>我们又切出了一个更小的范围了，在这个范围内所定义的规则祇会套用在 IE5/Win 以外（至于 Netscape 4 早就被排除在外了）的浏览器上。如此一来我们就可以再把字体尺寸重新定义成 <code>small</code> 了。这么一来，在非 IE5/Win （也就是会一路解读到这一层的那些）浏览器上就会被正确地解读成 12px 了（在预设的情况下）。当然，如果使用者把「字体尺寸」设成较大，这里的文字也会变得比较大。这仍旧是我们所想要有的功能。</li>
+<li>但是等一下！ Opera 5 也有跟 IE5/Win 一样的分析错误，所以有可能也会被 voice-family 黑克手法弄混，可是他又会正确地转译字体尺寸关键词，结果就是我们的文字在 Opera 5 底下将会变得太小。很幸运地， Opera 5 还支持<em>第三种</em>选择子：「 html>body p 」（而且这个选择子比「 body p 」还要「更具特定性」，所以会覆写掉前一个选择子的内容）。 IE5/Win 并不支持这种选择子，所以会加以忽略，而这也正是我们所需要的（因为我们已经处理过那个一刻度的错误了，所以现在当然不会想要再把这个偏差放回去）。 IE6/Win 同样地也不支持这个选择子，不过这并没有甚么关系，因为在「 body p 」选择子里，我们把「 font-size: small 」放在黑克用的「 voice-family: inherit 」之后。所有其它的浏览器都支持「 html>body 」选择子；所以对他们来说，我们足足定义了<em>四</em>次字体尺寸。这当然没有问题，因为祇有最具特定性的选择子才会生效，其它的都祇会被忽略掉。</li>
+<li>最后我们还得设定一个空批注： <code>/* */</code> 。这样才会让 Netscape 4 继续分析之后的部分。任何在这个空批注之后定义的规则，也都会套用到所有的浏览器（包括 Netscape 4 ）上。</li>
+</ol>
+
+<p>现在让我们反过来看：</p>
+
+<ol>
+<li>无论使用者设定了甚么， Netscape 4 都会把 <code>&lt;p&gt;</code> 文字显示成 12px 。</li>
+<li>Windows 上的 Internet Explorer 5 会把 <code>&lt;p&gt;</code> 文字显示成 <code>x-small</code> 。依照预设值的话，也就是 12px ；不过如果你在检视选单里把「字型」设成较大的话，这里的文字看起来也会比较大。</li>
+<li>Windows 上的 Internet Explorer 6 会因为「 body p 」选择子里的「 font-size: small 」的关系，而把 <code>&lt;p&gt;</code> 文字显示成 <code>small</code> 。依照预设值的话，也就是 12px ；不过如果你在检视远单里把「字型」设成较大的话，这里的文字看起来也会比较大。</li>
+<li>Mac 上的 Internet Explorer 5 ，和所有平台上的 Opera 、 Netscape 6 、 Mozilla 以及（希望是啦）所有未来的浏览器都会因为「 html>body p 」选择子里的「 font-size: small 」规则，而把 <code>&lt;p&gt;</code> 文字显示成 <code>small</code> 。依照预设值的话，也就是 12px ；不过如果你用了「字体缩放」功能时，这里的文字看起来也会比较大。</li>
+</ol>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Mark Pilgrim</cite>: <a href="http://diveintoaccessibility.org/examples/fontsize.html">Relative Font Sizing HOWTO</a>. 跟这里一样提供了所有必要的解释；但是那一页本身就是这个技术的范例了，所以你可以实际看出来到底会有甚么作用。</li>
+<li><cite title="A List Apart">Todd Fahrner</cite>: <a href="http://www.alistapart.com/stories/sizematters/">Size Matters: Making Font Size Keywords Work</a>.</li>
+<li><cite>Caio Chassot</cite>: <a href="http://www.v2studio.com/k/css/n4hide/">Hiding CSS from Netscape 4</a> 但不使用多重样式表。</li>
+<li><cite>Tantek &Ccedil;elik</cite>: <a href="http://tantek.com/CSS/Examples/boxmodelhack.html">Box Model Hack</a>.  How to hide CSS from Internet Explorer 5 for Windows.</li>
+<li><a href="http://www.webstandards.org/">The Web Standards Project</a> 同时也用了字体尺寸关键词来黑克 IE5/Win ；祇不过他们使用了 Javascript 的解决方案（而不是用内嵌批注黑克法）来处理 Netscape 4 的问题。</li>
+<li><cite>Owen Briggs</cite>: <a href="http://www.thenoodleincident.com/tutorials/box_lesson/font/index.html">Text Sizing</a>. 这里有许多相对字体尺寸技术在各种不同浏览器、平台以及预设字体设定下的画面撷取图片。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_25_using_real_horizontal_rules_or_faking_them_properly.html">&lt;&lt; 第二十五天：使用真正的水平分割线（或以适当的方法伪造）</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_27_using_real_headers.html">第二十七天：使用真正的标头 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十六天：使用相对字型尺寸</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

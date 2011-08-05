@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>CHKDSK - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - CHKDSK</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">检查磁盘并显示状态报告。
+
+
+CHKDSK [volume[[path]filename]]] [/F] [/V] [/R] [/X] [/I] [/C] [/L[:size]]
+
+
+  volume          指定驱动器(后面跟一个冒号)、装入点
+                  或卷名。
+  filename        仅用于 FAT/FAT32: 指定要检查是否有碎片的文件。
+  /F              修复磁盘上的错误。
+  /V              在 FAT/FAT32 上: 显示磁盘上每个文件的完整路径和名称。
+                   在 NTFS 上: 如果有清除消息，将其显示。
+  /R              查找不正确的扇区并恢复可读信息(隐含 /F)。
+  /L:size       仅用于 NTFS:  将日志文件大小改成指定的 KB 数。
+                    如果没有指定大小，则显示当前的大小。
+  /X               如果必要，强制卷先卸下。
+                    卷的所有打开的句柄就会无效(隐含 /F)。
+  /I                仅用于 NTFS: 对索引项进行强度较小的检查。
+  /C               仅用于 NTFS: 跳过文件夹结构的循环检查。
+
+/I 和 /C 命令行开关跳过卷的某些检查，减少运行 Chkdsk 所需的时间。
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>CMD - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - CMD</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">启动 Windows XP 命令解释程序一个新的实例
+
+CMD [/A | /U] [/Q] [/D] [/E:ON | /E:OFF] [/F:ON | /F:OFF] [/V:ON | /V:OFF]
+    [[/S] [/C | /K] string]
+
+/C      执行字符串指定的命令然后终断
+/K      执行字符串指定的命令但保留
+/S      在 /C 或 /K 后修改字符串处理(见下)
+/Q      关闭回应
+/D      从注册表中停用执行 AutoRun 命令(见下)
+/A      使向内部管道或文件命令的输出成为 ANSI
+/U      使向内部管道或文件命令的输出成为 Unicode
+/T:fg   设置前景/背景颜色(详细信息，请见 COLOR /?)
+/E:ON   启用命令扩展(见下)
+/E:OFF  停用命令扩展(见下)
+/F:ON   启用文件和目录名称完成字符 (见下)
+/F:OFF  停用文件和目录名称完成字符(见下)
+/V:ON   将 ! 作为定界符启动延缓环境变量扩展。如: /V:ON 会
+        允许 !var! 在执行时允许 !var! 扩展变量 var。var 语法
+        在输入时扩展变量，这与在一个 FOR 循环内不同。
+/V:OFF  停用延缓的环境扩展。
+
+请注意，如果字符串有引号，可以接受用命令分隔符 '&#38;&#38;' 隔开
+的多个命令。并且，由于兼容原因，/X 与 /E:ON 相同，/Y 与
+/E:OFF 相同，并且 /R 与 /C 相同。忽略任何其他命令行开关。
+
+如果指定了 /C 或 /K，命令行开关后的命令行其余部分将作为命令行处
+理；在这种情况下，会使用下列逻辑处理引号字符("):
+
+    1.   如果符合下列所有条件，那么在命令行上的引号字符将被
+        保留:
+
+        - 不带 /S 命令行开关
+        - 整整两个引号字符
+        - 在两个引号字符之间没有特殊字符，特殊字符为下列中的
+          一个: &#60;&#62;()@^|
+        - 在两个引号字符之间有至少一个空白字符
+        - 在两个引号字符之间有至少一个可执行文件的名称。
+
+    2.  否则，老办法是，看第一个字符是否是一个引号字符，如果
+        是，舍去开头的字符并删除命令行上 的最后一个引号字符，
+        保留最后一个引号字符之后的文字。
+
+如果 /D 未在命令行上被指定，当 CMD.EXE 开始时，它会寻找
+以下 REG_SZ/REG_EXPAND_SZ 注册表变量。如果其中一个或
+两个都存在，这两个变量会先被执行。
+
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun
+
+        和/或
+
+    HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun
+
+命令扩展是按默认值启用的。您也可以使用 /E:OFF，为某一
+特定调用而停用扩展。您可以在机器上和/或用户登录会话上
+启用或停用 CMD.EXE 所有调用的扩展，这要通过设置使用
+REGEDT32.EXE 的注册表中的一个或两个 REG_DWORD 值:
+
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions
+
+        和/或
+
+    HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions
+
+到 0x1 或 0x0。用户特定设置比机器设置有优先权。命令行
+开关比注册表设置有优先权。
+
+命令行扩展包括对下列命令所做的更改和/或添加:
+
+    DEL 或 ERASE
+    COLOR
+    CD 或 CHDIR
+    MD 或 MKDIR
+    PROMPT
+    PUSHD
+    POPD
+    SET
+    SETLOCAL
+    ENDLOCAL
+    IF
+    FOR
+    CALL
+    SHIFT
+    GOTO
+    START (同时包括对外部命令调用所做的更改)
+    ASSOC
+    FTYPE
+
+有关详细信息，请键入 HELP 命令名。
+
+延迟变量环境扩展不按默认值启用。您可以用/V:ON 或 /V:OFF
+命令行开关，为 CMD.EXE 的某个调用而启用或停用延迟环境变量扩充。
+您可以在机器上和/或用户登录会话上启用或停用 CMD.EXE 所有
+调用的完成，这要通过设置使用 REGEDT32.EXE 的注册表中的
+一个或两个 REG_DWORD 值:
+
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\DelayedExpansion
+
+        和/或
+
+    HKEY_CURRENT_USER\Software\Microsoft\Command Processor\DelayedExpansion
+
+到 0x1 或 0x0。用户特定设置比机器设置有优先权。命令行开关
+比注册表设置有优先权。
+
+如果延迟环境变量扩充被启用，惊叹号字符可在执行时间，被用来
+代替一个环境变量的数值。
+
+文件和目录名完成不按默认值启用。您可以用 /F:ON 或 /F:OFF
+命令行开关，为 CMD.EXE 的某个调用而启用或停用文件名完成。 您可以
+在机器上和/或用户登录会话上启用或停用 CMD.EXE 所有调用的
+完成，这要通过设置使用 REGEDT32.EXE 的注册表中的一个或两个
+REG_DWORD 值:
+
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\PathCompletionChar
+
+        和/或
+
+    HKEY_CURRENT_USER\Software\Microsoft\Command Processor\CompletionChar
+    HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar
+
+由一个控制字符的十六进制值作为一个特定参数(例如，0x4 是
+Ctrl-D，0x6 是 Ctrl-F)。 用户特定设置优先于机器设置。命令行开关
+优先于注册表设置。
+
+如果完成是用 /F:ON 命令行开关启用的，两个要使用的控制符是: 目录名
+字完成用 Ctrl-D， 文件名完成用 Ctrl-F。 要停用注册表中的某个
+字符，请用空格(0x20)的数值，因为此字符不是控制字符。
+
+如果键入两个控制字符中的一个，完成会被调用。完成功能将
+路径字符串带到光标的左边，如果没有通配符，将通配符附加
+到左边，并建立相符的路径列表。然后，显示第一个相符的路
+径。如果没有相符的路径，则发出嘟嘟声，不影响显示。之后，
+重复按同一个控制字符会循环显示相符路径的列表。将 Shift 键
+跟控制字符同时按下，会倒着显示列表。如果对该行进行了任
+何编辑，并再次按下控制字符，保存的相符路径的列表会被丢弃，
+新的会被生成。如果在文件和目录名完成之间切换，会发生
+同样现象。两个控制字符之间的唯一区别是文件完成字符符合
+文件和目录名，而目录完成字符只符合目录名。如果文件完成
+被用于内置式目录命令(CD、MD 或 RD)，就会使用目录完成。
+
+将引号将相符路径括起来，完成代码可以正确处理含有空格
+或其他特殊字符的文件名。同时，如果备份，然后从行内调用
+文件完成，完成被调用是位于光标右方的文字会被丢弃。
+
+需要引号的特殊字符是:
+     &#60;space&#62;
+     &#38;()[]{}^=;!'+,`~
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

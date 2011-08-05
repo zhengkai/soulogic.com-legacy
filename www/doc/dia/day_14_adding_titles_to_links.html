@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十四天：在链结上加入标题 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_13_using_real_links.html" title="第十三天：使用真实链结" />
+<link rel="next" href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十四天：在链结上加入标题</h2>
+<p class="firstparagraph">既然网页上充斥著链结，你可能会因此觉得有很多人都知道 <code>title</code> 属性；不过我真的很少看到它。很多人可能不知道，所有的链结都可以在 <code>&lt;a&gt;</code> 卷标里用 <code>title</code> 属性来指定一个标题。这个标题会额外附加到任何你指定的链结文字上；它可以在视觉性浏览器上产生工具提示，而且在非视觉性的浏览器上也一样会有类似的效果。</p>
+
+<p>并非所有的链结都该有标题。如果链结文字是某一篇文章的标题，就请不要加上标题；因为链结文字本身应该就足够清楚了。但是如果你阅读链结文字本身时，发现自己在状况外而不知道它会指往何处的话，就加上标题吧。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 提供了一个选项，可以跟著链结文字读出链结标题。（这个选项预设并不会被选取。为了要启用这个功能， Jackie 按下了 <kbd>INSERT+V</kbd> 叫出 JAWS 的冗长选项窗口，然后把 "Text links verbosity" 改成 "Alt tag or title" 。）</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为当她把光标移到某个叫 <a href="http://www.opera.com/">Opera</a> 的链结上时，链结的标题会显示在状态列上，同时也以工具提示的样子显示出来。这让他得以决定是否要把频宽花在这个链结上。</li>
+<li><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为当她在 Internet Explorer 里把光标移到链结上时，链结标题就以工具提示的样子显示出来了。</li>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为当他按下了「 <kbd>l</kbd> 」之后， <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 就会显示出那一页的链结清单；这份清单同时包含了每个链结的标题（如果有的话）。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>每一个链结文字本身并不一定能提供足够的信息，来让读者决定是否要按下那个链结。这个时候你应该加入一个 <code>title</code> 属性，像这样：</p>
+
+<ol>
+<li><p>在我的导览列上，有一个连到我的统计页面的链结。这个链结的链结文字就祇是<a title="referrers and other visitor statistics" href="http://diveintomark.org/stats/">Statistics</a>而已，但是 <code>title</code> 属性却可以提供更多信息：</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a title="referrers and other visitor statistics" href="/stats/">Statistics&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p>在我的导览列上，有一个连到我的书 <a title="Free Python book for experienced programmers" href="http://diveintopython.org/">Dive Into Python</a> 的链结，看起来就像这样：</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a title="Free Python book for experienced programmers" href="http://diveintopython.org/"&gt;Dive Into Python&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p>当我用句子里的某个词连结到某一篇文章时，我会试著用 <code>title</code> 属性来提供更多关于这个链结的信息，像是那篇文章的标题或引述之类的。再举个例子，<a title="第十三天：使用真实链结" href="day_13_using_real_links.html">昨天的诀窍</a>里就包含这个句子：</p>
+<blockquote>
+<p><code class="sgmltag">为什么这会是个问题呢？因为&lt;a title="TheCounter.com statistics on Javascript usage in browsers, April 2002" href="http://www.thecounter.com/stats/2002/April/javas.php"&gt;有 11% 的网际网络使用者因为某些原因而不使用 Javascript&lt;/a&gt; ；这同时也包括许多残障的朋友，因为她们所能够使用的浏览器就是不支持。</code></p>
+</blockquote>
+<p>在浏览器里看起来会像这样：</p>
+<blockquote>
+<p>为什么这会是个问题呢？因为<a title="TheCounter.com statistics on Javascript usage in browsers, April 2002" href="http://www.thecounter.com/stats/2002/April/javas.php">有 11% 的网际网络使用者因为某些原因而不使用 Javascript</a>；这同时也包括许多残障的朋友，因为她们所能够使用的浏览器就是不支持。</p>
+</blockquote>
+</li>
+</ol>
+
+<p><a title="dive into mark February 20, 2002: Britney, Britney, Britney" href="http://diveintomark.org/archives/2002/02/20.html#britney_britney_britney">切勿滥用</a> <code>title</code> 属性。凡事皆适可而止。</p>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/980111.html">Using Link Titles to Help Users Predict Where They Are Going</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_13_using_real_links.html">&lt;&lt; 第十三天：使用真实链结</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_15_defining_keyboard_shortcuts.html">第十五天：定义快速键 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十四天：在链结上加入标题</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

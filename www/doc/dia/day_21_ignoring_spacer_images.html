@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十一天：忽略卡位图片 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_20_providing_a_summary_for_tables.html" title="第二十天：提供表格摘要" />
+<link rel="next" href="day_22_using_real_lists_or_faking_them_properly.html" title="第二十二天：使用真正的清单（或以适当的方法伪造）" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十一天：忽略卡位图片</h2>
+<p class="firstparagraph">许多设计师喜欢用透明的卡位图片来控制她们的网页在视觉性浏览器上的排版效果。你当然也可以随意使用，但是你同时也该在每一个卡位图片上明确地指定空的 <code>alt</code> 属性，这样子那些非视觉性浏览器才知道要忽略掉这些东西。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="http://diveintoaccessibility.org/day_5_marcus.html">Marcus</a> 从中获益了。因为在预设的情况下， <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 会在任何图片未包含有 <code>alt</code> 属性时，显示出这些图片的档名。许多有名的网志模版甚至在站台名称之前就会先用了许多的卡位图片了。你在你的视觉性浏览器上当然不会注意到他们，但是 Marcus 看到的却可能像这样：</p>
+<blockquote>
+<pre>[shim.gif] [shim.gif]
+[shim.gif]
+[shim.gif]
+Welcome to My Web Site
+[ciblueHeader2.gif]
+
+[ciblueCurve2.gif]</pre>
+</blockquote>
+</li>
+<li><p><a href="http://diveintoaccessibility.org/day_1_jackie.html">Jackie</a> 从中获益了。因为在预设的情况下， <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会在任何图片未包含有 <code>alt</code> 属性时，<em>念出</em>这些图片的档名。如果你觉得 Marcus 那样子就算被干扰到了，试想一下 Jackie 听到的是些多么繁杂的东西：</p>
+<blockquote>
+<p>graphic shim dot gif graphic shim dot gif graphic shim dot gif graphic shim dot gif welcome to my web site graphic c i blue header two dot gif graphic c i blue curve two dot gif</p>
+</blockquote>
+<p>如果你在现实世界里也用这种方法介绍你自己的话，就再也没有人会理你了。</p>
+</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>Radio 的使用者今天可以放假一天；因为上星期一的课程里， Radio 已经会在所有的卡位图片里自动产生空的 <code>alt</code> 属性了。（真是多谢 <a href="http://radio.weblogs.com/0001000/" title="Jake's Radio Blog">Jake</a> 了）。如果你检视你的主页源码时没有看到任何卡位图片里有 <code>alt=""</code> 的话，请更新 Radio.root 并重建你的站台。</p>
+
+<p>其它出版工具的使用者应该在你们的模版里，寻找后面跟著像是「 <code class="filename">spacer.gif</code> 」、「 <code class="filename">shim.gif</code> 」、「 <code class="filename">1.gif</code> 」之类的图档档名、或其它在模版里出现了很多次且每次 <code>width</code> 和 <code>height</code> 属性都不同的图档档名的 <code>&lt;img&gt;</code> 卷标。</p>
+
+<p>举例来说，每一个卡位图片看起来都可能像这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img src="spacer.gif" width="1" height="10"&gt;</code></p>
+</blockquote>
+
+<p>把他改成这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img src="spacer.gif" <strong>alt=""</strong> width="1" height="10"&gt;</code></p>
+</blockquote>
+
+<p>如果你重复使用了相同的卡位图档好几次，可能用全域搜寻和取代会是最简单的。</p>
+
+<h3>不可以做的事</h3>
+
+<ol>
+<li><p>不可以定义成 <code>alt=" "</code> 。 <code>alt</code> 属性应该是空字符串，而不是一个空白字元。</p></li>
+<li><p>不可以在你的 <code>&lt;body&gt;</code> 卷标里指定 <code>alt</code> 属性，就算你在那里定义了背景图片也一样。对于所有的非视觉性浏览器来说，这个背景图片本来就都会被忽略掉。这种卷标看起来就像：</p>
+<blockquote>
+<p><code class="sgmltag">&lt;body background="http://网址/指到/image.gif"&gt;</code></p>
+</blockquote>
+</li>
+<li><p>不可以在 <code>&lt;td&gt;</code> 卷标里指定 <code>alt</code> 属性，就算你在那里定义了背景图片也一样。对于所有的非视觉性浏览器来说，这个背景图片本来就都会被忽略掉。这种卷标看起来就像：</p>
+<blockquote>
+<p><code class="sgmltag">&lt;td background="http://网址/指到/image.gif"&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite><acronym title="Web Accessibility in Mind">WebAIM</acronym></cite>: <a href="http://www.webaim.org/howto/accessiblegraphics3">How to Create Accessible Graphics</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_20_providing_a_summary_for_tables.html">&lt;&lt; 第二十天：提供表格摘要</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_22_using_real_lists_or_faking_them_properly.html">第二十二天：使用真正的清单（或以适当的方法伪造） &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十一天：忽略卡位图片</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十天：提供表格摘要 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_19_using_real_table_headers.html" title="第十九天：使用真的表格标头" />
+<link rel="next" href="day_21_ignoring_spacer_images.html" title="第二十一天：忽略卡位图片" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十天：提供表格摘要</h2>
+<p class="firstparagraph">制作表格最后一件重要的事情是提供摘要。表格摘要永远不会在视觉性浏览器中显示出来，而是设计给屏幕朗读软体跟语音浏览器用的。他的功能正如其名：就是一份摘要、一份比标题还要长的描述。通常摘要会跟在标题之后被念出来。</p>
+
+<p>每个表格都该有个摘要。如果你用了月历，这个摘要就很有可能祇是「带有每一天文章链结的月历」。如果你拿表格来排版，就该在摘要的地方留空，指示说这个表格仅是拿来用于排版之用，而不是要用来呈现表格化的数据。（这就很像你在祇用来的图片里的时候， <acronym title="alternate">ALT</acronym> 属性留空一样。我们将在星期一讨论这个「卡位图片」。）</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为当 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 遇到你的月历时， Jackie 可以听见「 Summary: Monthly calendar with links to each day's posts. 」。然后 <a href="day_18_giving_your_calendar_a_real_caption.html" title="第十八天：在月历中加上真的标题">她还会听见标题</a>，接著<a href="day_19_using_real_table_headers.html" title="第十九天：使用真的表格标头">她听见了表格标头</a>，于是她得以导览于月历中。</li>
+<li><a href="http://www.icab.de/">iCab</a> 的使用者从中获益了。因为 iCab 可以用 <acronym title="Macintosh operating system">Mac OS</acronym> 内建的文字转语音能力把网页念出来，而它也会把所有有被定义的表格摘要念出来。</li>
+</ol>
+
+<h3>怎么做：月历</h3>
+
+<p>在 Movable Type 里，从你的主索引模版里寻找月历的部分（同样地，你可以搜寻「 calendarhead 」就差不多能找到了）。你会看到像这样的 <code class="sgmltag">&lt;table&gt;</code> ：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0"&gt;</code></p>
+</blockquote>
+
+<p>把他改成这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0" <strong>summary="带有每一天文章链结的月历"&gt;</strong></code></p>
+</blockquote>
+
+<p>在 Radio 中，程序就跟我们前几天所做的很像。</p>
+
+<ol>
+<li>在 Radio 里，开启实际的 Radio 应用程序。如果是在 Windows 的话，从系统列里在小 Radio 图标上按鼠标右键，然后选择「 Open Radio 」。</li>
+<li>在「 Tools 」选单里，选择「 Developers 」，然后选「 Jump... 」 (<kbd>Control+J</kbd>) 。跳至「 system.verbs.builtins.radio.weblog.drawCalendar 」（不含引号）。</li>
+<li><p>现在到「 Edit 」选单里，选「 Find and Replace 」，然后选「 Find... 」 (<kbd>Control+F</kbd>) 并且寻找「 draw the month and year  」。这样应该会展现出某列写著「 <code>bundle // draw the month and year</code> 」的东西，并且设成高亮度。在三角形上双击以显示出函式码，他们看起来应该像这样：</p>
+
+<blockquote>
+<p><code>add ("&lt;table cellspacing=\"0\" border=\"0\" class=\"hCalendarTable\"&gt;"); indentLevel++</code></p>
+</blockquote>
+</li>
+<li><p>把他改成这样：</p>
+
+<blockquote>
+<p><code>add ("&lt;table <strong>summary=\"Monthly calendar with links to each day's posts\"</strong> cellspacing=\"0\" border=\"0\" class=\"hCalendarTable\"&gt;"); indentLevel++</code></p>
+</blockquote>
+</li>
+</ol>
+
+<h3>怎么做：排版表格</h3>
+
+<p>如果你把表格拿来用于排版，就在每个表格里加入 <code>summary=""</code> 。这可以用搜寻和取代轻易完成。搜寻这个：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table</code></p>
+</blockquote>
+
+<p>并取代成这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table summary=""</code></p>
+</blockquote>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_19_using_real_table_headers.html">&lt;&lt; 第十九天：使用真的表格标头</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_21_ignoring_spacer_images.html">第二十一天：忽略卡位图片 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十天：提供表格摘要</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

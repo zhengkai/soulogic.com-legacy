@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8" />
+<title>Images Storage</title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+<script>
+var iSpace = 0;
+$(function() {
+	$("img").map(function(index, obj) {
+		var src = obj.getAttribute("psrc");
+		if (!src) {
+			return;
+		}
+
+		$("#cacheStatus").text("start load");
+
+		db.get(src, function(result) {
+			if (!result.length) {
+				$("#cacheStatus").text("no cache");
+				$(obj).load(function() {
+					db.set(this.getAttribute("src"), getBase64Image(this));
+				});
+				obj.src = src;
+			} else {
+				$("#cacheStatus").text("cached");
+				obj.src = result.item(0).content;
+
+				iSpace += obj.src.length;
+				$("#sizeTotal").text("used space: " + iSpace);
+			}
+		});
+	});
+});
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+
+/*
+	// invalided when css image resize
+
+	canvas.width = img.width;
+	canvas.height = img.height;
+
+*/
+
+	var img_clone = document.createElement("img");
+	img_clone.src = img.src;
+
+	canvas.width = img_clone.width;
+	canvas.height = img_clone.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    return canvas.toDataURL("image/png");
+}
+
+function WebDB() {
+
+	this.get = function(sKey, fnCallback) {
+		this.db.transaction(function(tx) {
+			sQuery = "SELECT content FROM imglist WHERE url = ?";
+			console.log(sQuery);
+			tx.executeSql(sQuery, [sKey], function(tx, result) {
+				fnCallback(result.rows);
+			}, this.logger);
+		});
+	}
+
+	this.set = function(sKey, sValue) {
+		this.db.transaction(function(tx) {
+			sQuery = "INSERT INTO imglist (url, content) VALUES (?, ?)";
+			console.log(sQuery);
+			tx.executeSql(sQuery, [sKey, sValue], null, this.logger);
+		});
+	}
+
+	this.reset = function() {
+		this.db.transaction(function(tx) {
+			tx.executeSql("DROP TABLE IF EXISTS imglist");
+		});
+		this.create();
+	}
+
+	this.create = function() {
+		this.db.transaction(function(tx) {
+			tx.executeSql("CREATE TABLE IF NOT EXISTS imglist ( "
+				+ "url text PRIMARY KEY, "
+				+ "content text"
+				+ ")");
+		});
+	}
+
+	this.logger = function(tx, error) {
+		console.log("WebDB error: " + error.message);
+	}
+}
+
+WebDB.prototype.ver = "db ver";
+WebDB.prototype.db = window.openDatabase("img", "1.0", "PetCraft Images", 40000000);
+
+var db = new WebDB();
+// db.reset();
+db.create();
+</script>
+
+<style>
+img {
+	width: 36px;
+	height: 36px;
+}
+
+p {
+	width: 200px; font-size: 16px; font-weight: bold;
+}
+
+button {
+	height: 40px; width: 150px; font-size: 16px; font-weight: bold; float: right;
+}
+</style>
+
+<div style="padding: 10px 20px;">
+<button onclick="db.reset();">reset DB</button>
+<p id="cacheStatus">not load</p>
+<p id="sizeTotal"></p>
+</div>
+
+<p>webdb image<p>
+<div><img psrc="img/alarm_128x128-32.png"><img psrc="img/android_128x128-32.png"><img psrc="img/barcode reader_128x128-32.png"><img psrc="img/bluetooth_128x128-32.png"><img psrc="img/browser_128x128-32.png"><img psrc="img/bump_128x128-32.png"><img psrc="img/calculator_128x128-32.png"><img psrc="img/calendar_128x128-32.png"><img psrc="img/camcorder_128x128-32.png"><img psrc="img/camera_128x128-32.png"><img psrc="img/compass_128x128-32.png"><img psrc="img/deviantart_128x128-32.png"><img psrc="img/dialer_128x128-32.png"><img psrc="img/dribbble_128x128-32.png"><img psrc="img/dropbox_128x128-32.png"><img psrc="img/ebook_128x128-32.png"><img psrc="img/evernote_128x128-32.png"><img psrc="img/facebook_128x128-32.png"><img psrc="img/filer_128x128-32.png"><img psrc="img/flickr_128x128-32.png"><img psrc="img/folder_128x128-32.png"><img psrc="img/folder_open_128x128-32.png"><img psrc="img/forrst_128x128-32.png"><img psrc="img/foursquare_128x128-32.png"><img psrc="img/gallery_128x128-32.png"><img psrc="img/gameboid_128x128-32.png"><img psrc="img/gmail_128x128-32.png"><img psrc="img/goggles_128x128-32.png"><img psrc="img/google docs_128x128-32.png"><img psrc="img/gowalla_128x128-32.png"><img psrc="img/heyzap_128x128-32.png"><img psrc="img/home_128x128-32.png"><img psrc="img/imdb_128x128-32.png"><img psrc="img/lastfm_128x128-32.png"><img psrc="img/linkedin_128x128-32.png"><img psrc="img/lookout_128x128-32.png"><img psrc="img/lovedsgn_128x128-32.png"><img psrc="img/mail_128x128-32.png"><img psrc="img/maps_128x128-32.png"><img psrc="img/market_128x128-32.png"><img psrc="img/messages_128x128-32.png"><img psrc="img/miso_128x128-32.png"><img psrc="img/music_128x128-32.png"><img psrc="img/news_128x128-32.png"><img psrc="img/notes_128x128-32.png"><img psrc="img/opera_128x128-32.png"><img psrc="img/phonebook_128x128-32.png"><img psrc="img/pulse_128x128-32.png"><img psrc="img/qr droid_128x128-32.png"><img psrc="img/radio_128x128-32.png"><img psrc="img/rss_128x128-32.png"><img psrc="img/score_128x128-32.png"><img psrc="img/settings_128x128-32.png"><img psrc="img/sky map_128x128-32.png"><img psrc="img/skype_128x128-32.png"><img psrc="img/sleepbot_128x128-32.png"><img psrc="img/soundhound_128x128-32.png"><img psrc="img/sound recorder_128x128-32.png"><img psrc="img/sugarsync_128x128-32.png"><img psrc="img/talk_128x128-32.png"><img psrc="img/tape machine_128x128-32.png"><img psrc="img/task manager_128x128-32.png"><img psrc="img/thinking space_128x128-32.png"><img psrc="img/twitter_128x128-32.png"><img psrc="img/video_128x128-32.png"><img psrc="img/voice_128x128-32.png"><img psrc="img/voice search_128x128-32.png"><img psrc="img/wallet_128x128-32.png"><img psrc="img/weather_128x128-32.png"><img psrc="img/wikipedia_128x128-32.png"><img psrc="img/xda_128x128-32.png"><img psrc="img/youtube_128x128-32.png" /></div>
+
+<p>normal image<p>
+<div><img src="img/alarm_128x128-32.png"><img src="img/android_128x128-32.png"><img src="img/barcode reader_128x128-32.png"><img src="img/bluetooth_128x128-32.png"><img src="img/browser_128x128-32.png"><img src="img/bump_128x128-32.png"><img src="img/calculator_128x128-32.png"><img src="img/calendar_128x128-32.png"><img src="img/camcorder_128x128-32.png"><img src="img/camera_128x128-32.png"><img src="img/compass_128x128-32.png"><img src="img/deviantart_128x128-32.png"><img src="img/dialer_128x128-32.png"><img src="img/dribbble_128x128-32.png"><img src="img/dropbox_128x128-32.png"><img src="img/ebook_128x128-32.png"><img src="img/evernote_128x128-32.png"><img src="img/facebook_128x128-32.png"><img src="img/filer_128x128-32.png"><img src="img/flickr_128x128-32.png"><img src="img/folder_128x128-32.png"><img src="img/folder_open_128x128-32.png"><img src="img/forrst_128x128-32.png"><img src="img/foursquare_128x128-32.png"><img src="img/gallery_128x128-32.png"><img src="img/gameboid_128x128-32.png"><img src="img/gmail_128x128-32.png"><img src="img/goggles_128x128-32.png"><img src="img/google docs_128x128-32.png"><img src="img/gowalla_128x128-32.png"><img src="img/heyzap_128x128-32.png"><img src="img/home_128x128-32.png"><img src="img/imdb_128x128-32.png"><img src="img/lastfm_128x128-32.png"><img src="img/linkedin_128x128-32.png"><img src="img/lookout_128x128-32.png"><img src="img/lovedsgn_128x128-32.png"><img src="img/mail_128x128-32.png"><img src="img/maps_128x128-32.png"><img src="img/market_128x128-32.png"><img src="img/messages_128x128-32.png"><img src="img/miso_128x128-32.png"><img src="img/music_128x128-32.png"><img src="img/news_128x128-32.png"><img src="img/notes_128x128-32.png"><img src="img/opera_128x128-32.png"><img src="img/phonebook_128x128-32.png"><img src="img/pulse_128x128-32.png"><img src="img/qr droid_128x128-32.png"><img src="img/radio_128x128-32.png"><img src="img/rss_128x128-32.png"><img src="img/score_128x128-32.png"><img src="img/settings_128x128-32.png"><img src="img/sky map_128x128-32.png"><img src="img/skype_128x128-32.png"><img src="img/sleepbot_128x128-32.png"><img src="img/soundhound_128x128-32.png"><img src="img/sound recorder_128x128-32.png"><img src="img/sugarsync_128x128-32.png"><img src="img/talk_128x128-32.png"><img src="img/tape machine_128x128-32.png"><img src="img/task manager_128x128-32.png"><img src="img/thinking space_128x128-32.png"><img src="img/twitter_128x128-32.png"><img src="img/video_128x128-32.png"><img src="img/voice_128x128-32.png"><img src="img/voice search_128x128-32.png"><img src="img/wallet_128x128-32.png"><img src="img/weather_128x128-32.png"><img src="img/wikipedia_128x128-32.png"><img src="img/xda_128x128-32.png"><img src="img/youtube_128x128-32.png" /></div>
+
+</body>
+</html>

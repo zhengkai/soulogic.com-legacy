@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>DOSKEY - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - DOSKEY</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">编辑命令行，重调用 Windows XP 命令，并创建宏。
+
+DOSKEY [/REINSTALL] [/LISTSIZE=size] [/MACROS[:ALL | :exename]]
+  [/HISTORY] [/INSERT | /OVERSTRIKE] [/EXENAME=exename] [/MACROFILE=filename]
+  [macroname=[text]]
+
+  /REINSTALL          安装一组新的 Doskey。
+  /LISTSIZE=size      设置命令历史记录的缓冲区大小。
+  /MACROS             显示所有 Doskey 宏。
+  /MACROS:ALL         为具有 Doskey 宏的执行文件，显示所有的
+                      Doskey 宏。
+  /MACROS:exename     显示指定执行文件的所有 Doskey 宏。
+  /HISTORY            显示保存在内存中的所有命令。
+  /INSERT             指定用键入的新文字插入旧文字中。
+  /OVERSTRIKE         指定新文字改写旧文字。
+  /EXENAME=exename    指定执行文件。
+  /MACROFILE=filename 指定安装的宏文件。
+  macroname           指定所创建宏的名称。
+  text                指定要登记的命令。
+
+使用上下箭头键选择命令；ESC 清除命令行；F7 显示
+命令历史记录；ALT+F7 清除命令历史记录；F8 搜索命令
+历史记录；F9 按编号选择命令；ALT+F10 清除宏定义。
+
+以下是 Doskey 宏定义的特殊码:
+$T     命令分隔符号。允许一个宏可以含多个命令。
+$1-$9  批处理参数。与批处理程序中的 %1-%9 相同。
+$*     以命令行中命令名称后面的任何内容替换的符号。
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

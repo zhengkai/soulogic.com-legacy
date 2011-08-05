@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十二天：安全地使用色彩 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_11_skipping_over_navigation_links.html" title="第十一天：跳过导览列的链结" />
+<link rel="next" href="day_13_using_real_links.html" title="第十三天：使用真实链结" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十二天：安全地使用色彩</h2>
+<p class="firstparagraph">这个诀窍基本上可以广泛套用到网页设计的各个领域，不过我在此祇会针对网志里的一种常见情形加以说明：链结文字。</p>
+
+<p>有两个潜在的问题跟颜色有关。首先，你所使用的链结文字可能跟底色的对比不够明显；任何白色底色上的淡色系文字都很糟，链结文字甚至会就这么消逝于底色之中。同样地，黑色底色上的深色系文字也很惨。事实上这个诀窍不仅适用于链结文字，而是适用于所有的文字；祇不过通常网志上的一般文字都可以很容易的被阅读，倒是链结文字常常一不小心就变得难以阅读。这也就是我要在此提及的原因。</p>
+
+<p>第二个潜在的问题是链结装饰。如果你在 <acronym title="cascading style sheet">CSS</acronym> 中重新把链结定义成不同的颜色，那么你最好也要确定除了颜色之外，你还提供了别的线索，像是用粗体字、斜体字或加上底线等，让读者能够加以区辨。否则虽然你的链结文字能够被阅读，但有色盲的读者将无法辨别那是否是一个链结。我们将在后面的小节加以描述。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="day_2_michael.html">Michael</a> 从中获益了。以下是三种不同的链结装饰组合：</p>
+<p><img alt="使用不同色彩搭配的三个链结的图片，描述如后" src="images/linkcolor.gif" width="325" height="90" /></p>
+<p>正如你所看到的，第一句里的链结采用了预设的组合，会在视觉性浏览器里显示成蓝色/紫色并加上底线。第二个链结套用了两种文字装饰，会显示成红色粗体字（但是不会加上底线）。第三个链结祇有套用一种文字装饰，所以祇会显示成红色。</p>
+<p>现在这里是相同的三个链结，祇不过这是 Michael 所看到的样子。</p>
+<p><img alt="同样的三个链结的图片，不过是 Michael 所看到的样子；描述如后" src="images/linkcolorblind.gif" width="325" height="90" /></p>
+<p>如你所见，第一个链结仍然可以被清楚地看到； Michael 的色盲并不会影响到蓝色的部分。在第二个句子中，链结的红色褪去了，几乎变成黑色；不过链结本身仍然呈现粗体字，所以 Michael 仍然可以分辨得出来。第三个链结就出问题了。因为这个链结原本祇能靠红色来分辨，可是现在红色褪成黑色，于是单靠视觉将难以将之与其它寻常文字加以区辨。</p>
+
+</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>如果你要检查你的文字颜色跟背景颜色是否有「显著对比」，你可以用 <a href="http://www.vischeck.com/vischeck/">VisCheck</a> 来把你的网页仿真成色盲读者所看到的样子。</p>
+
+<p>如果你要检查链结装饰的问题会不会发生，你可以在 <acronym title="cascading style sheets">CSS</acronym> 规则里寻找 "<code>a</code>" 卷标所会用到的样式。举例来说，如果你在 <acronym title="cascading style sheets">CSS</acronym> 里用了下列的规则，那么你的链结将<em>祇能够</em>用红色来加以区辨，这样是不对的：</p>
+
+<blockquote>
+<pre><code>a {
+  text-decoration: none;
+  color: red;
+}</code></pre>
+</blockquote>
+
+<p>你的链结可以沿用红色，但是你得确定你的链结<em>同时</em>也呈现成粗体字、斜体字或加上底线。如果你要让它变成红色粗体字，就祇要加上一列：</p>
+
+<blockquote>
+<pre><code>a {
+  text-decoration: none;
+  color: red;
+  font-weight: bold; /* 祇需要加上这一列 */
+}</code></pre>
+</blockquote>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><a href="http://www.vischeck.com/vischeck/">VisCheck</a> 可以仿真色盲的效果，而让你看到色盲读者所会看到的样子。你不但可以用他来检查某一张图片，也可以检查整个网页。</li>
+<li><cite>Cal Henderson</cite>: <a href="http://www.iamcal.com/toys/colors/">Color Vision</a>.  这里有各种色盲的实际可见色谱范围。</li>
+<li><a href="http://www.toledo-bend.com/colorblind/Ishihara.html">Ishihara Test for Color Blindness</a> 有一系列红绿色盲难以看清甚至完全看不到的图片。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_11_skipping_over_navigation_links.html">&lt;&lt; 第十一天：跳过导览列的链结</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_13_using_real_links.html">第十三天：使用真实链结 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十二天：安全地使用色彩</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

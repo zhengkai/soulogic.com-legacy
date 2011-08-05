@@ -1,0 +1,107 @@
+body {
+	margin: 30px;
+	background-color: black;
+	padding: 0 0 100px;
+	color: #ddd;
+}
+
+* {
+	font-family: "微软雅黑";
+}
+
+h1 {
+	text-align: center;
+	margin: 40px 0 20px;
+}
+
+p.author {
+	font-size: 14px;
+	text-align: center;
+	margin: 0 0 30px;
+	color: silver;
+}
+
+p.description {
+	width: 800px;
+	margin: 10px auto;
+}
+
+hr {
+	width: 60%;
+	margin: 30px auto;
+	border-color: #555;
+	border-width: 0 0 1px;
+}
+
+div.question {
+	padding: 10px 30px;
+	margin: 1px 0 0;
+}
+
+p.question {
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+p.answer {
+	padding-left: 30px;
+	line-height: 26px;
+	margin: 0;
+}
+
+p.answer input {
+	margin-right: 5px;
+}
+
+p.answer label {
+	cursor: pointer;
+}
+
+p.answer label:hover {
+	color: white;
+}
+
+p.button {
+	text-align: center;
+	margin: 40px 0;
+}
+
+button {
+	height: 40px;
+	font-size: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 10px;
+}
+
+a {
+	color: #DDD;
+}
+
+a:hover {
+	color: white;
+}
+
+div#result {
+	width: 700px;
+	margin: 0 auto 30px;
+}
+
+div#result div.score {
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	font-family: Verdana;
+	color: lime;
+	display: none;
+}
+
+div#result p {
+	display: none;
+	line-height: 26px;
+	margin-bottom: 200px;
+}
+
+div#result img {
+	margin-top: 20px;
+}

@@ -1,0 +1,80 @@
+body.tweets div.msg {
+	clear: both;
+	background-color: #241;
+	margin: 0 auto;
+	padding-left: 25px;
+}
+
+body.tweets div.msg:hover div.content {
+	border-width: 1px;
+	padding: 4px 10px;
+	background-color: rgba(34, 68, 102, 0.5);
+}
+
+body.tweets div.msgOut {
+	border-width: 0;
+	padding: 5px 11px;
+}
+
+body.tweets div.datetime {
+	width: 100px;
+	float: left;
+	padding-top: 10px;
+}
+
+body.tweets div.datetime p {
+	margin: 0;
+	font-family: palatino, georgia, times new roman, serif;
+}
+
+body.tweets div.datetime p.date {
+	margin-top: -10px;
+	font-size: 15px;
+	font-weight: bold;
+}
+div.datetime p.time {
+	text-align: right;
+	padding-right: 10px;
+	font-size: 12px;
+}
+
+body.tweets div.content {
+	border-width: 0;
+	border-style: solid;
+	border-color: silver;
+	width: 640px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 1px 0;
+	line-height: 1.5;
+	float: left;
+	padding: 5px 11px;
+	color: white;
+}
+
+body.tweets div.srcTag {
+	float: left;
+	width: 4px;
+	height: 11px;
+	margin: 14px 2px 0;
+	background-color: green;
+}
+
+body.tweets div.msg div.copy {
+	background-color: #FF6600;
+}
+
+body.tweets div#opButton {
+	border: 1px solid green;
+	background-color: white;
+	position: absolute;
+	width: 80px;
+	left: -500px;
+	top: -500px;
+	clear: both;
+}
+
+body.tweets p.pageNumber {
+	text-align: center;
+	padding: 10px;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十天：先呈现你的主要内容 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_9_providing_additional_navigation_aids.html" title="第九天：提供额外的导览协助" />
+<link rel="next" href="day_11_skipping_over_navigation_links.html" title="第十一天：跳过导览列的链结" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十天：先呈现你的主要内容</h2>
+<p class="firstparagraph">纯粹祇用 <acronym title="cascading style sheets">CSS</acronym> 来处理版面的主要好处之一，是可以轻松的重新编排 <acronym title="hypertext markup language">HTML</acronym> 源码中各组件的顺序，而不影响到实际的版面。因此当其它数据还在加载时，主要内容早就已经显示出来了。我发现许多网站仍在使用表格来制作版面，所以我为你撰写了这个诀窍。</p>
+
+<p>如果你用表格设计版面，对 <a href="day_5_marcus.html">Marcus</a> 与 <a href="day_1_jackie.html">Jackie</a> 等失明的使用者来说，你放在左侧的浏览列会比主要内容更早显示出来。我不知道怎么形容随之而来的问题，不过你可以自己看看：</p>
+
+<ol>
+<li><a href="examples/notabletrick.html">用表格制作的版面</a>。</li>
+<li><a href="examples/tabletrick.html">修改过的版面，这次内文在前面</a>。在图形接口的浏览器上看起来应该一样，但是在 Lynx 上有著明显的差异。</li>
+<li><a href="examples/notabletrick.txt">原本的版面在 Lynx 下的效果</a>。</li>
+<li><a href="examples/tabletrick.txt">修改过的版面在 Lynx 下的效果</a>。主要内文会先显示，然后才是导览列。</li>
+</ol>
+
+<p>你不需要从头规划整个模版来避免这个问题。我们可以用一些（相对之下）较简单的技术来让主要内文先显示，并且让导览列维持在左侧。我们称这些技术叫「表格秘诀」。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。就跟上面的范例所展示的一样， Lynx 会依照 <acronym title="hypertext markup language">HTML</acronym> 源码的顺序显示内容。这代表 Marcus <em>每次浏览你的网页</em>时都必须要卷动屏幕来跳过导览列。卷页烂透了。</li>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 跟 Lynx 一样，都会依照 <acronym title="hypertext markup language">HTML</acronym> 源码的顺序显示内容；不过 JAWS 的情况会更糟，因为 Jackie 必须要坐著等 JAWS <em>念完整个导览列</em>后才能听到真正的内容，而且还没有保证能直接跳到主要内容的方法。（明天我们就会谈到这个问题。）</li>
+
+<li><a href="http://www.google.com/">Google</a> 从中获益了。越接近顶端的内容，Google会给予越多的加权。这里的顶端不是指看起来的，而是指 <acronym title="hypertext markup language">HTML</acronym> 源码的顶端。实际上许多了解这个技术的人，都参与著搜寻引擎最佳化的研究；对他们来说，网站亲和力反倒是次要的。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>用 <a href="http://www.delorie.com/web/lynxview.html">Lynx Viewer</a> 检查你的网站，确定每天的文章都会比导览列先显示。Movable Type 的预设模版就已经是正确的了；如果你用的是预设的模版，大概就不需要再做任何事情了；不过还是用 Lynx Viewer 试试看吧，你会因此对这个议题有更深一层的了解。</p>
+
+<p>如果你使用的是 Radio 的预设模版，也许就需要修改表格，让主要内文放在前面了。这没有办法用复制/贴上的方式做到；你必须钻研自己的模版，并且检视表格的架构。<a href="examples/notabletrick.html">简单版面</a>与<a href="examples/tabletrick.html">修改过的版面</a>展示了基本的技术。</p>
+
+<p></p>
+<p>用表格制作的版面：</p>
+
+<blockquote><pre><code>&lt;table&gt;
+&lt;tr&gt;
+  &lt;td valign="top" align="left" width="25%"&gt;
+    ... navigation bar ...
+  &lt;/td&gt;
+  &lt;td valign="top" align="left"&gt;
+    ... main content ...
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code></pre></blockquote>
+
+<p>我们做了这样的修改：</p>
+
+<blockquote><pre><code>&lt;table&gt;
+&lt;tr&gt;
+  &lt;!-- <a href="http://diveintoaccessibility.org/images/1.gif">spacer GIF</a> in upper-left cell --&gt;
+  &lt;td&gt;&lt;img src="/images/1.gif" width="1" height="1" alt=""&gt;&lt;/td&gt;
+  &lt;!-- main content cell first, with rowspan=2 --&gt;
+  &lt;td valign="top" align="left" rowspan="2"&gt;
+    ... main content ...
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td valign="top" align="left" width="25%"&gt;
+    ... navigation bar ...
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code></pre></blockquote>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><a href="http://www.delorie.com/web/lynxview.html">Lynx Viewer</a>.</li>
+<li><cite>A Promotion Guide</cite>: <a href="http://www.apromotionguide.com/tabletrick.html">The Table Trick</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_9_providing_additional_navigation_aids.html">&lt;&lt; 第九天：提供额外的导览协助</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_11_skipping_over_navigation_links.html">第十一天：跳过导览列的链结 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十天：先呈现你的主要内容</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

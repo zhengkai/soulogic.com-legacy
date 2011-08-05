@@ -1,0 +1,95 @@
+body {
+	margin: 0;
+	background-color: #202020;
+}
+
+h2 {
+	font-size: 14px;
+	font-family: Tahoma;
+	margin: 0;
+}
+
+pre {
+	font-size: 12px;
+	font-family: 宋体;
+	line-height: 20px;
+}
+
+span.fileSize {
+	font-size: 10px;
+	font-family: Verdana;
+	padding-left: 12px;
+	font-weight: normal;
+	color: gray;
+}
+
+.body {
+	padding: 12px 50px;
+	margin: 8px 0 0;
+	border-style: solid;
+	border-color: silver;
+	border-width: 1px 0;
+	background-color: black;
+	color: #E0E0E0;
+}
+
+.body p {
+	font-size: 12px;
+	font-family: Arial;
+	margin: 5px 0 10px;
+	text-indent: 24px;
+}
+
+div.footer {
+}
+
+a {
+	color: #EEE;
+	text-decoration: underline;
+}
+
+h2 a:hover {
+	text-decoration: none;
+	border-bottom: 1px solid gray;
+}
+
+a.soulogic {
+	color: silver;
+	float: right; font-size: 12px; font-family: Verdana; padding: 10px;
+	margin-right: 10px;
+}
+a.soulogic:hover {
+	color: white;
+}
+
+h1 {
+	cursor: default;
+	color: white;
+	margin: 0;
+	padding: 20px 30px 0;
+	font-size: 14px;
+	font-family: Verdana;
+}
+
+p.head {
+	margin-top: 6px;
+	font-size: 12px;
+	font-family: Arial;
+	padding-left: 50px;
+	margin: 8px 0 0;
+}
+
+p.head a {
+	color: #DDD;
+	text-decoration: underline;
+}
+
+p.head a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+h1 a {
+	font-size: 12px;
+	padding-top: 6px;
+}

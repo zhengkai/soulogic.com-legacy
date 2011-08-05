@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>FORMAT - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - FORMAT</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">格式化磁盘以供 Windows XP 使用。
+
+FORMAT volume [/FS:file-system] [/V:label] [/Q] [/A:size] [/C] [/X]
+FORMAT volume [/V:label] [/Q] [/F:size]
+FORMAT volume [/V:label] [/Q] [/T:tracks /N:sectors]
+FORMAT volume [/V:label] [/Q]
+FORMAT volume [/Q]
+
+  volume           指定驱动器(后面跟一个冒号)、装入点
+                  或卷名。
+  /FS:filesystem  指定文件系统类型(FAT、FAT32 或 NTFS)。
+  /V:label        指定卷标。
+  /Q              执行快速格式化。
+  /C              仅适于 NTFS: 默认情况下，将压缩在该新建卷上
+                  创建的文件。
+   /X              如果必要，先强制卸下卷。那时，该卷所有
+                  已打开的句柄不再有效。
+  /A:size         替代默认配置单位大小。极力建议您在一般状况下使用
+                  默认设置。
+                  NTFS 支持 512、1024、2048、4096、8192、16K、32K、
+                  64K。
+                  FAT 支持 512、1024、2048、4096、8192、16K、32K、
+                  64k，(128k、256k 用于大于 512 字节的扇区) 。 
+                  FAT32 支持 512、1024、2048、4096、8192、16k、32k、
+                  64k，(128k 、256k 用于大于 512 字节的扇区)。
+                        
+                  注意 FAT 及 FAT32 文件系统对卷上的群集数量有以下限制: 
+
+                  FAT: 群集数量 &#60;= 65526 
+                  FAT32: 65526 &#60; 群集数量 &#60; 4177918
+
+                  如果判定使用指定的群集大小无法满足以上需求，格式
+                  化将立即停止。
+
+                  NTFS 压缩不支持大于 4096 的分配单元。
+
+  /F:size         指定要格式化的软盘大小(1.44)
+  /T:tracks       为磁盘指定每面磁道数。
+  /N:sectors      指定每条磁道的扇区数。
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

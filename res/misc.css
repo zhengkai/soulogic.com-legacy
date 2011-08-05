@@ -1,0 +1,199 @@
+table.list {
+	border: 2px solid gray;
+	margin: 5px 0;
+}
+
+table.list td,
+table.list th
+{
+	border: 1px solid gray;
+}
+
+table.list th {
+	padding: 6px 12px;
+	text-align: center;
+}
+
+table.list td {
+	padding: 4px 8px;
+}
+
+table.list tr:hover td {
+	background-color: rgba(0, 153, 255, 0.3);
+}
+
+/*
+	上传文件列表
+ */
+
+table.uploadList {
+	width: 900px;
+}
+
+table.uploadList tr td:first-child {
+	text-align: right;
+	width: 60px;
+}
+
+table.uploadList tr td:nth-child(3),
+table.uploadList tr td:nth-child(4)
+{
+	text-align: right;
+}
+
+table.uploadList tr td:last-child {
+	text-align: center;
+	width: 180px;
+}
+
+/*
+	文章列表
+ */
+
+table.archiveList {
+	width: 960px;
+}
+
+table.archiveList tr td:first-child {
+	text-align: right;
+	width: 60px;
+}
+
+table.archiveList tr td:nth-child(2) {
+	padding: 0;
+}
+table.archiveList tr td:nth-child(2) a {
+	width: 1;
+	display: block;
+	padding: 6px 10px;
+	line-height: 24px;
+	border-width: 0;
+}
+
+table.archiveList tr td:nth-child(3) {
+	width: 100px;
+}
+
+table.archiveList tr td:nth-child(4) {
+	width: 50px;
+	text-align: center;
+}
+
+table.archiveList tr td:last-child {
+	text-align: center;
+	width: 180px;
+}
+
+/*
+	访问列表
+ */
+
+table.accessList {
+	width: 100%;
+}
+
+table.accessList tr td:first-child {
+	text-align: right;
+	font-family: "Droid Sans Mono", monospace;
+	width: 160px;
+}
+
+table.accessList  a {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	border-width: 0;
+}
+
+table.accessList tr td:nth-child(2),
+table.accessList tr td:nth-child(3)
+{
+	padding: 0;
+}
+
+table.accessList tr td:nth-child(2) {
+	width: 262px;
+}
+
+table.accessList tr td:nth-child(2) a {
+	padding: 6px;
+	width: 250px;
+}
+
+table.accessList tr td:nth-child(3) a {
+	padding: 6px;
+	width: 504px;
+}
+
+/*
+	上传附件
+ */
+
+form.upload input {
+	padding: 5px 8px;
+}
+form.upload button {
+	font-size: 16px;
+	padding: 5px 20px;
+}
+
+/*
+	发布文章
+ */
+
+form.compose table {
+	width: 960px;
+}
+
+form.compose tr td:first-child {
+	width: 150px;
+	text-align: right;
+	padding-right: 20px;
+}
+
+form.compose tr td:last-child {
+	padding: 5px 0;
+}
+
+form.compose input[type=text],
+form.compose textarea,
+form.compose select
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #444;
+	font-size: 16px;
+	padding: 4px 4px 0;
+}
+
+form.compose select {
+	padding: 4px 4px;
+}
+
+form.compose input[type=checkbox] {
+	margin: 0 6px 3px 0;
+	vertical-align: middle;
+}
+
+form.compose input[type=text] {
+	width: 600px;
+	height: 30px;
+}
+
+form.compose textarea {
+	width: 660px;
+	height: 500px;
+}
+
+form.compose p {
+	text-align: center;
+	padding: 20px;
+}
+
+form.compose button {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 8px 50px;
+	margin: 0 auto;
+}

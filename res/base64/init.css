@@ -1,0 +1,74 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+input[type=text], textarea {
+	background-color: transparent;
+}
+
+body {
+	overflow-x: auto;
+	overflow-y: scroll;
+	border-width: 0;
+}
+
+html, body {
+	background-color: #000;
+	color: #EEE;
+}
+
+blockquote {
+	margin-left: 30px;
+}
+
+pre, pre * {
+	font-size: 14px;
+	font-family: "DejaVu Sans Mono", Monaco, monospace;
+}
+
+a {
+	text-decoration: none;
+	border-bottom: 1px solid #8cf;
+	color: #8cf;
+	outline: none;
+}
+
+a:hover {
+	color: #fff;
+	border-color: #fff;
+}
+
+a img {
+	border-width: 0;
+}
+
+div, p, td {
+	cursor: default;
+}
+
+button, a * {
+	cursor: pointer;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+li {
+	list-style-type: none;
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+br.null {
+	clear: both;
+	font-size: 1px;
+}
+
+.hide {
+	display: none;
+}

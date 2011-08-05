@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十八天：加上组件描述 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_27_using_real_headers.html" title="第二十七天：使用真正的标头" />
+<link rel="next" href="day_29_making_everything_searchable.html" title="第二十九天：加入站台搜寻功能" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十八天：加上组件描述</h2>
+<p class="firstparagraph">你是否曾为网页表单的难用所苦？举例来说，标准的 <acronym title="graphical user interface">GUI</acronym> 应用程序里，你可以在核选框卷标上任何一个地方核选或取消核选；但是在网页应用程序里，你祇能在核选框的框框里才能这么做。这样虽然烦人但还不至于无可挽回。但对于视盲的读者来说，这个状况可能更糟。即使是像回响发表表单这样子简单的东西，一旦你无法看到了，就可能非常难以使用（我们曾经注意过<a href="day_19_using_real_table_headers.html" title="第十九天：使用真的表格标头">表格里的相似问题</a>：网志月历祇有在能够一次被整个看到时才会好用；如果一次祇能看到一天的话，就会变得相当困难）。</p>
+
+<p>有一些 HTML 卷标可以让表单比较容易使用。在此我所要谈的是 <code>&lt;label&gt;</code> 卷标；至于其它的那些，你可以在「延伸阅读」里找到。</p>
+
+<p><code>&lt;label&gt;</code> 卷标可以把任何表单输入组件连结到表单称号：文字盒、多列文字区域、核选框、圆形按钮等等。这会让屏幕朗读软体聪明地念出输入组件的称号，让使用者知道那到底是甚么。除此之外，如果你把核选框 (<code>&lt;input type="checkbox"&gt;</code>) 加上了 <code>&lt;label&gt;</code> 卷标，写著其后所出现的文字的话，你的网页表单也会跟 GUI 应用程序一样：在文字称号让任何地方点选，都可以对核选框起作用。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为当 Jackie 在表单间跳跃时， <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会把每一个组件的名称（从他们的 <code>name</code> ）念出来；但这样可能并不明智。不过如果这些表单组件也有称号的话， JAWS 就会改成去念这些称号文字。「 Text: name. 」 (<kbd>TAB</kbd>) 「 Text: email address. 」 (<kbd>TAB</kbd>) 「 Text: URL. 」 (<kbd>TAB</kbd>) 「 Text area: comments. 」之类的。</li>
+<li><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为一旦组件被贴上了称号， Lillian 就能按下核选框后的文字，还能生效。这么一来，就能够大幅提高用把鼠标光标对到核选框的容错范围；而以她有限的视力来说，这个范围显然是越大越好。</li>
+<li><a href="day_3_bill.html">Bill</a> 应该也要从中获益了，可惜还没有。他主要是透过键盘，也就是 <kbd>TAB</kbd> 键来导览。当他跳到表单里的核选框时， Mozilla 应该要把焦点移到整个称号外的矩形外框，可惜并没有这样，而祇是把焦点移到核选框本身的矩形外框而已（然而 Internet Explorer 的结果是对的，甚至 Netscape 4 也能弄对。 Mozilla 这回逊掉了）。</li>
+</ol>
+
+<h3>怎么做： Movable Type</h3>
+
+<p>在 Movable Type 里，编辑你的评论清单模版。在接近底下的地方，你会看到有个表单包含了像是这样的组件：</p>
+
+<blockquote>
+<p><code>名字:&lt;br /&gt;<br />
+&lt;input name="author" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+Email 地址:&lt;br /&gt;<br />
+&lt;input name="email" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+网址:&lt;br /&gt;<br />
+&lt;input name="url" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+回响:&lt;br /&gt;<br />
+&lt;textarea name="text" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+&lt;input type="checkbox" name="bakecookie" /&gt;记住我的信息?&lt;br /&gt;&lt;br /&gt;</code></p>
+</blockquote>
+
+<p>每一个裸露的称号都应该要被装进 <code>&lt;label&gt;</code> 卷标里。同时，因为 <code>&lt;label&gt;</code> 卷标会用 ID （而不是 name ）指到表单组件去，所以每个 <code>&lt;input&gt;</code> 卷标也都还要再加上 ID 属性。全部加起来，最后看起来应该会像这样：</p>
+
+<blockquote>
+<p><code><strong>&lt;label for="author"&gt;名字:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="author"</strong> name="author" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="email"&gt;Email 地址:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="email"</strong> name="email" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="url"&gt;网址:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="url"</strong> name="url" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="text"&gt;回响:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;textarea <strong>id="text"</strong> name="text" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+&lt;input type="checkbox" <strong>id="bakecookie"</strong> name="bakecookie" /&gt;<strong>&lt;label for="bakecookie"&gt;记住我的信息?&lt;/label&gt;</strong>&lt;br /&gt;&lt;br /&gt;</code></p>
+</blockquote>
+
+<p>请确定你也在回响预览模版跟回响出错模版和单篇汇整模版里都做了相同的修改。</p>
+
+<h3>怎么做: Greymatter</h3>
+
+<p>在「 Edit Karma &amp; Comments-Related Templates 」里，你应该会看到一个叫「 {{entrycommentsform}} Posting form 」的模版，里面包含著这样的东西：</p>
+
+<blockquote>
+<p><code>Name<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommentauthor" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+E-Mail (optional)<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommentemail" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+Homepage (optional)<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommenthomepage" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+Comments<br />
+&lt;BR&gt;<br />
+&lt;TEXTAREA NAME="newcommentbody" COLS=35 ROWS=10 WRAP=VIRTUAL&gt;&lt;/TEXTAREA&gt;</code></p>
+</blockquote>
+
+<p>把他改成这样：</p>
+
+<blockquote>
+<p><code><strong>&lt;label for="newcommentauthor"&gt;Name&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommentauthor"</strong> NAME="newcommentauthor" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommentemail"&gt;E-Mail (optional)&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommentemail"</strong> NAME="newcommentemail" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommenthomepage"&gt;Homepage (optional)&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommenthomepage"</strong> NAME="newcommenthomepage" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommentbody"&gt;Comments&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;TEXTAREA <strong>id="newcommentbody"</strong> NAME="newcommentbody" COLS=35 ROWS=10 WRAP=VIRTUAL&gt;&lt;/TEXTAREA&gt;</code></p>
+</blockquote>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite title="Web Accessibility In Mind">WebAIM</cite>: <a href="http://www.webaim.org/howto/forms">How to Create Accessible Forms</a>. 这里介绍了更多复杂的表单，以及其它像 <code>&lt;legend&gt;</code> 和 <code>&lt;fieldset&gt;</code> 这些跟亲和力有关的卷标。这些教学文件不但会告诉你他们是甚么，同时也会让你知道该怎么用。</li>
+<li><cite title="World Wide Web Consortium">W3C</cite>: <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.9.1">Forms in HTML Documents: The LABEL element</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_27_using_real_headers.html">&lt;&lt; 第二十七天：使用真正的标头</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_29_making_everything_searchable.html">第二十九天：加入站台搜寻功能 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十八天：加上组件描述</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

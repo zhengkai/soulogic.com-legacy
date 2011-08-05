@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /blog/files
+Disallow: /blog/comments
+Disallow: /cert
+Disallow: /ip
+Disallow: /temp
+Disallow: /upload
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: baiduspider
+Disallow: /

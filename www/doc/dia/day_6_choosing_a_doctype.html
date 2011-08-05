@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第六天：选择 DOCTYPE - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_5_marcus.html" title="第五天：Marcus" />
+<link rel="next" href="day_7_identifying_your_language.html" title="第七天：指定你的语言" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第六天：选择 DOCTYPE</h2>
+<p class="firstparagraph">就像句子的开头会用大写字母一样， HTML 也以 <code class="sgmltag">DOCTYPE</code> 开头；这是最基本的文法。</p>
+
+<h3>谁因此获益？</h3>
+
+<p>你从中获益了。因为你必须先知道你所使用的 HTML 版本，才能够在日后的课程中，选择适当的步骤来套用那些技巧。所以请把它找出来，没有的话就加上去。</p>
+
+<h3>怎么做</h3>
+
+<p>你可能已经设定好 <code class="sgmltag">DOCTYPE</code> 了。检查你的网页源码， <code class="sgmltag">DOCTYPE</code> （如果有的话）应该在很上面，甚至在 <code class="sgmltag">&lt;html&gt;</code> 卷标之前。</p>
+
+<ul>
+<li>如果你用了 Movable Type 的预设模版， <code class="sgmltag">DOCTYPE</code> 也许会是「 <code class="sgmltag">XHTML 1.0 Transitional</code> 」。这样很好。</li>
+<li>如果你用的是 Radio Userland 、 Manila 或 Blogger 的预设模版的话， <code class="sgmltag">DOCTYPE</code> 也许会是「 <code class="sgmltag">HTML 4.01 Transitional</code> 」。这也很好。</li>
+<li>其它有效的 <code class="sgmltag">DOCTYPE</code> 像是「 <code class="sgmltag">HTML 4.01 Strict</code> 」、「 <code class="sgmltag">XHTML 1.0 Strict</code> 」、「 <code class="sgmltag">XHTML 1.1</code> 」等等，也都很好。</li>
+</ul>
+
+<p>如果你已经设定好 <code class="sgmltag">DOCTYPE</code> 的话，就不用改它了。但是如果在你源码中的 <code class="sgmltag">&lt;html&gt;</code> 前面没有 <code class="sgmltag">DOCTYPE</code> 的话，就加上这些：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</code></p>
+</blockquote>
+
+<p>基于技术上的考量，我不想在此深入探讨细节（如果有兴趣的话，请看「延伸阅读」部分）；你可能会发现加入 <code class="sgmltag">DOCTYPE</code> 之后，页面排版有点小变化。如果不幸发生了，你也可以使用折衷的 <code class="sgmltag">DOCTYPE</code> 来代替，就像这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;</code></p>
+</blockquote>
+
+<p>请注意，网站上<em>所有</em>的页面都必须包含 <code class="sgmltag">DOCTYPE</code> ；所以你得检查所有的模版。</p>
+
+<ul>
+<li>Movable Type 的使用者必须检查「主要索引 (Main Index) 」、「主要汇整页面 (Master Archive Index) 」、「分类汇整 (Category Archive) 」、「时序汇整 (Date-Based Archive) 」，以及「单篇汇整 (Individual Entry Archive) 」模版，以及你手动建立的其它汇整模版。</li>
+<li>Radio Userland 与 Manila 的使用者则必须检查「 Main template 」跟「 Home page template 」。</li>
+<li>Greymatter 的使用者则必须检查「 Main Index-Related Templates 」、「 Archive-Related Templates 」，以及「 Entry-Related Templates 」。</li>
+<li>Blogger 的使用者必须在主要模版加上 <code class="sgmltag">DOCTYPE</code> 。如果你的「 Archive template 」是分散的页面（就是说，如果在最上方有 <code class="sgmltag">&lt;html&gt;</code> 卷标的话），也需要加上 <code class="sgmltag">DOCTYPE</code> 。</li>
+</ul>
+
+<p>你得知道所使用的是 <code class="sgmltag">HTML 4</code> （任何版本）、 <code class="sgmltag">XHTML 1.0</code> （任何版本）还是 <code class="sgmltag">XHTML 1.1</code> 。明天你就会知道为什么了。</p>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>A List Apart</cite>：<a href="http://www.alistapart.com/stories/doctype/">Fixing Your Site With The Right DOCTYPE</a></li>
+<li><cite><acronym title="Microsoft Developer Network">MSDN</acronym></cite>：<a href="http://msdn.microsoft.com/workshop/author/css/overview/cssenhancements.asp">Quirks mode in <acronym title="Internet Explorer">IE</acronym> 6</a> （注意：某些版本的 Netscape 跟 Mozilla 无法浏览这个网站；这是 Microsoft 的问题，不是我的。）</li>
+<li><a href="http://www.mozilla.org/docs/web-developer/quirks/">Quirks mode in Mozilla</a></li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_5_marcus.html">&lt;&lt; 第五天：Marcus</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_7_identifying_your_language.html">第七天：指定你的语言 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第六天：选择 DOCTYPE</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

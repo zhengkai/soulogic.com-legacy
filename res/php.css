@@ -1,0 +1,161 @@
+ol.php {
+	margin-left: -2px;
+	padding: 8px 0;
+	clear: both;
+}
+
+ol.phpless li {
+	list-style-type: none;
+}
+
+ol.php span {
+	white-space: pre;
+	cursor: default;
+	font-size: 14px;
+}
+
+ol.php span.tab {
+	font-size: 7px;
+}
+
+ol.php li {
+	border-left: 2px solid #246;
+	color: #ccc;
+	font-size: 12px;
+	font-family: "Droid Sans Mono", monospace;
+	padding: 3px 0;
+	padding-left: 6px;
+	width: 640px;
+}
+
+ol.php li:hover {
+	background-color: #124;
+}
+
+ol.php li > span {
+	color: #ff00ff;
+	font-family: "Droid Sans Mono", monospace;
+}
+
+ol.php li > span > span {
+	color: #ccc;
+}
+
+ol.php span.inline_html {
+	color: #336699;
+}
+
+ol.php span.open_tag,
+ol.php span.close_tag
+{
+	color: #f33;
+}
+
+ol.php span.variable {
+	color: #00ffff;
+}
+
+ol.php span.string {
+	color: #00AA00;
+}
+
+ol.php span.constant_encapsed_string,
+ol.php span.lnumber
+{
+	color: #00ff00;
+}
+
+ol.php span.comment {
+	color: #808080;
+}
+
+ol.php span.file,
+ol.php span.dir,
+ol.php span.class_c
+{
+	color: #8080ff;
+}
+
+ol.php span.is_equal,
+ol.php span.is_greater_or_equal,
+ol.php span.is_identical,
+ol.php span.is_not_equal,
+ol.php span.is_not_identical,
+ol.php span.is_smaller_or_equal,
+ol.php span.sl,
+ol.php span.sl_equal,
+ol.php span.sr,
+ol.php span.sr_equal,
+ol.php span.start_heredoc,
+ol.php span.boolean_and,
+ol.php span.boolean_or,
+ol.php span.double_colon,
+ol.php span.double_arrow
+{
+	color: #ff00ff;
+}
+
+ol.php span.endfor,
+ol.php span.endforeach,
+ol.php span.endif,
+ol.php span.endswitch,
+ol.php span.endwhile,
+ol.php span.break,
+ol.php span.continue,
+ol.php span.declare,
+ol.php span.enddeclare,
+ol.php span.do,
+ol.php span.else,
+ol.php span.elseif,
+ol.php span.for,
+ol.php span.as,
+ol.php span.foreach,
+ol.php span.goto,
+ol.php span.if,
+ol.php span.case,
+ol.php span.default,
+ol.php span.switch,
+ol.php span.while,
+ol.php span.function,
+ol.php span.class,
+ol.php span.extends,
+ol.php span.new,
+ol.php span.var,
+ol.php span.catch,
+ol.php span.throw,
+ol.php span.try,
+ol.php span.namespace,
+ol.php span.use,
+ol.php span.abstract,
+ol.php span.clone,
+ol.php span.const,
+ol.php span.final,
+ol.php span.implements,
+ol.php span.interface,
+ol.php span.private,
+ol.php span.protected,
+ol.php span.public,
+ol.php span.and,
+ol.php span.or,
+ol.php span.xor,
+ol.php span.instanceof,
+ol.php span.global,
+ol.php span.static,
+ol.php span.array,
+ol.php span.die,
+ol.php span.echo,
+ol.php span.empty,
+ol.php span.exit,
+ol.php span.eval,
+ol.php span.include,
+ol.php span.include_once,
+ol.php span.isset,
+ol.php span.list,
+ol.php span.require,
+ol.php span.require_once,
+ol.php span.return,
+ol.php span.print,
+ol.php span.unset
+{
+	color: #ffff00;
+}

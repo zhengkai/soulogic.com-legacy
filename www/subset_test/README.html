@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>子集判断</title>
+<meta name="robots" content="noindex,nofollow" />
+</head>
+<body style="margin: 0 0; padding: 30px 100px; background-color: #def;">
+<pre>
+
+<h1>过程说明</h1>
+
+（在 query.php 把 DEBUG 打开就同样能看到了）
+
+<h2>原始语句</h2>
+
+a = 1 and (b = 1 or (c = 1 and (e > 1 or f = 1)))
+
+<h2>第一步，循环用正则，从最里面的括号开始，分解出每一级
+这样每一级里面都没括号了</h2>
+
+Array
+(
+    [1] => e > 1 OR f = 1
+    [2] => c = 1 AND _1
+    [3] => b = 1 OR _2
+    [4] => a = 1 AND _3
+)
+
+<h2>按照 AND OR 的优先级进一步分解</h2>
+
+Array
+(
+    [AND] => Array
+        (
+            [0] => a = 1
+            [1] => Array
+                (
+                    [OR] => Array
+                        (
+                            [0] => b = 1
+                            [1] => Array
+                                (
+                                    [AND] => Array
+                                        (
+                                            [0] => c = 1
+                                            [1] => Array
+                                                (
+                                                    [OR] => Array
+                                                        (
+                                                            [0] => e > 1
+                                                            [1] => f = 1
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+
+<h2>将上述数组最终分解成 OR 下的一堆 AND</h2>
+
+Array
+(
+    [OR] => Array
+        (
+            [0] => Array
+                (
+                    [AND] => Array
+                        (
+                            [0] => a = 1
+                            [1] => b = 1
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [AND] => Array
+                        (
+                            [0] => a = 1
+                            [1] => c = 1
+                            [2] => e > 1
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [AND] => Array
+                        (
+                            [0] => a = 1
+                            [1] => c = 1
+                            [2] => f = 1
+                        )
+
+                )
+
+        )
+
+)
+
+<h2>最终用来判断时的数组样子</h2>
+
+Array
+(
+    [0] => Array
+        (
+            [a] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+            [b] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [a] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+            [c] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+            [e] => Array
+                (
+                    [>] => 1
+                )
+
+        )
+
+    [2] => Array
+        (
+            [a] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+            [c] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+            [f] => Array
+                (
+                    [=] => Array
+                        (
+                            [1] => 1
+                        )
+
+                )
+
+        )
+
+)
+</pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+body.category div.archiveList {
+	padding: 10px 6px 0;
+}
+
+body.category div.archiveList div.date {
+	width: 120px;
+	font-size: 30px;
+	float: left;
+	text-align: right;
+	font-family: palatino, georgia, times new roman, serif;
+	font-weight: bold;
+	line-height: 20px;
+	clear: left;
+}
+
+body.category div.archiveList a.copy:before {
+	content: "转载：";
+}
+
+body.category div.archiveList div.archive {
+	float: right;
+	width: 810px;
+	padding-bottom: 12px;
+}

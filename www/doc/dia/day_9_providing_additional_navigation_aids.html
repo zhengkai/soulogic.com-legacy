@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第九天：提供额外的导览协助 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_8_constructing_meaningful_page_titles.html" title="第八天：建立有意义的网页标题" />
+<link rel="next" href="day_10_presenting_your_main_content_first.html" title="第十天：先呈现你的主要内容" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第九天：提供额外的导览协助</h2>
+<p class="firstparagraph">也许你对于使用 <code class="sgmltag">&lt;link&gt;</code> 卷标来连结样式表这件事并不陌生。但是你知道可以用类似的语法来指出首页及前后页面的关系吗？举例来说，在按时汇整页面里，你可以指出前一天以及后一天的（如果有的话）的文章。如果每则文章项目都有独立的页面的话，你也可以指出前后的项目。</p>
+
+<blockquote>
+<p><code>&lt;link rel="home" title="首页" href="http://网址/指到/首页" /&gt;<br />
+&lt;link rel="prev" title="前一页的标题" href="http://前一页/的/网址" /&gt;<br />
+&lt;link rel="next" title="下一页的标题" href="http://下一页/的/网址" /&gt;<br /></code></p>
+</blockquote>
+
+<p>通常这些链结在图形接口浏览器（例如 Internet Explorer）里是看不见的；但是在其它浏览器里则会被显示出来，并且协助使用者浏览你的网站。你也许已经提供几种不同的浏览方式了：逐周或逐月的汇整、最近几篇文章的链结、显示著每日文章的月历等；也有可能在汇整页面上已经有往前后一日（篇）的链结了。这些都很好，请留著它们，然后再多加上这些。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="day_5_marcus.html">Marcus</a> 从中获益了。他的纯文字浏览器 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 会在页面顶端显示这些额外的导览协助，并显示我们在 <code>title</code> 属性里指定的内容。当 Marcus 浏览 6 月 18 日的每日汇整页面时，他看到的是：</p>
+<blockquote>
+<pre><code>#<a href="#" title="link to home page that we defined">Home</a>&nbsp;<a href="#" title="link to previous page, with title that we defined">June 17, 2002</a>&nbsp;<a href="#" title="link to next page, with title that we defined">June 19, 2002</a></code></pre>
+</blockquote>
+<p>（ # 可以让 Marcus 了解这是诠释数据，而不是网页内容。Lynx 对于 <a href="day_8_constructing_meaningful_page_titles.html" title="第八天：建立有意义的网页标题">有意义的页面标题</a>也是用一样的处理方式。）</p>
+</li>
+<li><p><a href="http://diveintoaccessibility.org/day_2_michael.html">Michael</a> 从中获益了。因为他的 <a href="http://links.sourceforge.net/">Links</a> 纯文字浏览器（别和 Marcus 的 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 浏览器搞混了）也会在页面顶端显示这些额外的导览协助，就像这样：
+<blockquote>
+<pre><code>Link: <a href="#" title="link to home page that we defined">home</a>
+Link: <a href="#" title="link to previous page that we defined">prev</a>
+Link: <a href="#" title="link to next page that we defined">next</a></code></pre>
+</blockquote>
+</li>
+<li><p><a href="day_3_bill.html">Bill</a> 从中获益了。因为 Mozilla 会在网站导览列显示这些额外的导览协助。这类的链结（「 home 」、「 prev 」、「 next 」）会以按钮显示，链结的标题则显示成工具提示 (tooltip) 。（请注意：网站导览列是在 Mozilla 0.99 版增加的，曾经在 1.0 版被移除，但在 1.1 版又被加回来了。在有支持的版本里，你可以从检视选单、显示／隐藏、站台导览列、永远显示来显示）</p></li>
+<li><p><a href="http://www.icab.de/">iCab</a> 的使用者从中获益了。因为 iCab 会在工具列上用下拉式选单来显示每个网站连结的标题。</p></li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>在 Movable Type 的按时汇整模版里，把这几列附加在 <code class="sgmltag">&lt;head&gt;</code> 卷标之后：</p>
+
+<blockquote>
+<p><code>&lt;link rel="home" href="&lt;$MTBlogURL$&gt;" title="Home" /&gt;<br />
+&lt;MTArchivePrevious&gt;<br />
+&lt;link rel="prev" href="&lt;$MTArchiveLink$&gt;" title="&lt;$MTArchiveTitle$&gt;" /&gt;<br />
+&lt;/MTArchivePrevious&gt;<br />
+&lt;MTArchiveNext&gt;<br />
+&lt;link rel="next" href="&lt;$MTArchiveLink$&gt;" title="&lt;$MTArchiveTitle$&gt;" /&gt;<br />
+&lt;/MTArchiveNext&gt;</code></p>
+</blockquote>
+
+<p>再来在单篇汇整模版里，把这几列附加在 <code class="sgmltag">&lt;head&gt;</code> 卷标之后：</p>
+
+<blockquote>
+<p><code>&lt;link rel="home" href="&lt;$MTBlogURL$&gt;" title="Home" /&gt;<br />
+&lt;MTEntryPrevious&gt;<br />
+&lt;link rel="prev" href="&lt;$MTEntryLink$&gt;" title="&lt;$MTEntryTitle$&gt;" /&gt;<br />
+&lt;/MTEntryPrevious&gt;<br />
+&lt;MTEntryNext&gt;<br />
+&lt;link rel="next" href="&lt;$MTEntryLink$&gt;" title="&lt;$MTEntryTitle$&gt;" /&gt;<br />
+&lt;/MTEntryNext&gt;</code></p>
+</blockquote>
+
+<p>在 Greymatter 的模版里，把这几列附加在 <code class="sgmltag">&lt;head&gt;</code> 卷标之后：</p>
+
+<blockquote>
+<p><code>&lt;link rel="home" title="Home" href="{{pageindexlink}}"&gt;<br />
+&lt;link rel="prev" title="{{previousentrysubject}}" href="{{entrieswebpath}}/{{previousentrynumberpadded}}.html"&gt;<br />
+&lt;link rel="next" title="{{nextentrysubject}}" href="{{entrieswebpath}}/{{nextentrynumberpadded}}.html"&gt;</code></p>
+</blockquote>
+
+<p><a href="http://w3future.com/weblog/">Sjoerd Visscher</a> 提供了一套巨集，可以在 Radio 里轻松做到这些事。</p>
+
+<ol>
+<li><p><a href="http://w3future.com/weblog/gems/navigationLinks.zip">下载导览链结巨集</a>。</p></li>
+<li><p>解开压缩档，并把四个档案 (<code class="filename">navigationLinks.txt</code>, <code class="filename">nextDayLink.txt</code>, <code class="filename">prevDayLink.txt</code>, <code class="filename">permalinkUrl.txt</code>) 复制到 <code class="filename">Macros</code> 数据夹里；按照 Windows 上的标准安装程序来说，它会被放在 <code class="filename">C:\Program Files\Radio UserLand\Macros</code> 。</p></li>
+<li><p>接著在 Main Template 里，把这一列附加在 <code class="sgmltag">&lt;head&gt;</code> 卷标之后：</p>
+<blockquote>
+<p><code>&lt;%navigationLinks()%&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+
+<p>很遗憾地，我不知道要如何在 Manila 或 Blogger 里实作令人满意的前后文链结，但是至少你可以在网页的 <code class="sgmltag">&lt;head&gt;</code> 卷标后加上这个链结：</p>
+
+<blockquote>
+<p><code>&lt;link rel="home" title="Home" href="http://url/of/your/home/page"&gt;</code></p>
+</blockquote>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Sjoerd Visscher</cite>: <a href="http://w3future.com/weblog/2002/06/20.html#a110">Navigation links in your Radio Userland weblog</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_8_constructing_meaningful_page_titles.html">&lt;&lt; 第八天：建立有意义的网页标题</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_10_presenting_your_main_content_first.html">第十天：先呈现你的主要内容 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第九天：提供额外的导览协助</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

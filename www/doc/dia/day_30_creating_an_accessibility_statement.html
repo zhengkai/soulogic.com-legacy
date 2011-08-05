@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第三十天：撰写亲和力声明 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_29_making_everything_searchable.html" title="第二十九天：加入站台搜寻功能" />
+<link rel="next" href="conclusion.html" title="结语" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第三十天：撰写亲和力声明</h2>
+<p class="firstparagraph">既然你已经采行了这一系列的诀窍，你现在就该撰写一份亲和力声明，详细列出你站台上所有的亲和力特色。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_3_bill.html">Bill</a> 从中获益了。因为他十分仰赖键盘来导览，而且如果他能够知道相关讯息的话，就很可能会用到你的<a href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键"><code>accesskey</code> 快速键</a>。很不幸地， Mozilla 不会用任何方法把这些设定念出来或者显示出来给使用者看，所以你得自己列出来。</li>
+<li>许多其它使用者都从中获益了，因为他们能够由此得知如何把他们自己的软体用得更出神入化。举例来说， <a href="day_4_lillian.html">Lillian</a> 并不知道她可以设定浏览器的预设文字尺寸，直到有人跟她说可以这样；现在她终于可以更容易地阅读你的站台了（当然，你得先<a href="day_26_using_relative_font_sizes.html" title="# 第二十六天：使用相对字体大小">使用相对字体大小</a>）。 Netscape 和 Mozilla 的使用者也许并不知道她们能够开启网站导览列，从你<a href="day_9_providing_additional_navigation_aids.html" title="第九天：提供额外的导览协助">以链结为主的导览协助</a>中获益（「检视」选单，「显示／隐藏」，「网站导览列」，「需要时才显示」。很不幸地，这个功能在最后一刻从 Mozilla 1.0 最终版里被拿掉了，不过 1.1 版时又被加回来了）。</li>
+<li>其它网页设计师从中获益了，因为她们将能够看到且学到你所花时间采行的这些亲和力技巧。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>在 Radio 或 Manila 中，你可以把亲和力声明当作是一则故事（ Radio 或 Manila 工具列上的「 Stories 」）来发表，所以它将有自己的网址。要不然就是直接建立起新的文章，并且在储存后把它的网址记下来；稍后你将会用上。</p>
+
+<p>你第一件该做的事情是列出你所定义过的 <a href="day_15_defining_keyboard_shortcuts.html" title="第十五天：定义快速键"><code>accesskey</code> 快速键</a>，因为多数的浏览器既不会把这些快速键念出来，也不会让他们被显示出来。同时也要记得列出亲和力声明本身的 <code>accesskey</code> （通常会是 <code>accesskey="0"</code> ，我们马上就会看到了）。</p>
+
+<p>在这之后，你还该列出所有你采行的亲和力特色。如果你祇有采行某几个诀窍的话，就祇提出你真的用上的那几个就好。这会是很有启发性的经验，就跟你在更新履历时一样；当你第一次得到工作时，你将了解到你到底曾经做过了些甚么事。你已经做很多事了。</p>
+
+<p>如果你高兴的话，还可以概略地描述一下为什么你要采行这些特色（像是「对于屏幕朗读软体的使用者来说会更好用」、「这是设计给纯文字浏览器的使用者的」、「这是为了无法分辨颜色的使用者所设计的」之类）。请记住，亲和力声明可能会被更多残障的使用者所阅读，所以它不但该具备详尽情报性（给那些直接获益的人），还该具备教育性（给那些拿你的站台来当范例的网页设计师）。或者除了你自己解释之外，你还可以连结到这本书里的任一天的内容，或者就祇是<a href="http://diveintoaccessibility.org/" title="Dive Into Accessibility: 30 days to a more accessible web site">连结到本书的首页</a>。</p>
+
+<p>最后，让你的站台里每一页都连结到你的亲和力声明；你可以放在全站的导览列，也可以放在每一页的脚注。指定这个链结的标题以及 <code>accesskey="0"</code> ，就像这样：</p>
+
+<blockquote>
+<p><code>&lt;a href="accessibility_statement.html" title="本站的亲和力特色" accesskey="0"&gt;亲和力声明&lt;/a&gt;</code></p>
+</blockquote>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><a href="http://diveintomark.org/accessibility_statement.html">diveintomark.org 的亲和力声明</a>。</li>
+<li><a href="accessibility_statement.html">diveintoaccessibility.org 的亲和力声明</a>。你可以把页面的结构、字句及延伸阅读的链结这些当成是模版，自由取用。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_29_making_everything_searchable.html">&lt;&lt; 第二十九天：加入站台搜寻功能</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="conclusion.html">结语 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第三十天：撰写亲和力声明</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

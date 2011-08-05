@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Platinum 2006-06-13 14:13" />
+<title>CHKNTFS - Windows XP 命令行 命令详解 - Soulogic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><h1>Windows XP 命令行 命令详解 - CHKNTFS</h1><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p><pre class="body">在启动时显示或修改磁盘检查。
+
+CHKNTFS volume [...]
+CHKNTFS /D
+CHKNTFS /T[:time]\r\nCHKNTFS /X volume [...]
+CHKNTFS /C volume [...]
+
+  volume:        指定驱动器(后面跟一个冒号)、装入点
+                 或卷名。
+  /D             将计算机恢复成默认状态， 启动时检查所有驱动器，
+                 并对有问题的驱动器执行 chkdsk 命令。
+  /T:time        将 AUTOCHK 初始递减计数时间改成指定的
+                 时间量，单位为秒数。如果没有指定
+                 时间，则显示当前设置。
+  /X             排除启动时不作检查的驱动器。上次执行此命令
+                 排除的驱动器此时无效。
+  /C             安排启动时检查驱动器，如果驱动器有问题，运行 chkdsk。
+
+如果没有指定命令行开关，CHKNTFS 会显示每一驱动器有问题的位的状态。
+</pre><div class="footer"><a href="http://soulogic.com" class="soulogic">Soulogic 灵魂逻辑</a><p class="head"><a hidefocus="true" href="http://soulogic.com/doc/dos/index.html">返回</a></p></div></body>
+</html>

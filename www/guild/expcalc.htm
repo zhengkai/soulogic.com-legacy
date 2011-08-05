@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://soulogic.com/guild/EXPCalculator.html -->
+<HTML><HEAD><TITLE>Ragnarok Online EXP. Calculator</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.3819.300" name=GENERATOR></HEAD>
+<BODY onload="ospeed.select(); ospeed.focus();">
+<STYLE>BODY {
+	FONT: 10px Verdana
+}
+INPUT {
+	FONT: 10px Verdana
+}
+SELECT {
+	FONT: 10px Verdana
+}
+TD {
+	FONT: 10px Verdana
+}
+A {
+	COLOR: blue; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+.exptable {
+	BORDER-COLLAPSE: collapse
+}
+P.exp {
+	MARGIN: 15px 0px
+}
+.exptable .lv {
+	BACKGROUND-COLOR: #f0f0f0; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 4px; WIDTH: 50px
+}
+.exptable .exp {
+	BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 4px; WIDTH: 100px
+}
+.exptable .time {
+	BACKGROUND-COLOR: #f0f0f0; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 4px; TEXT-ALIGN: right; WIDTH: 50px
+}
+.exptable .time2 {
+	BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 4px; TEXT-ALIGN: right; WIDTH: 50px
+}
+#ospeed {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; TEXT-ALIGN: center
+}
+</STYLE>
+
+<P style="FONT: 12px 宋体; TEXT-ALIGN: right"><A 
+href="http://soulogic.3322.org/guild/" style="FONT-WEIGHT: bold" 
+hidefocus="true">仙境传说 北京 Chaos 服务器 城战记录</A>┃ <A 
+href="http://soulogic.3322.org/guestbook/index.php" 
+hidefocus="true">如果有什么建议请点这里留言</A>
+<HR style="COLOR: #333; HEIGHT: 1px">
+
+<P></P>
+<FORM id=fexptype style="FONT-SIZE: 12px"><LABEL for=exptype_0 
+hidefocus="true"><INPUT CHECKED id=exptype_0 name=exptype 
+onclick=changeExpType(this) style="HEIGHT: 14px" type=radio value=0>Base 
+经验</LABEL><BR><LABEL for=exptype_1 hidefocus="true"><INPUT id=exptype_1 
+name=exptype onclick=changeExpType(this) style="HEIGHT: 14px" type=radio 
+value=1>转生 Base 经验</LABEL><BR><LABEL for=exptype_2 hidefocus="true"><INPUT 
+id=exptype_2 name=exptype onclick=changeExpType(this) style="HEIGHT: 14px" 
+type=radio value=2>一转 Job 经验</LABEL><BR><LABEL for=exptype_3 
+hidefocus="true"><INPUT id=exptype_3 name=exptype onclick=changeExpType(this) 
+style="HEIGHT: 14px" type=radio value=3>二转 Job 经验</LABEL><BR><LABEL 
+for=exptype_4 hidefocus="true"><INPUT id=exptype_4 name=exptype 
+onclick=changeExpType(this) style="HEIGHT: 14px" type=radio value=4>转生一转 Job 
+经验</LABEL><BR><LABEL for=exptype_5 hidefocus="true"><INPUT id=exptype_5 
+name=exptype onclick=changeExpType(this) style="HEIGHT: 14px" type=radio 
+value=5>转生二转 Job 经验</LABEL><BR></FORM>
+<P class=exp>Begin Level: <SELECT id=o_lv_begin onchange=count()></SELECT> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; End Level: <SELECT id=o_lv_end 
+onchange=count()></SELECT></P>
+<P class=exp><SPAN 
+style="COLOR: blue; FONT-FAMILY: 宋体; FONT-SIZE: 12px; FONT-WEIGHT: bold">在这里输入你每小时得到的经验值 
+→</SPAN> <INPUT id=ospeed onkeydown=count() onkeyup=count() value=1000000><SPAN 
+id=o_total_exp style="COLOR: red; MARGIN-LEFT: 30px"></SPAN></P>
+<DIV id=explist></DIV>
+<SCRIPT>
+var exp = new Array();
+var max_line = 99;
+
+function changeExpType(obj) {
+	if (exp != exptable[obj.value]) {
+		exp = exptable[obj.value];
+		max_line = exp.length;
+		o_lv_begin.selectedIndex = max_line - 30;
+		o_lv_end.selectedIndex = max_line - 1;
+
+	}
+	count();
+}
+
+function count() {
+
+	total_exp = 0;
+
+	lv_begin = o_lv_begin.value;
+	lv_end   = o_lv_end.value
+
+	if (lv_begin == lv_end) {
+		o_total_exp.innerHTML = "Level Select Error";
+		explist.innerHTML = "";
+		return false;
+	}
+
+	if (!(ospeed.value - 0 > 0)) {
+		o_total_exp.innerHTML = "Infinity EXP.";
+		explist.innerHTML = "";
+		return false;
+	}
+
+	o_total_exp.innerHTML = "";
+
+	if (lv_begin > lv_end) {
+		temp = lv_begin;
+		lv_begin = lv_end;
+		lv_end = temp;
+	}
+
+	str = "";
+	for (i = lv_begin; i < lv_end; i++) {
+		total_exp += exp[i];
+		str += "<tr>";
+		str += "<td class='lv'>" + (i - 0) + " -> "+ (i - 0 + 1) + "</td>";
+		str += "<td class='exp'>" + exp[i] + "</td>";
+		str += "<td class='time'>" + exptime(exp[i], 0) + "</td>";
+		str += "<td class='time2'>" + exptime(exp[i], 1) + "</td>";
+		str += "</tr>";
+	}
+		strhead = "<tr>";
+		strhead += "<td class='lv'>Level</td>";
+		strhead += "<td class='exp'>EXP.</td>";
+		strhead += "<td class='time'>Hours</td>";
+		strhead += "<td class='time2'>Days</td>";
+		strhead += "</tr>";
+		strhead += "<tr>";
+		strhead += "<td class='lv'>Total</td>";
+		strhead += "<td class='exp'>" + total_exp + "</td>";
+		strhead += "<td class='time'>" + exptime(total_exp, 0) + "</td>";
+		strhead += "<td class='time2'>" + exptime(total_exp, 1) + "</td>";
+		strhead += "</tr>";
+		strhead += "<tr><td style='height: 2px;'></td></tr>";
+	explist.innerHTML = "<table class='exptable'>" + strhead + str + "</table>";
+}
+
+function exptime(num, type) {
+	speed = ospeed.value - 0;
+	if (type == 1) {
+		speed = speed * 24;
+	}
+	sreturn = Math.ceil(num / speed * 10) / 10;
+	if (Math.ceil(num / speed * 10) / 10 == Math.ceil(num / speed)) {
+		sreturn += ".0";
+	}
+	return sreturn;
+}
+
+var exptable = new Array;
+
+exptable[0] = new Array(0,9,16,25,36,77,112,153,200,253,320,385,490,585,700,830,
+970,1120,1260,1420,1620,1860,1990,2240,2504,2950,3426,3934,4474,6889,7995,9174,
+10425,11748,13967,15775,17678,19677,21773,30543,34212,38065,42102,46323,53026,
+58419,64041,69892,75973,102468,115254,128692,142784,157528,178184,196300,215198,
+234579,255341,330188,365914,403224,442116,482590,536948,585191,635278,687211,
+740988,925400,1473746,1594058,1718928,1848355,1982340,2230113,2386162,2547417,
+2713878,3206160,3681024,4022472,4377024,4744680,5125440,5767272,6204000,6655464,
+7121664,7602600,9738720,11649960,13643520,18339300,23836800,35658000,48687000,
+58135000,99999999);
+
+exptable[1] = new Array(0,10,18,28,40,85,123,168,220,278,400,481,613,731,875,1038,
+1213,1400,1575,1775,2268,2604,2786,3136,3506,4130,4796,5508,6264,9645,12392,
+14220,16159,18209,21649,24451,27401,30499,33748,47342,58160,64711,71573,78749,
+90144,99312,108870,118816,129154,174196,213220,238080,264150,291427,329640,
+363155,398116,434526,472381,610848,731828,806448,884232,965180,1073896,1170382,
+1270556,1374422,1481976,1850800,3389616,3666333,3953534,4251217,4559382,5129260,
+5488173,5859059,6241919,7374168,9570662,10458427,11380262,12336168,13326144,
+14994907,16130400,17304206,18516326,19766760,29216160,34949880,40930560,
+55017900,71510400,106974000,146061000,174405000,343210000);
+
+exptable[2] = new Array(0,30,43,58,76,116,180,220,272,336,520,604,699,802,948,
+1125,1668,1937,2226,3040,3988,5564,6272,7021,9114,11473,15290,16891,18570,23229,
+28359,36478,39716,43088,52417,62495,78160,84175,90404,107611,125915,153941,
+191781,204351,248352,286212,386371,409795,482092,509596);
+
+exptable[3] = new Array(0,144,184,284,348,603,887,1096,1598,2540,3676,4290,4946,
+6679,9492,12770,14344,16005,20642,27434,35108,38577,42206,52708,66971,82688,
+89544,96669,117821,144921,174201,186677,199584,238617,286366,337147,358435,
+380376,447685,526989,610246,644736,793535,921810,1106758,1260955,1487304,
+1557657,1990632,2083386);
+
+exptable[4] = new Array(0,60,86,116,152,232,360,440,544,672,1040,1208,1398,1604,
+1896,2250,3336,3874,4452,6080,7976,11128,12544,14042,18228,28683,38225,42228,
+46425,58073,70898,91195,99290,107720,131043,156238,195400,210438,226010,269028,
+314788,384853,479453,510878,620880,715530,965928,1024488,1205230,1273990);
+
+exptable[5] = new Array(0,288,368,568,696,1206,1774,2192,3196,5080,7352,8580,
+9892,13358,18984,31925,35860,40013,51605,68585,87770,96443,105515,131770,167428,
+206720,223860,241673,294553,362303,479053,513362,548856,656197,787507,927154,
+985696,1046034,1231134,1449220,1678177,1773024,2380605,2765430,3320274,3782865,
+4461912,4672971,5971896,6250158,6875174,7562652,8318960,9150856,10065942,
+11877812,14015818,16538655,19515624,23028437,28094693,34275525,51816141,
+51015692,62239144,79666104,101672614,130524946,167071930,213852071);
+
+for (i = 1; i <= max_line; i++) {
+	var oOption = document.createElement("OPTION");
+	oOption.text = i;
+	oOption.value = i;
+	o_lv_begin.add(oOption);
+}
+
+for (i = 1; i <= max_line; i++) {
+	var oOption = document.createElement("OPTION");
+	oOption.text = i;
+	oOption.value = i;
+	o_lv_end.add(oOption);
+}
+
+o_lv_begin.selectedIndex = 89;
+o_lv_end.selectedIndex = 98;
+
+document.all.exptype_0.click();
+/*
+	alert();
+
+	alert(exptable[document.all.fexptype.exptype.value]);
+*/
+</SCRIPT>
+
+<P style="FONT: 12px/20px 宋体">新二转出来之后又略微改写了一下计算器，这样我们可以知道，<BR>在每小时 50 万 job 
+经验的情况下如果不掉线、不死、不计算服务器维护的时间，job 70 需要大约 2 个半月……<BR><SPAN 
+style="COLOR: red">你可以把这个计算器放到你的主页上，<BR>但请务必保留作者署名 Platinum 以及指向 
+http://www.soulogic.com 的超链接</SPAN></P>
+<P>Ragnarok Online EXP. Calculator<BR>Written by <A 
+href="http://www.soulogic.com/">Platinum</A>, 2004-05-24<BR>Updata in 
+2004-08-11</P></BODY></HTML>

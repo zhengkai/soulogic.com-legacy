@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十四天：提供能取代影像地图的文字 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_23_providing_text_equivalents_for_images.html" title="第二十三天：提供能取代图片的文字" />
+<link rel="next" href="day_25_using_real_horizontal_rules_or_faking_them_properly.html" title="第二十五天：使用真正的水平分割线（或以适当的方法伪造）" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十四天：提供能取代影像地图的文字</h2>
+<p class="firstparagraph">我对于居然有这么多知名站台用了用户端影像地图而大感震惊。我自己根本不会用这种东西，而且我不认为会有任何预设的网志模版使用这个技巧，但是真的有不少人提出来了。如果你不知道影像地图是甚么， <a href="http://leslie.harpold.com/">Leslie Harpold</a> 在她的主页面底下就用了一个来当作导览链结。它们全是图片，但是在「 archives 」这个字上面按一下，就会把你带到某一页；按下「 by category 」就会连到另一页，以此类推。</p>
+
+<p>影像地图听起来像是亲和力的梦魇，不过他们并不是。就跟<a href="day_23_providing_text_equivalents_for_images.html" title="第二十三天：提供能取代图片的文字">每一个图片都需要足以取代的文字</a>一样，每一个影像地图里每一个可以按下的区域也都需要一个足以取代的文字。你可以提供 <code>alt</code> 文字给图片本身（在 <code>&lt;img&gt;</code> 卷标里），并且也提供给影像地图（在跟 <code>&lt;map&gt;</code> 卷标相关联的 <code>&lt;area&gt;</code> 卷标里，这些卷标是用来定义哪些区域可以按、以及会连结到哪里去的）。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><p><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 会把图片的 <code>alt</code> 文字显示成链结。所以当 Marcus 按下 <kbd>ENTER</kbd> 后， Lynx 就会另外用一个单独的页面显示影像地图里的链结清单。每一个链结都会标上影像地图里 <code>area</code> 的 <code>alt</code> 文字。如果没有 <code>alt</code> 文字的话 Lynx 就会显示每一个 <code>area</code> 的链结网址，不过这显然会变得很难以理解。</p>
+<p>如果 <a href="http://leslie.harpold.com/">Leslie</a> 在她的影像地图上没有 <code>alt</code> 文字的话， Marcus 在她的主页底下所看到的链结就会像这样：</p>
+<blockquote>
+<p><samp>[USEMAP:hpfooter.gif]</samp></p>
+</blockquote>
+<p>从这里连结出去， Marcus 会看到影像地图上所有链结的清单。因为没有 <code>alt</code> 文字，所以 Lynx 就祇能显示每一个网址，他们看起来就会像这样：</p>
+<blockquote>
+<pre><samp>[USEMAP:hpfooter.gif]
+
+MAP: http://leslie.harpold.com/#Map
+
+    1. http://leslie.harpold.com/archives.html
+    2. http://leslie.harpold.com/category/
+    3. http://leslie.harpold.com/links.html
+    4. http://leslie.harpold.com/leslie.html
+    5. http://www.moveabletype.org</samp></pre>
+</blockquote>
+<p>然而实际上， Leslie <em>确实</em>在影像地图跟每一个区域上用了合适的 <code>alt</code> 文字。所以 Marcus <em>真正会</em>在她的主页底下看到的链结其实像这样：</p>
+<blockquote>
+<p><samp>Site navigation links</samp></p>
+</blockquote>
+<p>从这里连结出去会让 Marcus 看到像是这样的页面：</p>
+<blockquote>
+<pre><samp>Site navigation links
+
+MAP: http://leslie.harpold.com/#Map
+
+    1. previously...
+    2. by category
+    3. about the site
+    4. about leslie
+    5. Powered by Movable Type</samp></pre>
+</blockquote>
+</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为 <a href="http://links.sourceforge.net/">Links</a> 会把 <code>alt</code> 文字显示成链结的样子。当 Michael 按下了 <kbd>ENTER</kbd> 后， Links 就会弹出一个所有定义在地图上的链结的选单。每个链结都会标记著 <code>area</code> 上的 <code>alt</code> 文字。如果没有这个 <code>alt</code> 文字的话， Links 就会显示出每个 <code>area</code> 的链结，而这看起来将会相当难以理解。</li>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会把影像地图中每个 <code>area</code> 的 <code>alt</code> 文字按照你在 <acronym title="hypertext markup language">HTML</acronym> 源码里定义出来的顺序显示出来。 Jackie 可以按下 <kbd>ENTER</kbd> 来连结。如果没有 <code>alt</code> 文字的话 JAWS 就会把每个 <code>area</code> 里的链结地址念出来。这真的完全的让人无法理解。（你有没有试过在电话里念超级长的网址？）</li>
+<li><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为 Internet Explorer 会在你的光标滑过每个影像地图里的 <code>area</code> 时，用工具提示显示出 <code>alt</code> 文字。</li>
+<li><a href="http://www.google.com/">Google</a> 从中获益了。因为 Googlebot 会对主要影像以及影像地图里每一个 <code>area</code> 的 <code>alt</code> 文字建立索引。同时 <code>alt</code> 文字也是用来判断你的页面是否含有某个关键词的重要因子；同时每个链结是否跟某个关键词有关，也是用 <code>area</code> 里的 <code>alt</code> 文字来判断的。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>如果你用了像是这样的影像地图：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img src="footer.gif" width="500" height="212" usemap="#Map"&gt;<br />
+<br />
+&lt;map name="Map"&gt;<br />
+&lt;area shape="rect" coords="203,114,258,129" href="/archives.html"&gt;<br />
+&lt;area shape="rect" coords="277,113,348,129" href="/category/"&gt;<br />
+&lt;area shape="rect" coords="364,113,401,128" href="links.html"&gt;<br />
+&lt;area shape="rect" coords="418,114,488,130" href="leslie.html"&gt;<br />
+&lt;area shape="rect" coords="-4,190,131,210" href="http://www.moveabletype.org"&gt;<br />
+&lt;/map&gt;</code></p>
+</blockquote>
+
+<p>在你的主影像跟每一个影像地图里被连结的 <code>area</code> 加入 <code>alt</code> 文字，像这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img <strong>alt="Site navigation links"</strong> src="footer.gif" width="500" height="212" usemap="#Map"&gt;<br />
+<br />
+&lt;map name="Map"&gt;<br />
+&lt;area <strong>alt="previously..."</strong> shape="rect" coords="203,114,258,129" href="/archives.html"&gt;<br />
+&lt;area <strong>alt="by category"</strong> shape="rect" coords="277,113,348,129" href="/category/"&gt;<br />
+&lt;area <strong>alt="about the site"</strong> shape="rect" coords="364,113,401,128" href="links.html"&gt;<br />
+&lt;area <strong>alt="about leslie"</strong> shape="rect" coords="418,114,488,130" href="leslie.html"&gt;<br />
+&lt;area <strong>alt="Powered by Movable Type"</strong> shape="rect" coords="-4,190,131,210" href="http://www.moveabletype.org"&gt;<br />
+&lt;/map&gt;</code></p>
+</blockquote>
+
+<p>所有<a href="day_23_providing_text_equivalents_for_images.html" title="第二十三天：提供能取代图片的文字">为图片写出好的 <code>alt</code> 文字</a>的规则也一样适用于影像地图。你也应该在主要的 <code>&lt;img&gt;</code> 卷标和每个 <code>&lt;area&gt;</code> 卷标里加入 <code>title=""</code> ，藉此让视觉性浏览器里不要出现工具提示。</p>
+
+<h3>不可以做的事</h3>
+
+<p>不可以建立服务器端的影像地图、把影像被点击的坐标数据传回服务器做后续处理。这对于 Jackie 这样子的 JAWS 使用者、或对于使用纯文字浏览器的 Michael 和 Marcus 、或对于 Bill 这种祇能用键盘的使用者、甚至是对于像 Google 这样的搜索引擎来说，都<em>完全没有亲和力可言</em>。如果你一定得用服务器端的影像地图，那你也该用<a href="day_13_using_real_links.html" title="第十三天：使用真实链结">真的文字链结</a>来新增一个纯文字导览列，让使用者能够连结到每一个你放在影像地图里的链结。</p>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Leslie Harpold</cite>: <a href="http://leslie.harpold.com/">The Historical Present</a>. Leslie 很好心地让我用她的网志来当作今日范例的基础。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_23_providing_text_equivalents_for_images.html">&lt;&lt; 第二十三天：提供能取代图片的文字</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_25_using_real_horizontal_rules_or_faking_them_properly.html">第二十五天：使用真正的水平分割线（或以适当的方法伪造） &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十四天：提供能取代影像地图的文字</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

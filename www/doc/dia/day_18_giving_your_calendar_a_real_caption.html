@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第十八天：在月历中加上真的标题 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_17_defining_acronyms.html" title="第十七天：定义头字语" />
+<link rel="next" href="day_19_using_real_table_headers.html" title="第十九天：使用真的表格标头" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第十八天：在月历中加上真的标题</h2>
+<p class="firstparagraph">「可是，」我听到你在哀嚎了，「我的月历已经<em>有</em>个标题了啊！看那边，明明在上面就有年份跟月份了呀，我甚至还用了粗体字耶。」</p>
+
+<p>但是如果你有挖掘过你的 <acronym title="hypertext markup language">HTML</acronym> 源码的话，你就会发现你的月历并没有<em>真的</em>标题。它可能祇是一个表格的 <code class="sgmltag">&lt;td&gt;</code> 格子，占满著整个第一列，然后用了 <acronym title="cascading style sheets">CSS</acronym> 规则来让他看起来是粗体字。相较之下，如果你用了真正的 <code class="sgmltag">&lt;caption&gt;</code> 卷标的话，反而简单多了。这样不但在模版里读起来更简单，也可以为你的页面多省下几个位元，在视觉性浏览器里看起来效果也相同，同时还更具亲和力。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 显示标题时，会在前面再加上「 <samp>CAPTION:</samp> 」，让他明白这一列是标题，而不是字段标头或表格数据。</li>
+<li><a href="day_1_jackie.html">Jackie</a> 间接地获益了。因为用了真正的 <code>&lt;caption&gt;</code> 卷标能够奠定使用真正表格标头的良好基础；我们将在明天的诀窍中讨论到 Jackie 到底能从中获益到些甚么。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>这个诀窍祇能够适用于支持月历的出版工具（所以 Blogger 就被排除掉了），同时这个出版工具还要能让你自订产生月历的 <acronym title="hypertext markup language">HTML</acronym> 源码（所以 Manila 也被排除掉了）。</p>
+
+<p>在 Movable Type 中，你的主索引模版里可能有个用来当月历的表格，就像这一个（搜寻「 calendarhead 」就差不多能找到它了）：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0"&gt;<br />
+<strong>&lt;tr&gt;<br />
+&lt;td colspan="7" align="center"&gt;&lt;span class="calendarhead"&gt;&lt;$MTDate format="%B %Y"$&gt;&lt;/span&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;</strong><br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;&lt;/td&gt;<br />
+...</code></p>
+</blockquote>
+
+<p>留著这个表格卷标，但是把表格中第一个 <code class="sgmltag">&lt;tr&gt;</code> 列全部代换成真正的 <code class="sgmltag">&lt;caption&gt;</code> 卷标，就像这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0"&gt;<br />
+<strong>&lt;caption class="calendarhead"&gt;&lt;$MTDate format="%B %Y"$&gt;&lt;/caption&gt;</strong><br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;&lt;/td&gt;<br />
+...</code></p>
+</blockquote>
+
+<p>剩下来的部分留著别动；我们明天再来加以修改。</p>
+
+<p><code class="sgmltag">&lt;caption&gt;</code> 卷标里的 <code>class</code> 属性乃是选用性的；我在这里把他留著，因为这样就可以拿来取代掉预设的 Movable Type 样本，继续用 <acronym title="cascading style sheets">CSS</acronym> 规则来让年份及月份采用粗体字。像这样子用 <code class="sgmltag">&lt;caption&gt;</code> 卷标之后，你的页面看起来仍旧会跟以前一模一样。</p>
+
+<p>在 Greymatter 中的状况仍旧相同，但是模版卷标却不同：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;caption&gt;{{monthword}} {{yearyear}}&lt;/caption&gt;</code></p>
+</blockquote>
+
+<p>同样地，祇要你这么做，你就可以用样式表来改变 <code>caption</code> 的视觉样式。</p>
+
+<p>在 Radio 中，整个过程将会比较复杂，但并非不可能（我得感谢 <a href="http://www.tmtm.com/insanity/">Tony Bowden</a> 提供了这些指引）。</p>
+
+<ol>
+<li>在 Radio 里，开启实际的 Radio 应用程序。如果是在 Windows 的话，从系统列里在小 Radio 图标上按鼠标右键，然后选择「 Open Radio 」。</li>
+<li>在「 Tools 」选单里，选择「 Developers 」，然后选「 Jump... 」 (<kbd>Control+J</kbd>) 。跳至「 system.verbs.builtins.radio.weblog.drawCalendar 」（不含引号）。</li>
+<li>现在到「 Edit 」选单里，选「 Find and Replace 」，然后选「 Find... 」 (<kbd>Control+F</kbd>) 并且寻找「 hCalendarTable 」。这样应该会展现出绘制启始 <code>&lt;table&gt;</code> 卷标和假月历标题的源码区块。</li>
+<li><p>把这个区块中最后一列（在 <code>&lt;tr&gt;</code> 卷标中写著 <var>monthYearString</var> 的那一列）改成这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">add ("&lt;caption&gt;" + monthYearString + "&lt;/caption&gt;")</code></p>
+</blockquote>
+</li>
+<li>关闭窗口。你会被询问到是否要编译这个变更，请回答是。</li>
+<li><p>如果你想要的话，还可以设定标题的样式。到你的 Home Page Template （在 Prefs 页面中）并且新增一个给 <code>caption</code> 用的样式。以下这个是我自己在用的；在 <code>&lt;style&gt;</code> 区段中原本包含这些东西：</p>
+
+<blockquote>
+<pre><code>body, td, p {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+}</code></pre>
+</blockquote>
+
+<p>现在则是：</p>
+
+<blockquote>
+<pre><code>body, td, p, <strong>caption</strong> {
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    }
+
+<strong>caption {
+  text-align: center;
+  font-weight: bold;
+}</strong></code></pre>
+</blockquote>
+</li>
+</ol>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Tony Bowden</cite>: <a href="http://www.tmtm.com/insanity/2002/07/03.html#a180">Changing the Calendar in Radio</a>.</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_17_defining_acronyms.html">&lt;&lt; 第十七天：定义头字语</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_19_using_real_table_headers.html">第十九天：使用真的表格标头 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第十八天：在月历中加上真的标题</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

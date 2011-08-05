@@ -1,0 +1,44 @@
+(a = 1 or b = 1 or c = 1) and (d = 1 or e = 1 or f = 1)
+a = 1 and b = 1
+
+
+(a > 100 and a < 200) or (a > 1000 and a < 2000) or (a > 10 and a < 20 and d < 14) or (a > 1000 and a < 2000) or (b = 1 or f = 1)
+a = 19 and d = 3
+
+
+
+
+(a > 100 and a < 200) or (a > 1000 and a < 2000) or (a > 10 and a < 20 and d < 14) or (a > 1000 and a < 2000) or (b = 1 or f = 1)
+f = 1
+
+
+
+
+(a > 10 AND a < 20) or (a > 50 and a < 100)
+a = 51
+
+
+
+
+(a > 10 AND a < 20)
+a = 11
+
+
+a = 1 or a < 1
+a = 1
+
+
+
+a > 7 AND c = 5
+a > 8
+
+
+
+((a > 10 AND a < 20) OR (a > 30 AND a < 40)) AND ((b > 10 AND b < 20) OR (b > 30 AND b < 40)) AND ((c > 10 AND d < 20) OR (c > 30 AND c < 40)) AND ((d > 10 AND d < 20) OR (d > 30 AND d < 40))
+a = 13 AND b = 15 AND c = 31 AND d = 39
+
+
+
+((a > 10 AND a < 20) OR (a > 30 AND a < 40)) AND ((b > 10 AND b < 20) OR (b > 30 AND b < 40)) AND ((c > 10 AND d < 20) OR (c > 30 AND c < 40)) AND ((d > 10 AND d < 20) OR (d > 30 AND d < 40))
+a = 13 AND b = 15 AND c = 31 OR d = 51
+

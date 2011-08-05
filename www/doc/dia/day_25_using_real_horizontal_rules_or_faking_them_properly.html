@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十五天：使用真正的水平分割线（或以适当的方法伪造） - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_24_providing_text_equivalents_for_image_maps.html" title="第二十四天：提供能取代影像地图的文字" />
+<link rel="next" href="day_26_using_relative_font_sizes.html" title="第二十六天：使用相对字型尺寸" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十五天：使用真正的水平分割线（或以适当的方法伪造）</h2>
+<p class="firstparagraph">假设你想要在你的文章中间一分为二；但是典型的水平分隔线（也就是 <code class="sgmltag">&lt;hr&gt;</code> 卷标）很无趣，所以你改用了另外一个图片。这当然行得通，而且还可以轻易地加上 <code>alt</code> 文字来增加亲和力。</p>
+
+<p>然而你还可以更进一步地使用真实的水平分隔线，然后再用 <acronym title="cascading style sheets">CSS</acronym> 手法，使其在主流浏览器里看起来跟图片一样。比较旧的浏览器或者是纯文字浏览器则会忽略掉 CSS 的部分，然后用原来的样子画出水平分割线（纯文字浏览器通常会用一列跟屏幕等宽的底线或横线来表示）。</p>
+
+<p>我马上就会展示这两种技术。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。<a href="day_21_ignoring_spacer_images.html" title="第二十一天：忽略卡位图片">正如我们之前所看到的</a>， <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会在图片没有 <code>alt</code> 属性时，把档名念出来。</li>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 会在图片没有 <code>alt</code> 属性时，显示出档名。如果你用了真的水平分割线，那么 Lynx 就会画出一堆跟你的屏幕等宽的底线。</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为 <a href="http://links.sourceforge.net/">Links</a> 在图片没有 <code>alt</code> 属性时，甚么也<em>不会</em>显示出来；如此一来 Michael 将无法得知这里有个分割线。我们至少需要 <code>alt</code> 文字，最好是直接使用真的 <code>&lt;hr&gt;</code> 卷标，这么一来 Links 就会画出一堆跟你的屏幕等宽的横线。</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>如果你把一张图片当作是水平分割线来用的话，增加亲和力的最简单方法就是在你的 <code class="sgmltag">&lt;img&gt;</code> 卷标里增加 <code>alt</code> 属性。同时你也应该再加一个空的 <code>title</code> 属性，这样子在视觉性浏览器里才不会出现工具提示。所以如果你的是像这样的话：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img src="/images/fancyrule.gif" width="442" height="25"&gt;</code></p>
+</blockquote>
+
+<p>把他改成这样：</p>
+
+<blockquote>
+<p><code class="sgmltag">&lt;img <strong>alt="--" title=""</strong> src="/images/fancyrule.gif" width="442" height="25"&gt;</code></p>
+</blockquote>
+
+<p>请不要发疯地在 <code>alt</code> 文字里填上八十个横线。两三个就够了。</p>
+
+<h3>怎么做：进阶版</h3>
+
+<p>进阶（而且也比较好）的技术就是用 <code class="sgmltag">&lt;hr&gt;</code> 卷标。虽然在最理想的情况下，浏览器很神奇地能够支持直接定义著样式的 <code class="sgmltag">&lt;hr&gt;</code> 卷标，我们在此仍旧沿用笨笨的 <code class="sgmltag">&lt;div&gt;</code> 卷标来显示影像。把下列的 CSS 放在你模版顶端的 <code>&lt;style&gt;</code> 区段里（如果你用了像是 <code>style-sites.css</code> 的外部样式表的话，就在那个档案里面随便找个地方放；如果你用了多重样式表的话，就把他放在 Netscape 4 适用的那一个里）。</p>
+
+<blockquote>
+<pre><code>div.hr {display: none}
+/*/*/a{}
+div.hr {
+  display: block;
+  height: 25px;
+  background-image: url(/images/fancyrule.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 1em 0 1em 0;
+}
+hr {display:none}
+/* */</code></pre>
+</blockquote>
+
+<p>（在 <code>height</code> 里的是你的图片高度；在 <code>background-image</code> 里的是你的图片地址。）</p>
+
+<p>然后在你的模版中，当你想要插入这种华丽的分隔线时，就这样做：</p>
+
+<blockquote>
+<pre><code class="sgmltag">&lt;div class="hr"&gt;&lt;/div&gt;&lt;hr /&gt;</code></pre>
+</blockquote>
+
+<p>结果：</p>
+
+<ul>
+<li>所有的主流浏览器现在都不会显示普通的水平分隔线，而是显示出你的图片。</li>
+<li>Netscape 4 祇会显示出普通的水平分隔线。</li>
+<li>纯文字浏览器会忽略掉 CSS ，所以他们也祇会显示出普通的水平分隔线（通常是画成一堆底线或斜线）。</li>
+</ul>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><a href="http://www.v2studio.com/k/css/n4hide/">Hiding CSS From Netscape 4</a> 而不使用额外的样式表。这也就是我们在前面的进阶范例里所用到的技术。</li>
+<li><a href="http://ppewww.ph.gla.ac.uk/~flavell/www/hrstyle.html">CSS1 and the Decorative HR</a>. 如果你格外勇猛而想要在 Netscape 4 的 CSS 里使用华丽的水平分隔线的话，这里有人幸运地办到了。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_24_providing_text_equivalents_for_image_maps.html">&lt;&lt; 第二十四天：提供能取代影像地图的文字</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_26_using_relative_font_sizes.html">第二十六天：使用相对字型尺寸 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十五天：使用真正的水平分割线（或以适当的方法伪造）</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
+<TITLE>普通字符 - 正则表达式</TITLE>
+<!--CSS_START-->
+<SCRIPT SRC="vs70.js"></SCRIPT>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+
+<LINK REL="stylesheet" HREF="vs70_5.css">
+<!--CSS_END--></HEAD>
+<body topmargin=0 id="bodyID" class = "dtBODY">
+
+<!--NONSCROLLING BANNER START-->
+<div id="nsbanner">
+<div id="bannerrow1">
+<TABLE CLASS="bannerparthead" CELLSPACING=0>
+<TR ID="hdr">
+<TD CLASS="runninghead" nowrap>JScript&nbsp;和&nbsp;VBScript&nbsp;正则表达式</TD>
+<TD CLASS="product" nowrap>&nbsp;</TD>
+</TR>
+</TABLE>
+</div>
+<div id="TitleRow">
+<H1 class="dtH1"><A NAME="reconordinarycharacters"></A>普通字符</H1>
+</div></div>
+<!--NONSCROLLING BANNER END-->
+<DIV id="nstext" valign="bottom">
+<P>普通字符由所有那些未显式指定为元字符的打印和非打印字符组成。这包括所有的大写和小写字母字符，所有数字，所有标点符号以及一些符号。</P>
+
+<P>最简单的正则表达式是一个单独的普通字符，可以匹配所搜索字符串中的该字符本身。例如，单字符模式 'A' 可以匹配所搜索字符串中任何位置出现的字母 'A'。这里有一些单字符正则表达式模式的示例：</P>
+
+<PRE class="code">/a/
+/7/
+/M/</PRE>
+
+<P>等价的 VBScript 单字符正则表达式为：</P>
+
+<PRE class="code">"a"
+"7"
+"M"</PRE>
+
+<P>可以将多个单字符组合在一起得到一个较大的表达式。例如，下面的 JScript 正则表达式不是别的，就是通过组合单字符表达式 'a'、'7'以及 'M' 所创建出来的一个表达式。</P>
+
+<PRE class="code">/a7M/</PRE>
+
+<P>等价的 VBScript 表达式为：</P>
+
+<PRE class="code">"a7M"</PRE>
+
+<P>请注意这里没有连接操作符。所需要做的就是将一个字符放在了另一个字符后面。</P>
+<!--Footer Start-->
+<DIV CLASS="footer">
+<br>
+<HR><!--Copyright-->
+<p>&copy; 2001 Microsoft Corporation. 保留所有权利。</p></div> <!--Closes the footer div-->
+</div> <!--closes the topic content div-->
+<!--FOOTER_END-->
+</BODY>
+</HTML>

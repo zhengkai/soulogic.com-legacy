@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十七天：使用真正的标头 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_26_using_relative_font_sizes.html" title="第二十六天：使用相对字型尺寸" />
+<link rel="next" href="day_28_labeling_form_elements.html" title="第二十八天：加上组件描述" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十七天：使用真正的标头</h2>
+<p class="firstparagraph">想像一下你的网站轮廓：最顶层标出了网站的名称；而在你的网站上，列出了这几天的文章，所以第二层标明了日期叙述：「 Tuesday, July 16, 2002 」之类的。因为每一天你都写了许多文章，所以每篇文章都该有自己的标题。因此第三层就会标明文章的标题。</p>
+
+<p>现在照著刚刚的轮廓，用真的 <code>&lt;h1&gt;</code> 、 <code>&lt;h2&gt;</code> 和 <code>&lt;h3&gt;</code> 等卷标加以标记；屏幕朗读软体必须靠这些卷标来解读你的页面结构。你的网页<em>当然有</em>结构，但是若没有适当的标头卷标，屏幕朗读软体就没办法找到他们了。我马上就会展示给你看，要如何用 CSS 让你的标头看起来跟你现在用 <code>&lt;font&gt;</code> 怪物做出来的一样。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为当 Jackie 按下某个页面后， <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 就会念出这个页面里链结跟标头的数量。此时 Jackie 可以按下 <kbd>INSERT+F6</kbd> 来听到页面上所有的标头；或是按下 <kbd>CTRL+INSERT+ENTER</kbd> 来跳到下一个标头的地方。</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为在 <a href="http://www.opera.com/">Opera</a> 浏览器里，他可以按下 <kbd>S</kbd> 跳到下一个标头、或者用 <kbd>W</kbd> 跳到前一个。</li>
+<li><a href="http://www.google.com/">Google</a> 从中获益了。因为 Google 欣赏结构良好的页面，并给予标头里的关键词较高的评比（又是另一个撰写好文章标题的原因）。</li>
+</ol>
+
+<h3>怎么做： Movable Type</h3>
+
+<ol>
+<li><p>定义站台标识的样式。在你的样式表模版 (<code>styles-sites.css</code>) 里，加入以下这几列：</p>
+
+<blockquote>
+<pre><code>h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/*/*/a{}
+h1 {font-size: 100%}
+/* */</code></pre>
+</blockquote>
+</li>
+
+<li><p>用 <code>&lt;h1&gt;</code> 卷标定义你的站台标识。在你的四个主要模版（主索引、分类汇整、按时汇整、单篇汇整）里，搜寻这些东西：</p>
+
+<blockquote>
+<pre><code>&lt;div id="banner"&gt;
+&lt;$MTBlogName$&gt;&lt;br /&gt;</code></pre>
+</blockquote>
+
+<p>然后把他们代换成这样：</p>
+
+<blockquote>
+<pre><code>&lt;div id="banner"&gt;
+<strong>&lt;h1&gt;</strong>&lt;$MTBlogName$&gt;<strong>&lt;/h1&gt;</strong></code></pre>
+</blockquote>
+</li>
+
+<li><p>用 <code>&lt;h2&gt;</code> 卷标定义日期标头。我们已经定义了一个用于此的样式级别了，所以无须再修改样式表，而祇需要修改卷标就好。在你的四个主要样板中，搜寻这些东西：</p>
+
+<blockquote>
+<pre><code>&lt;div class="date"&gt;
+&lt;$MTEntryDate format="%B %d, %Y"$&gt;
+&lt;/div&gt;</code></pre>
+</blockquote>
+
+<p>然后把他们代换成这样：</p>
+
+<blockquote>
+<pre><code>&lt;<strong>h2</strong> class="date"&gt;
+&lt;$MTEntryDate format="%B %d, %Y"$&gt;
+&lt;/<strong>h2</strong>&gt;</code></pre>
+</blockquote>
+</li>
+
+<li><p>用 <code>&lt;h3&gt;</code> 卷标定义你的文章标题。同样地祇需要修改卷标就好，而不用修改样式表。在你的四个主要样板中，搜寻这些东西：</p>
+
+<blockquote>
+<p><code>&lt;span class="title"&gt;&lt;$MTEntryTitle$&gt;&lt;/span&gt;</code></p>
+</blockquote>
+
+<p>然后把他们代换成这样：</p>
+
+<blockquote>
+<p><code>&lt;<strong>h3</strong> class="title"&gt;&lt;$MTEntryTitle$&gt;&lt;/<strong>h3</strong>&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+
+<h3>怎么做： Radio</h3>
+
+<ol>
+<li><p>定义你的标头样式。预设的 Radio 布景主题并没有使用任何的真实标头卷标，所以我们得先在样式表里自己定义出来（这其实得量身订做才行；不过这里的范例应该可以让你的页面在视觉性浏览器里看起来跟以前一样才对）。</p>
+<p>事实上在我们开始之前，请先在你的 Home Page Template 里搜寻「 <code>h2 {</code> 」。如果你找到像这样的规则的话，请把它移掉。这个规则实际上没有在任何地方被用到，却会妨碍到我们：</p>
+
+<blockquote>
+<p><code>h2 {<br />
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 24px; font-weight: bold<br />
+}</code></p>
+</blockquote>
+</li>
+
+<li><p>好，现在在你的 Home Page Template 的 <code>&lt;style&gt;</code> 区段中任何位置，加入这些样式：</p>
+
+<blockquote>
+<pre><code>h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {font-size: 24px}
+h2 {font-size: 13px}
+
+/*/*/a{}
+h1 {
+  font-size: large;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: x-large;
+}
+html>body h1 {
+  font-size: x-large;
+}
+h2 {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html>body h2 {
+  font-size: small;
+}
+/* */</code></pre>
+</blockquote>
+
+<p>请注意我们在支持相对字型尺寸的浏览器里使用相对字型，而在 Netscape 4 里则使用绝对字型。这技术看起来应该很眼熟，因为<a href="day_26_using_relative_font_sizes.html" title="第二十六天：使用相对字型大小">我们昨天才刚做过一样的事情</a>。</p>
+</li>
+
+<li><p>定义站台名称的标头。在你的 Home Page Template 中搜寻「 <code>&lt;%siteName%&gt;</code> 」，并寻找像这样的某一列：</p>
+
+<blockquote>
+<p><code>&lt;font size="+2"&gt;&lt;b&gt;&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:Black; text-decoration:none"&gt;&lt;%siteName%&gt;&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;</code></p>
+</blockquote>
+
+<p>然后把他们代换成这样：</p>
+
+<blockquote>
+<p><code><strong>&lt;h1&gt;</strong>&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:Black; text-decoration:none"&gt;&lt;%siteName%&gt;&lt;/a&gt;<strong>&lt;/h1&gt;</strong></code></p>
+</blockquote>
+</li>
+
+<li><p>定义日期标头。在你的 Day Template 中搜寻「 <code>&lt;%longDate%&gt;</code> 」，并寻找像这样的某一列：</p>
+
+<blockquote>
+<p><code>&lt;b&gt;&lt;%longDate%&gt;&lt;/b&gt;</code></p>
+</blockquote>
+
+<p>然后把他们代换成这样：</p>
+
+<blockquote>
+<p><code><strong>&lt;h2&gt;</strong>&lt;%longDate%&gt;<strong>&lt;/h2&gt;</strong></code></p>
+</blockquote>
+</li>
+</ol>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>Shirley Kaiser</cite>: <a href="http://www.brainstormsandraves.com/2002_05_12_archive.shtml#76539537">Don't Fake Your Markup</a>: CSS 的亲和力议题。</li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_26_using_relative_font_sizes.html">&lt;&lt; 第二十六天：使用相对字型尺寸</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_28_labeling_form_elements.html">第二十八天：加上组件描述 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十七天：使用真正的标头</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>

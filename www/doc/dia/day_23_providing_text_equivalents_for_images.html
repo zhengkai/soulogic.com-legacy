@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+<title>第二十三天：提供能取代图片的文字 - Dive Into Accessibility</title>
+<link rel="start" title="首页" href="index.html" />
+<link rel="contents" title="目录" href="table_of_contents.html" />
+<link rel="search" title="搜寻" href="http://dia.z6i.org/mt/mt-search.cgi" />
+<link rel="help" title="亲和力声明" href="accessibility_statement.html" />
+<link rel="author" title="写信给原作者" href="mailto:feedback@diveintoaccessibility.org" />
+<link rel="copyright" title="使用声明" href="terms_of_use.html" />
+<link rel="up" title="目录" href="table_of_contents.html" />
+<link rel="first" title="第一天：Jackie" href="day_1_jackie.html" />
+<link rel="last" title="亲和力声明" href="accessibility_statement.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="prev" href="day_22_using_real_lists_or_faking_them_properly.html" title="第二十二天：使用真正的清单（或以适当的方法伪造）" />
+<link rel="next" href="day_24_providing_text_equivalents_for_image_maps.html" title="第二十四天：提供能取代影像地图的文字" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-98185-1";
+urchinTracker();
+</script>
+</head>
+<body>
+
+<div id="logo"><div class="inner">
+<h1 class="title">
+<a href="index.html" accesskey="1">Dive Into Accessibility</a>
+</h1>
+<p>在 30 天内打造更具亲和力的网站</p>
+<a class="skip" href="#startnavigation">移动到导览列</a>
+<span class="divider">&nbsp;</span>
+</div></div>
+
+<p></p>
+
+<div id="main"><div class="inner">
+
+<div class="entry">
+<h2 class="entrysubject">第二十三天：提供能取代图片的文字</h2>
+<p class="firstparagraph">这是整个系列中最重要的一天，所以照子放亮吧：</p>
+
+<blockquote>
+<p>你站台上每一个页面里的每一张图片，都该提供足以取代的文字部分，也就是所谓的「 <code>alt</code> 文字」；这是用 <code class="sgmltag">&lt;img&gt;</code> 卷标里用 <code>alt</code> 属性所加以指定的。</p>
+</blockquote>
+
+<p>屏幕朗读软体可以读得到这段文字，纯文字浏览器会把这段文字显示出来， Google 会为这段文字建立索引，视觉性浏览器则会用工具提示或者在状态列显示出来（虽然身为设计师的你可以覆写掉这个作用）。我们已经看到要如何指定<a href="day_21_ignoring_spacer_images.html" title="第二十一天：忽略卡位图片">卡位图片的空 <code>alt</code> 文字</a>，还有许多<a href="day_22_using_real_lists_or_faking_them_properly.html" title="第二十二天：使用真正的清单（或以适当的方法伪造）">用项目图片建立亲和性高的清单</a>的方法。还有甚么我们漏掉了的吗？</p>
+
+<ul>
+<li>静态链结图标</li>
+<li>「架站系统」图标</li>
+<li>Mail-to 图标</li>
+<li>XML 图标</li>
+<li>浮在你的文章项目内的小图形</li>
+<li>任何其它你加进样本里的图片</li>
+</ul>
+
+<p>这些都需要适当的 <code>alt</code> 文字。</p>
+
+<h3>谁因此获益？</h3>
+
+<ol>
+<li><a href="day_1_jackie.html">Jackie</a> 从中获益了。因为 <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp">JAWS</a> 会念出 <code>alt</code> 文字。如果没有有效的 <code>alt</code> 的话， Jackie 就会听到档名，<a href="day_21_ignoring_spacer_images.html" title="第二十一天：忽略卡位图片">而这听起来真的很可怕</a>。</li>
+<li><a href="day_5_marcus.html">Marcus</a> 从中获益了。因为 <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> 这个纯文字浏览器并不会显示任何文字，而祇会显示 <code>alt</code> 文字。如果没有 <code>alt</code> 文字的话， Lynx 就会显示档名，这看起来就跟 JAWS 听起来一样糟。</li>
+<li><a href="day_2_michael.html">Michael</a> 从中获益了。因为 <a href="http://links.sourceforge.net/">Links</a> 这个纯文字浏览器并不会显示任何文字，而祇会显示 <code>alt</code> 文字。如果没有 <code>alt</code> 文字的话， Links 就不会显示任何跟这个图片有关的信息（除非这个图片也是个链结，在这种情况下 Links 就祇会显示出「 <samp>[IMG]</samp> 」）。当使用 <a href="http://www.opera.com/">Opera</a> 浏览而把图形选项关闭时， Michael 会在图片的位置看到 <code>alt</code> 文字。</li>
+<li><a href="day_4_lillian.html">Lillian</a> 从中获益了。因为 Internet Explorer 会用工具提示的样子显示 <code>alt</code> 文字（当然身为设计师的你可以让这件事不要发生）。</li>
+<li><a href="http://www.google.com/">Google</a> 从中获益了。因为 Googlebot 会对 <code>alt</code> 文字建立索引；这不仅对一般的搜寻有效，更会用于<a href="http://images.google.com/">图片搜寻</a>里（不然你以为那是怎么办到的？）</li>
+</ol>
+
+<h3>怎么做</h3>
+
+<p>预设的 Movable Type 样本不会包含任何的 <code class="sgmltag">&lt;img&gt;</code> 卷标；如果你用了「 Powered by Movable Type 」图形的话，你就该确定 <code class="sgmltag">&lt;img&gt;</code> 卷标里同时也包含了 <code>alt="Powered by Movable Type"</code> 属性。</p>
+
+<p>预设的 Greymatter 模版祇包含了一个图片，这是由 <code>{{gmicon}}</code> 模版变数所产生的。实际上会产生一个 <code>&lt;img&gt;</code> 卷标，同时还会包含有合适的 <code>alt</code> 文字：「 Powered by Greymatter 」。</p>
+
+<p>Radio 会为下列的图标自动产生合适的 <code>alt</code> 文字：</p>
+<ul>
+<li>XML 咖啡杯： <code>alt="Subscribe to &lt;site name&gt; in Radio UserLand."</code></li>
+<li>XML 图标： <code>alt="Click to see the XML version of this web page."</code></li>
+<li>Mailto 图标： <code>alt="Click here to send an email to the editor of this weblog."</code></li>
+</ul>
+
+<p>然而 Radio 的使用者还得需要手动为自订图片指定 <code>alt</code> 文字。请到 <tt>Prefs</tt> ，然后按下 <tt>Customized Images</tt> （在 <tt>Templates</tt> 李），然后新增这些 <code>alt</code> 属性：</p>
+
+<ul>
+<li>Day-level permalink: <code>alt="Permanent link: &lt;%longDate%&gt;"</code>.</li>
+<li>Item-level permalink: <code>alt="Permanent link"</code>.</li>
+<li>Source link icon: <code>alt="source"</code>.</li>
+<li>Enclosure link icon: <code>alt="enclosure"</code>.</li>
+</ul>
+
+<p>你同时也该增加一个 <code>title=""</code> ，用来让视觉性浏览器不要显示工具提示。</p>
+
+<p>当然，不论你用了甚么出版工具，如果你在模版里增加了你自己的图片，或者你的文章项目里会浮著小图形的话，他们都该有个合适的 <code>alt</code> 文字。因为我从范例里学得最好，所以这里就是一些范例。更多泛用的原则和范例会被列在「延伸阅读」的小节里。</p>
+
+<h3><code>alt</code> 文字的不良示范</h3>
+
+<ul>
+<li>对于任何 HTML 标记来说， <code>alt</code> 文字都祇能够有纯文字纯在，不能有任何卷标。</li>
+<li><code>alt="filename.jpg"</code>. 这不能提供我们任何信息。图片的功能是甚么？我们并不真的在乎它叫甚么名称。</li>
+<li><code>alt="alt text"</code>. 这是由某些 HTML 编辑器所插入的、用来提醒的文字，显然是被某些没概念的设计师遗留下来了。</li>
+<li><code>alt="Click here!"</code>. 没有甚么太有用的功能（除非图形上面写的也就是「 Click here! 」）。</li>
+<li><code>alt="Turn images on!"</code>. 这就跟去问盲人时钟上的时间，然后对她说「张开你的眼睛！」图片可能因为某个原因而被关掉（像是 Michael 的频宽不够）、无法使用（像是 Marcus 的纯文字浏览器）、或者连让你决定要不要关掉的馀地都没有（像是 Jackie 的屏幕朗读软体就祇会把 <code>alt</code> 文字大声念出来）。</li>
+<li><a href="http://ppewww.ph.gla.ac.uk/~flavell/alt/alt-text.html#howlers">更多 <code>alt</code> 文字的不良示范</a>。</li>
+</ul>
+
+<h3><code>alt</code> 文字的良好示范</h3>
+
+<ul>
+<li><a href="http://weblog.delacour.net/">Jonathon Delacour</a> 在他的 banner 上有一个中文字的图形。 <code>alt="Site logo: xin, the Chinese character for heart"</code>.</li>
+<li><a href="http://leslie.harpold.com/">Leslie Harpold</a> 在页面 banner 用了包含站台名称「 The Historical Present 」和标语「 Hypermodernism has a posse 」的图形。 <code>alt="the historical present: hypermodernism has a posse"</code>.</li>
+<li><a href="http://www.bath.ac.uk/~cs1spw/blog/">Simon Willison</a> 用了一个「 W3C XHTML 1.0 」贴纸。 <code>alt="Valid XHTML 1.0!"</code></li>
+<li><a href="http://www.zeldman.com/">Jeffrey Zeldman</a> 用了像文字的图形来当导览列，拉下来的时候，每一个图形都会用 Javascript 在状态列放上一小列标语。当然视盲的读者会错过这些东西，所以 Zeldman 也在每一个图片上用了 <code>alt</code> 文字放进相同的标语。真邪恶。</li>
+<li><a href="http://www.textism.com/">Dean Allen</a> 在他的页面 banner 上用了一个包含站台名称及标语的图形。他的 <code>alt</code> 文字也一样长，但却包含了略微不同的标语（当然会造成一些混淆），不过 Dean 确实酷到可以侥幸成功的地步。 <code>alt="Textism is an ephemeris focused on the composition, design, and reading of text.  In addition, there will be pie"</code>. 请注意：你很可能没有那么酷。请还是保持简单为妙。</li>
+</ul>
+
+<h3>延伸阅读</h3>
+
+<ul>
+<li><cite>A. J. Flavell</cite>: <a href="http://ppewww.ph.gla.ac.uk/~flavell/alt/alt-text.html">ALT texts in IMG</a>.</li>
+<li><cite>Jukka Korpela</cite>: <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html">Simple guidelines on using ALT texts in IMG elements</a>.</li>
+<li><cite>Ian Hickson</cite>: <a href="http://www.hixie.ch/advocacy/alttext">Mini-FAQ about the alternate text of images</a>.</li>
+<li><cite>Watchfire.com</cite>: <a href="http://bobby.watchfire.com/bobby/html/en/gls/g9.html">Provide alternative text for all images</a>.</li>
+<li><cite>All My FAQs Wiki</cite>: <a href="http://www.allmyfaqs.com/cgi-bin/wiki.pl?ALT_attribute">ALT attribute</a>.</li>
+<li><cite><acronym title="Web Accessibility in Mind">WebAIM</acronym></cite>: <a href="http://www.webaim.org/howto/accessiblegraphics3">How to Create Accessible Graphics</a>.</li>
+<li><cite>Martin Schrode</cite>: <a href="http://www.schrode.net/design/alttext.html">On accessible advertising</a>.</li>
+<li><cite>Section 508 Federal Accessibility Guidelines</cite>: <a href="http://www.access-board.gov/sec508/guide/1194.22.htm#(a)">What is meant by a text equivalent?</a></li>
+</ul>
+
+<p></p>
+<span class="divider">&nbsp;</span>
+</div> <!--entry-->
+
+<div class="pageturn"><div class="inner">
+<a href="day_22_using_real_lists_or_faking_them_properly.html">&lt;&lt; 第二十二天：使用真正的清单（或以适当的方法伪造）</a> |
+<a href="table_of_contents.html">目录</a>
+| <a href="day_24_providing_text_equivalents_for_image_maps.html">第二十四天：提供能取代影像地图的文字 &gt;&gt;</a>
+<span class="divider">&nbsp;</span>
+</div></div> <!--pageturn-->
+
+<p class="mirror">本镜像由 <a href="http://www.soulogic.com/">Soulogic.com 灵魂逻辑</a> 建立</p>
+
+</div></div> <!--main-->
+
+<div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form method="get" action="http://dia.z6i.org/mt/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="9" />
+<p id="searchlabel"><label for="search">在本站中寻找：</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="搜寻" /></p>
+</form>
+<div class="menusection"><div class="inner">
+
+<h2 class="invisibletitle">站内连结</h2>
+
+<a class="skip" href="#endinternal">略过导览列</a>
+
+<ul>
+<li><a href="accessibility_statement.html" accesskey="0">亲和力声明</a></li>
+<li><a href="http://dia.z6i.org/mt/mt-search.cgi" accesskey="4">进阶搜寻</a></li>
+<li><a href="table_of_contents.html" accesskey="3">目录</a></li>
+<li><a href="by_person.html">依人物编排</a></li>
+<li><a href="by_disability.html">依障碍编排</a></li>
+<li><a href="by_design_principle.html">依设计原则编排</a></li>
+<li><a href="by_web_browser.html">依浏览器编排</a></li>
+<li><a href="by_publishing_tool.html">依出版工具编排</a></li>
+<li><a title="寄信给原作者" href="mailto:feedback@diveintoaccessibility.org" accesskey="9">建议与回响</a></li>
+<li><a title="著作权跟授权信息" href="terms_of_use.html" accesskey="8">使用声明</a></li>
+<li><a href="translation_table.html">中英对照表</a></li>
+</ul>
+
+<a class="skip" id="endinternal"></a>
+
+</div></div> <!--.menusection-->
+
+<div id="footer"><div class="inner">
+
+<address>Copyright &copy; 2002 Mark Pilgrim</address>
+
+<p>Powered by <a href="http://www.movabletype.org/">Movable Type</a></p>
+
+</div></div> <!--footer-->
+
+
+</div> <!--menu-->
+<div id="navigation">
+<p class="breadcrumb">你在这里：
+<a href="index.html">首页</a> >
+<a href="table_of_contents.html">目录</a> >
+<span class="currentpage">第二十三天：提供能取代图片的文字</span>
+</p>
+</div><!--navigation-->
+
+</body>
+</html>
