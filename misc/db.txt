@@ -1,4 +1,4 @@
 备份权限
 
-GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON  `soulogic` . * TO  'soulogic'@'localhost';
-GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON  `soulogic` . * TO  'soulogic_pda'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON  `soulogic` . *     TO  'soulogic'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON  `soulogic_pda` . * TO  'soulogic'@'localhost';
