@@ -1,0 +1,4 @@
+soulogic.com 的大部分代码（除了 gtalk bot）
+
+要想用的话先要把 SSL 证书去了，复制 inc/config.sample.php 为 inc/config.php
+
