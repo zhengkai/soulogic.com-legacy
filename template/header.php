@@ -74,6 +74,10 @@ if (Page::inAdmin()) {
 			"name" => "访问 Access",
 			"url" => "access.php",
 		),
+		500 => array(
+			"name" => "说 Tweet",
+			"url" => "tweet.php",
+		),
 	);
 
 	$iSelected = 0;

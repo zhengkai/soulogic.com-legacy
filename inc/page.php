@@ -88,7 +88,7 @@ class Page {
 		return $sTitle;
 	}
 
-	public static function redirect($sURI = "/", $bPermanent = TRUE) {
+	public static function jump($sURI = "/", $bPermanent = TRUE) {
 		self::noSend();
 
 		if (headers_sent($sScript, $iLine)) {

@@ -1,2 +1,2 @@
 <?php
-Page::redirect("http://soulogic.com/", TRUE);
+Page::jump("http://soulogic.com/", TRUE);
