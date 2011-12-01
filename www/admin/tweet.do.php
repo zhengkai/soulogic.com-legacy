@@ -5,6 +5,10 @@ FilterExt::run("POST", array(
 
 $sContent = $_POST["content"];
 
+if (empty($sContent)) {
+	Page::jump("tweet.php");
+}
+
 $iType = 0;
 if (substr($sContent, 0, 1) == "\"") {
 	$iType = 1;

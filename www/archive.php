@@ -34,7 +34,7 @@ if (!in_array($aRefDomain, $aIgnoreDomain)
 		."SET blog_id = ".$_GET["archive_id"].", "
 		."ip = \"".addslashes($_SERVER["REMOTE_ADDR"])."\", "
 		."referer = \"".addslashes($_SERVER["HTTP_REFERER"])."\", "
-		."referer_host = \"".addslashes()."\", "
+		."referer_host = \"\", "
 		."date_a = NOW()";
 	$oDB->exec($sQuery);
 }
