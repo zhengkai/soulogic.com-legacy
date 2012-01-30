@@ -7,7 +7,7 @@ class MCz {
 		$aServer = $aServer ?: array(
 			array("127.0.0.1", 11211, 1),
 		);
-		$o = new Memcached("tango");
+		$o = new Memcached();
 		$o->addServers($aServer);
 		self::$_o = $o;
 	}
