@@ -33,7 +33,7 @@ foreach ($aDBLog as $aInfo) {
 
 <div class="footer highlight"><div><div>
 
-<p>2001 - <?php echo date("Y"); ?> <a hidefocus="true" href="http://creativecommons.org/licenses/by/3.0/deed.zh" class="footer">Some Rights Reserved</a>, Template referenced from <a href="http://www.themelab.com/2008/04/01/colourise-free-wordpress-theme-38/">Colourise</a></p>
+<p>2001 - <?php echo date("Y"); ?> <a href="http://creativecommons.org/licenses/by/3.0/deed.zh" class="footer">Some Rights Reserved</a>, Template referenced from <a href="http://www.themelab.com/2008/04/01/colourise-free-wordpress-theme-38/">Colourise</a></p>
 
 </div></div></div>
 

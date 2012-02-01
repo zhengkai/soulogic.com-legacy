@@ -7,8 +7,8 @@
 	echo BlogMenu::getTitle();
 ?></title><?php
 	echo PageHeader::get();
-?><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" type="text/css" />
-<link rel="alternate" href="https://soulogic.com/blog/rss" type="application/rss+xml" title="RSS" />
+?><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" type="text/css" />
+<link rel="alternate" href="//soulogic.com/blog/rss" type="application/rss+xml" title="RSS" />
 <?php
 if ($sCanonical = Page::getCanonical()) {
 	?><link rel="canonical" href="<?php echo $sCanonical; ?>" /><?php
@@ -18,7 +18,7 @@ if (Page::isFollowOnly()) {
 	echo "\n";
 }
 ?>
-<link rel="me" type="text/html" href="https://www.google.com/profiles/zheng.kai" />
+<link rel="me" type="text/html" href="//www.google.com/profiles/zheng.kai" />
 <script type="text/javascript">
 var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-98185-1']); _gaq.push(['_trackPageview']); _gaq.push(['_trackPageLoadTime']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'https://ssl.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
 </script>

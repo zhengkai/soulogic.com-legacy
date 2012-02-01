@@ -112,12 +112,12 @@ class PageHeader {
 			$fTime = microtime(TRUE);
 
 			foreach ($aCSS as $sCSS) {
-				$sReturn .= "<link rel=\"stylesheet\" href=\"https://".self::getResDomain()."/".$sCSS."?tmp=".$fTime."\" type=\"text/css\" />\n";
+				$sReturn .= "<link rel=\"stylesheet\" href=\"//".self::getResDomain()."/".$sCSS."?tmp=".$fTime."\" type=\"text/css\" />\n";
 			}
 
 			if (!empty($aJS)) {
 				foreach ($aJS as $sJS) {
-					$sReturn .= "<script type=\"text/javascript\" src=\"https://".self::getResDomain()."/".$sJS."?tmp=".$fTime."\"></script>\n";
+					$sReturn .= "<script type=\"text/javascript\" src=\"//".self::getResDomain()."/".$sJS."?tmp=".$fTime."\"></script>\n";
 				}
 			}
 		} else {
@@ -140,7 +140,7 @@ class PageHeader {
 
 		$sHash = hash("crc32", $sRes."O0WPmINmROtIBL2AO3Fu".$iVersion);
 
-		return $sLink = "https://".self::getResDomain()."/combo/".$sRes."_v".$iVersion."_".$sHash.".".$sType;
+		return $sLink = "//".self::getResDomain()."/combo/".$sRes."_v".$iVersion."_".$sHash.".".$sType;
 	}
 
 	public static function setDir($sDir) {
