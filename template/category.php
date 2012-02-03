@@ -1,7 +1,10 @@
 <?php
 Page::setBodyClass("category");
 
-Page::followOnly();
+$sURL = Link::get("category", $_GET["category_id"]);
+Page::setCanonical($sURL);
+
+// Page::followOnly();
 
 $aCategory = BlogMenu::getCategory($_GET["category_id"]);
 BlogMenu::setTitle($aCategory["name"]." - Category - Soulogic");

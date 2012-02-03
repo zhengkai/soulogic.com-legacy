@@ -112,7 +112,7 @@ if (Page::inAdmin()) {
 
 		$aName = explode(" ", $aRow["name"], 2);
 
-		$sURL = "/category.php?category_id=".$iKey;
+		$sURL = "/category_".$iKey;
 		if ($iKey == 13) {
 			$sURL = "/tweets.php";
 		}

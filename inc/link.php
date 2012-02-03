@@ -5,9 +5,10 @@
 class Link {
 
 	protected static $_aFormat = array(
-		"archive" => "/archives/%d",
-		"upload"  => "/upload/%d",
-		"tweets"  => "/tweets/%d",
+		"archive"  => "/archives/%d",
+		"upload"   => "/upload/%d",
+		"tweets"   => "/tweets/%d",
+		"category" => "/category_%d",
 	);
 
 	public static function get() {
