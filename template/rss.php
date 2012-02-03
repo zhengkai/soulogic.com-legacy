@@ -1,5 +1,12 @@
 <?php
-header("content-type: text/xml; charset=UTF-8");
+//header("content-type: text/xml; charset=UTF-8");
+header("content-type: application/rss+xml; charset=UTF-8");
+
+$sFile = dirname(__DIR__)."/rss/rss.xml";
+if (is_file($sFile)) {
+	readfile($sFile);
+	exit;
+}
 
 function xml_out($string) {
 	$string = str_replace("&", "&#38;", $string);
@@ -74,3 +81,5 @@ foreach ($aTango["list"] as $iArchive => $aRow) {
 $sRSS .= "</channel>\n</rss>";
 
 echo $sRSS;
+file_put_contents($sFile, $sRSS);
+
