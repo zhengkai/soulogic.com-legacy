@@ -8,7 +8,7 @@
 ?></title><?php
 	echo PageHeader::get();
 ?><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" type="text/css" />
-<link rel="alternate" href="//soulogic.com/blog/rss" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="http://soulogic.com/rss" type="application/rss+xml" title="RSS" />
 <?php
 if ($sCanonical = Page::getCanonical()) {
 	?><link rel="canonical" href="<?php echo $sCanonical; ?>" /><?php

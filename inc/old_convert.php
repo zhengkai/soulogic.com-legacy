@@ -78,7 +78,7 @@ function old_convert($string, $p_tag = true) {
 		$paragraph_end.str_replace(">", " style=\"text-align: center\">", $paragraph_begin)."\\1".$paragraph_end.$paragraph_begin,
 		"<sub>\\1</sub>",
 		"<sup>\\1</sup>",
-		"<span style=\"font-weight: bold; font-family: '微软雅黑'\">\\1</span>",
+		"<span style=\"font-weight: bold;\">\\1</span>",
 		"<span style=\"text-decoration: underline;\">\\1</span>",
 		"<span style=\"text-decoration: line-through;\">\\1</span>",
 		"<img src=\"\\2\" style=\"float: \\1\" />",
