@@ -24,7 +24,7 @@ body.tweets div.datetime {
 
 body.tweets div.datetime p {
 	margin: 0;
-	font-family: palatino, georgia, times new roman, serif;
+	font-family: georgia, palatino, times new roman, serif;
 }
 
 body.tweets div.datetime p.date {

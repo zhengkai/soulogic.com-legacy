@@ -37,5 +37,7 @@ foreach ($aDBLog as $aInfo) {
 
 </div></div></div>
 
+<!-- Server Freya -->
+
 </body>
 </html>
