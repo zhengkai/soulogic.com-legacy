@@ -1,0 +1,184 @@
+table {
+	border-collapse: collapse;
+}
+
+li {
+	list-style-type: none;
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+br.null {
+	clear: both;
+	font-size: 1px;
+}
+* {
+	background-repeat: no-repeat;
+}
+
+input[type=text], input[type=password], textarea {
+	background-color: transparent;
+}
+
+body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	border-width: 0;
+	margin: 10px 20px;
+}
+
+blockquote {
+	margin-left: 30px;
+}
+
+pre, pre * {
+	font-size: 14px;
+	font-family: monospace;
+}
+
+a:focus {
+	-moz-outline-style: none;
+}
+
+img {
+	vertical-align: middle;
+}
+
+img.radius {
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+
+a img {
+	border-width: 0;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+}
+
+
+div.group table td {
+	text-align: center;
+	font-size: 14px;
+}
+
+div.group table td:nth-of-type(1) {
+	font-family: monospace;
+	min-width: 64px;
+	text-align: right;
+}
+
+div.group table td:nth-of-type(2) {
+	font-family: monospace;
+}
+
+div.group table td:nth-of-type(3) {
+	padding-left: 0;
+	padding-right: 0;
+	min-width: 50px;
+	font-size: 16px;
+}
+
+div.group table {
+	border: 2px solid gray;
+}
+
+div.group {
+	margin: 0 -4px;
+	overflow: auto;
+}
+
+div.group table {
+	margin: 2px 4px;
+	float: left;
+}
+
+table.list td, table.list th {
+	border: 1px solid gray;
+}
+
+table.list th {
+	padding: 10px;
+	background-color: #def;
+}
+
+table.list td {
+	padding: 4px 10px;
+}
+
+table.list tr:nth-of-type(odd) {
+	background-color: #f3f3f3;
+}
+
+table.list tr:hover {
+	background-color: #fc9;
+}
+
+table.list th.datetime {
+	width: 170px;
+	text-align: center;
+	font-family: monospace;
+	font-size: 14px;
+}
+
+div.menu {
+	overflow: auto;
+	padding: 8px 20px;
+	margin: 10px -20px;
+	background-color: #def;
+}
+
+div.menu div {
+	float: left;
+	padding-right: 10px;
+}
+
+div.menu a {
+	word-break: keep-all;
+	font-size: 14px;
+	display: block;
+	padding: 4px 8px;
+}
+
+div.menu a:first-of-type {
+	padding: 6px 8px;
+	margin-right: -10px;
+	background-color: #acf;
+	font-size: 16px;
+}
+
+div.menu a:first-of-type span {
+	font-size: 15px;
+}
+
+div.menu a.select {
+	background-color: #83a;
+}
+
+div.menu a:hover {
+	background-color: #38a;
+}
+
+div.menu a.select,
+div.menu a.select *,
+div.menu a:hover,
+div.menu a:hover * {
+	color: #fff;
+}
+
+div.menu span {
+	font-size: 14px;
+	color: #333;
+	position: relative;
+	left: 0;
+}
+
