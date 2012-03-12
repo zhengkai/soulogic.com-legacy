@@ -1,4 +1,6 @@
 <?php
+ob_clean();
+
 require_once __DIR__."/common.inc.php";
 
 $sSelect = $_GET["type"];

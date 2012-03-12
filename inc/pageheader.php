@@ -42,7 +42,7 @@ class PageHeader {
 	}
 
 	public static function getResDomain() {
-		return TANGO_DEV ? "soulogic.res" : "www.soulogic.com";
+		return TANGO_DEV ? "soulogic.res" : "res.soulogic.com";
 	}
 
 	public static function get() {

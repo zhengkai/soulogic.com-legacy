@@ -7,7 +7,7 @@ settype($_SERVER["REMOTE_ADDR"], "string");
 settype($_SERVER["SERVER_ADDR"], "string");
 settype($_SERVER["TANGO_DEV"], "string");
 
-define("LOCAL_ACCESS", $_SERVER["SERVER_ADDR"] === "127.0.0.1");
+define("LOCAL_ACCESS", $_SERVER["SERVER_ADDR"] === "127.0.0.1" || $_SERVER["SERVER_ADDR"] === "::ffff:127.0.0.1");
 define("TANGO_DEV", ($_SERVER["TANGO_DEV"] === "freya") && LOCAL_ACCESS);
 
 $sPathLib = dirname(__DIR__)."/lib/";

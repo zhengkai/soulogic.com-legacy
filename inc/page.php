@@ -189,6 +189,7 @@ class Page {
 			self::$_bAdmin = TRUE;
 			if (!LOCAL_ACCESS) {
 				header("Not Found", TRUE, 404);
+				trigger_error($_SERVER["REMOTE_ADDR"]);
 				return FALSE;
 			}
 		}
