@@ -64,4 +64,9 @@ if ($_POST["archive_id"]) {
 
 if ($aTango["success"]) {
 	Cache::clean("archive", $aTango["archive_id"]);
+	$sRSS = __DIR__."/../../rss/feed.rss";
+	if (!file_exists($sRSS)) {
+		unlink($sRSS);
+	}
 }
+
