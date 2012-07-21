@@ -165,14 +165,4 @@ $(document).ready(function() {
 	$("p#answer button:last").click(function () {
 		location.href = location.pathname;
 	});
-
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-98185-1']);
-	_gaq.push(['_trackPageview']);
-
-	var ga = document.createElement('script');
-	ga.type = 'text/javascript';
-	ga.async = true;
-	ga.src = 'http://www.google-analytics.com/ga.js';
-	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
 });

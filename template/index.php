@@ -19,6 +19,7 @@ Page::setCanonical("http://soulogic.com/");
 <p>于 2000 年末第一次接触 PHP，<br />19 岁生日之前开始以此为职业，至今。</p>
 <p>缺点：木讷、偏执、刻薄、恶毒</p>
 <p>优点：木讷、偏执、刻薄、恶毒、傲慢</p>
+<p>用百度者，祝福你们全家世世代代用百度</p>
 </div>
 
 <div class="indexList">
