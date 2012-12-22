@@ -4,7 +4,7 @@ header("content-type: application/rss+xml; charset=UTF-8");
 
 $sFile = dirname(__DIR__)."/rss/feed.rss";
 if (is_file($sFile)) {
-	readfile($sFile);
+	header('X-Accel-Redirect: /feed.rss');
 	exit;
 }
 

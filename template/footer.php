@@ -37,7 +37,11 @@ foreach ($aDBLog as $aInfo) {
 
 </div></div></div>
 
-<!-- Server Freya -->
+<?php
+if (!empty($_SERVER["TANGO_DEV"])) {
+	?><!-- Server <?= ucwords($_SERVER["TANGO_DEV"]); ?> --><?php
+}
+?>
 
 </body>
 </html>
