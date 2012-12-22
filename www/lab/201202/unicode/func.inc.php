@@ -7,4 +7,3 @@ function utf8_ucs2be($sChar) {
 function ord_utf8($sChar) {
 	return hexdec(utf8_ucs2be($sChar));
 }
-

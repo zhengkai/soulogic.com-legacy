@@ -1,6 +1,5 @@
 <?php
 
-
 function debugShow($mShow) {
 	if (!DEBUG) {
 		return FALSE;

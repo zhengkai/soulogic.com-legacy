@@ -188,4 +188,3 @@ class DBzSingle extends PDO {
 		return $aRow;
 	}
 }
-

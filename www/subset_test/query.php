@@ -44,7 +44,6 @@ register_shutdown_function(function() {
 
 });
 
-
 $iCount = 0;
 $sQueryPrev = "";
 foreach ($aQueryList as $iLine => $sQuery) {

@@ -26,4 +26,3 @@ foreach ($aMenu as $sType => $lSub) {
 }
 ?>
 </div>
-

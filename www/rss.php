@@ -10,4 +10,3 @@ $sQuery = "SELECT * "
 	."ORDER BY id "
 	."DESC LIMIT 30";
 $aTango["list"] = $oDB->getAll($sQuery);
-

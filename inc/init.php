@@ -27,7 +27,6 @@ require_once(__DIR__."/filter.ext.php");
 require_once(__DIR__."/page.php");
 require_once(__DIR__."/link.php");
 
-
 require_once(__DIR__."/config.php");
 
 Page::checkScriptFile();

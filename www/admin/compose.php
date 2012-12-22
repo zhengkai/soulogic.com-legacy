@@ -38,4 +38,3 @@ unset($aTango["archive"]["content"]);
 
 $aTango["archive"]["original_tag"] = ($aTango["archive"]["original_tag"] == "Y");
 $aTango["archive"]["delete_tag"]   = ($aTango["archive"]["delete_tag"]   == "Y");
-

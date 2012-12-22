@@ -36,5 +36,3 @@ foreach ($aTango["upload"] as $iID => $aFile) {
 </table>
 <?php
 echo $sPageNumber;
-
-

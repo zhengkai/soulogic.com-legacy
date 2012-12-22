@@ -31,4 +31,3 @@ foreach ($aTango["archive"] as $iArchive => $aRow) {
 </table>
 <?php
 echo $sPageNumber;
-

@@ -69,4 +69,3 @@ if ($aTango["success"]) {
 		unlink($sRSS);
 	}
 }
-

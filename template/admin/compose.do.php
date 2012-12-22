@@ -22,4 +22,3 @@ if ($aTango["success"]) {
 	echo $aTango["archive_id"];
 	?>">浏览文章</a></p><?php
 }
-?>

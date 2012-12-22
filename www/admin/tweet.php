@@ -24,4 +24,3 @@ if (!empty($aLong)) {
 		$aTango["plan"][$iID]["content"] .= $sExt;
 	}
 }
-

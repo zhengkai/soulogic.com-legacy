@@ -30,4 +30,3 @@ foreach ($aTango["list"] as $iArchive => $aArchive) {
 	</div>
 	<?php
 }
-

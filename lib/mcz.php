@@ -51,4 +51,3 @@ class MCz {
 		return $o->flush($iDelay);
 	}
 }
-

@@ -46,4 +46,3 @@ if ($sExt) {
 }
 
 Page::jump("tweet.php");
-

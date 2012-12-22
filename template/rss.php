@@ -82,4 +82,3 @@ $sRSS .= "</channel>\n</rss>";
 
 echo $sRSS;
 file_put_contents($sFile, $sRSS);
-

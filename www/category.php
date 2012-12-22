@@ -11,4 +11,3 @@ if (!BlogMenu::getCategory($_GET["category_id"])) {
 }
 
 $aTango["list"] = Cache::get("category", $_GET["category_id"]) ?: array();
-

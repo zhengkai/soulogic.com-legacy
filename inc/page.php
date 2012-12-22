@@ -38,7 +38,6 @@ class Page {
 		self::$_bEscapeHTML = FALSE;
 	}
 
-
 	public static function isSent() {
 		return self::$_bSent;
 	}

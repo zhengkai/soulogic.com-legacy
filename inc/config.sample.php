@@ -24,4 +24,3 @@ DBz::setServer(
 MCz::setServer();
 
 define("COMMENT_TOKEN_SALT", "yHoB7vhNRRWzcsbiGbheYh7g9wl8gDChylBGYZ6q1aimeGUtsGvtHSTtnnbmz8Gj7wnP1nrE5pe");
-

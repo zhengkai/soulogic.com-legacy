@@ -48,4 +48,3 @@ $lType = array(
 	"Zp" => "Paragraph separator 段落分隔符",
 	"Zs" => "Space separator 间距分隔符",
 );
-

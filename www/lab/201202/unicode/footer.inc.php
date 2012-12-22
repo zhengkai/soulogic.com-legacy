@@ -1,4 +1,3 @@
-
 <p>
 <?php
 echo Page::getTimeCost();
@@ -7,4 +6,3 @@ echo Page::getTimeCost();
 
 </body>
 </html>
-

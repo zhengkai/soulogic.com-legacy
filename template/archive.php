@@ -119,7 +119,3 @@ foreach ($aTango["related"] as $iArchive => $sTitle) {
 	</tr>
 </table>
 </form>
-
-<?php
-// dump($aArchive);
-?>

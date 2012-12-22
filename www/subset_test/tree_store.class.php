@@ -205,7 +205,6 @@ class TreeStore {
 		return array($sType => $aReturn);
 	}
 
-
 	public function parseStr($sLine) {
 		foreach (array("AND", "OR") as $sType) { // 处理类似 a and b or c 这类字符串
 			if (strpos($sLine, " ".$sType." ")) {

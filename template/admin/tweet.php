@@ -27,4 +27,3 @@ foreach ($aTango["plan"] as $iID => $aRow) {
 	<?php
 
 }
-

@@ -11,7 +11,6 @@ $aDir = scandir($sDir);
 $aCSS = array();
 $aImage = array();
 
-
 foreach (scandir($sCSSDir) as $sFile) {
 	$aFilename = pathinfo($sFile) + array("extension" => FALSE);
 	$sFile = $aFilename["basename"];
@@ -43,7 +42,6 @@ foreach (scandir($sDir) as $sFile) {
 $aSearch = array_map(function($sFile) {
 	return "background-image: url(\"/img/".$sFile."\");";
 }, $aImage);
-
 
 $aReplace = array_map(function($sFile) use ($sDir) {
 	return "background-image: url(data:image/png;base64,"

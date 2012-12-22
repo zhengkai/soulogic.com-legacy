@@ -15,4 +15,3 @@ $sQuery = "SELECT id, name, header, date_c, counter, filesize, delete_tag "
 	."ORDER BY id ".$oPageNumber->getLimit(TRUE);
 $aTango["upload"] = $oDB->getAll($sQuery);
 $aTango["upload"] = $oPageNumber->transList($aTango["upload"]);
-

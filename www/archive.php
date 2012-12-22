@@ -13,8 +13,6 @@ if ($aTango["archive"]["delete_tag"] !== "N") {
 	Page::error("该文章已被删除");
 }
 
-
-
 // 来访计数
 
 $aRefDomain = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_HOST) ?: "";
