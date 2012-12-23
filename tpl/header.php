@@ -30,11 +30,11 @@ if ($sClass = Page::getBodyClass()) {
 }
 ?>>
 
-<div class="header highlight">
+<header class="highlight">
 <div><div>&#160;</div></div>
-</div>
+<div class="bg">&#160;</div>
+</header>
 
-<div class="outBox">
 <div class="siteTitle">
 <?php
 	if (Page::inAdmin()) {
@@ -128,3 +128,5 @@ if (Page::inAdmin()) {
 </div>
 </div>
 </div>
+
+<div class="outBox">

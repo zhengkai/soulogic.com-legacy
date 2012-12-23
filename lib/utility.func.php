@@ -1,10 +1,12 @@
 <?php
 // 获取 tango/res 目录的版本号
 function getResVersion() {
-	return 1;
+	return 2;
+	/*
 	$sSVN = file_get_contents(dirname(__DIR__)."/res/.svn/entries", FALSE, NULL, 0, 1500);
 	$aTmp = explode("\n", $sSVN, 5);
 	return trim($aTmp["3"]);
+	 */
 }
 
 function utf8sanitize($sContent) {

@@ -8,7 +8,16 @@ input[type=text], textarea {
 	background-color: transparent;
 }
 
+html {
+	height: 100%;
+}
+
 body {
+	box-sizing: border-box;
+	min-height: 100%;
+	margin: 0;
+	padding: 0 0 60px;
+	position: relative;
 	overflow-x: auto;
 	overflow-y: scroll;
 	border-width: 0;

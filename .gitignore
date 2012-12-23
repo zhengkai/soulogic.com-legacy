@@ -2,4 +2,5 @@ inc/config.php
 rss/feed.rss
 cache/*
 db/*.gz
-
+db/*.sql
+*.swp
