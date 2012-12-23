@@ -95,7 +95,7 @@ class PageHeader {
 
 		if (!empty(self::$_aJS)) {
 			$aJS = array(
-				"jquery-1.4.2.min.js",
+				"jquery-1.8.3.min.js",
 			);
 			$aJS = array_unique(array_merge($aJS, self::$_aJS));
 		}
