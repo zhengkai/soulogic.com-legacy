@@ -193,12 +193,12 @@ class Page {
 			}
 		}
 
-		$sTemplateDir = self::getDirRoot()."/template";
+		$sTemplateDir = self::getDirRoot()."/tpl";
 
 		$sTemplate      = $sTemplateDir.$sPathFromBase;
 		$sTemplateError = $sTemplateDir.dirname($sPathFromBase)."/".$aPath["filename"].".error.php";
 
-		chdir(self::getDirRoot()."/template");
+		chdir(self::getDirRoot()."/tpl");
 
 //		require_once("common.php");
 
