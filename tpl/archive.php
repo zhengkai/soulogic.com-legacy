@@ -13,17 +13,19 @@ $sURL = Link::get("archive", $aArchive["id"]);
 Page::setCanonical($sURL);
 
 ?>
-<div style="width: 640px; float: left;">
+<article>
 <h1<?php
 	if ($aArchive["original_tag"] !== "Y") { echo " class=\"copy\""; }
 ?>><?php echo $aArchive["title"]; ?></h1>
-<p class="archiveDate">Posted on <?php echo date("F j, Y h:i A", $aArchive["date_p"]); ?></p>
+<time class="<?=date('Y-m-d', $aArchive['date_p']);?>">Posted on <?php echo date("F j, Y h:i A", $aArchive["date_p"]); ?></time>
 <?php
 if ($aArchive["original_tag"] === "Y") {
-	?><p class="cc_copyright">作者：郑凯<br />
-<a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/deed.zh">版权声明</a>：可以任意转载，转载时请务必以超链接形式标明文章原始出处和作者信息<br />
-<a class="self" href="<?php echo $sURL; ?>"><?php echo $sURL; ?></a>
-</p><?php
+	?>
+	<aside class="cc_copyright">作者：郑凯<br />
+	<a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/deed.zh">版权声明</a>：可以任意转载，转载时请务必以超链接形式标明文章原始出处和作者信息<br />
+	<a class="self" href="<?php echo $sURL; ?>"><?php echo $sURL; ?></a>
+	</aside>
+	<?php
 }
 ?>
 <div class="content"><?php
@@ -51,9 +53,9 @@ if ($bLine) {
 
 echo old_convert($aArchive["content"] ?: $aArchive["preview"]);
 ?></div>
-</div>
+</article>
 
-<div class="sidebar">
+<aside class="sidebar">
 
 <p class="title">相邻文章</p>
 
@@ -84,7 +86,7 @@ foreach ($aTango["related"] as $iArchive => $sTitle) {
 }
 ?>
 </ul>
-</div>
+</aside>
 
 <p class="commentTitle<?php echo $aTango["comment"] ? "" : " hide"; ?>">访客评论</p>
 <div id="comment"<?php echo $aTango["comment"] ? "" : " class=\"hide\""; ?>>

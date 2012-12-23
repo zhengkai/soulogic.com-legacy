@@ -83,31 +83,31 @@ div.siteTitle img {
 	padding: 10px 0 10px 100px;
 }
 
-div.category {
+nav {
 	margin: 0 auto 20px;
 	overflow: hidden;
 	width: 1000px;
 }
-div.category * {
+nav * {
 	ddisplay: none;
 }
 
-div.category ul {
+nav ul {
 	float: left;
 }
 
-div.category ul li {
+nav ul li {
 	float: left;
 	display: block;
 }
 
-div.category a,
-div.category li.hr,
-div.category div div {
+nav a,
+nav li.hr,
+nav div div {
 	background-image: url("/img/menu_bg.png");
 }
 
-div.category a {
+nav a {
 	text-align: center;
 	display: block;
 	width: 110px;
@@ -118,39 +118,39 @@ div.category a {
 	background-position: left top;
 }
 
-div.category a.select {
+nav a.select {
 	color: #fff;
 	background-position: 0 -60px;
 }
 
-div.category a:hover {
+nav a:hover {
 	background-position: 0 -120px;
 }
 
-div.category li.hr {
+nav li.hr {
 	background-position: -100px 0;
 }
 
-div.category li.hr a {
+nav li.hr a {
 	margin-left: 20px;
 }
 
-div.category span {
+nav span {
 	color: silver;
 	display: block;
 	font-size: 12px;
 	font-family: Verdana;
 }
 
-div.category a:hover span {
+nav a:hover span {
 	color: white;
 }
 
-div.category > div {
+nav > div {
 	width: 1500px;
 }
 
-div.category div div {
+nav div div {
 	float: left;
 	height: 53px;
 	background-repeat: repeat-x;
@@ -198,18 +198,18 @@ footer p {
 	padding: 4px;
 }
 
-header {
+div.topBar {
 	height: 16px;
 }
 
-header > div > div {
+div.topBar > div > div {
 	padding: 0;
 	height: 16px;
 	text-align: right;
 	font-size: 1px;
 }
 
-header div.bg {
+div.topBar div.bg {
 	background-image: url("/img/head_bg.png");
 	background-position: 388px -30px;
 	background-repeat: no-repeat;

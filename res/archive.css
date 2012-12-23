@@ -1,3 +1,8 @@
+body.archive article {
+	float: left;
+	width: 640px;
+}
+
 body.archive h1 {
 	padding-top: 10px;
 }
@@ -6,11 +11,12 @@ body.archive p {
 	color: #ddd;
 }
 
-body.archive p.archiveDate {
+body.archive article time {
 	font-size: 10px;
 	font-family: Verdana;
 	color: gray;
-	padding-bottom: 8px;
+	padding-bottom: 12px;
+	display: block;
 }
 
 body.archive h1.copy:before {
@@ -28,17 +34,17 @@ body.archive h2 {
 	background-color: rgba(0, 153, 255, 0.15);
 }
 
-body.archive p.cc_copyright {
+body.archive aside.cc_copyright {
 	font-size: 14px;
 	padding: 0 0 8px 50px;
 	margin: 0;
 }
 
-body.archive p.cc_copyright a {
+body.archive aside.cc_copyright a {
 	border-width: 0;
 }
 
-body.archive p.cc_copyright a.self {
+body.archive aside.cc_copyright a.self {
 	font-family: "Droid Sans Mono", monospace;
 }
 
@@ -276,41 +282,44 @@ body.archive #commentForm td.rowname span {
 	color: gray;
 }
 
-body.archive div.sidebar {
-	width: 260px; dbackground-color: #333; float: right;
+body.archive aside.sidebar {
+	display: block;
+	width: 260px;
+	dbackground-color: #333;
+	float: right;
 	padding-left: 30px;
 	min-height: 500px;
 	background-image: url("/img/line.png");
 	background-position: left top;
 }
 
-body.archive div.sidebar p.next:before {
+body.archive aside.sidebar p.next:before {
 	content: "下一篇：";
 }
 
-body.archive div.sidebar p.prev:before {
+body.archive aside.sidebar p.prev:before {
 	content: "上一篇：";
 }
 
-body.archive div.sidebar p.title {
+body.archive aside.sidebar p.title {
 	font-size: 18px; font-weight: bold;
 	padding: 6px 0;
 	margin-left: -8px;
 }
 
-body.archive div.sidebar div p,
-body.archive div.sidebar ul li {
+body.archive aside.sidebar div p,
+body.archive aside.sidebar ul li {
 	line-height: 1.5;
 	padding: 4px 0;
 }
 
-body.archive div.sidebar ul li {
+body.archive aside.sidebar ul li {
 	margin-left: 20px;
 	list-style-type: square;
 	list-style-position: outside;
 	color: gray;
 }
 
-body.archive div.sidebar ul li span {
+body.archive aside.sidebar ul li span {
 	color: silver;
 }

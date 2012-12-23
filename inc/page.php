@@ -247,8 +247,9 @@ class Page {
 		$sBody = $sHeader.$sBody.$sFooter;
 
 		if (!TANGO_DEV && !self::$_bAdmin) {
-			$sBody = preg_replace("/\n\t+/", "", $sBody);
-			$sBody = str_replace("\n", "", $sBody);
+			$sBody = preg_replace('#\n\t+#', "", $sBody);
+			$sBody = str_replace("\n", '', $sBody);
+			$sBody = str_replace("\t<", '<', $sBody);
 		}
 
 		return $sBody;

@@ -1,8 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Language" content="zh-CN" />
+<meta charset="UTF-8" />
 <title><?php
 echo BlogMenu::getTitle();
 ?></title><?php
@@ -34,10 +33,11 @@ if ($sClass = Page::getBodyClass()) {
 }
 ?>>
 
-<header class="highlight">
-<div><div>&#160;</div></div>
-<div class="bg">&#160;</div>
-</header>
+<div class="topBar highlight">
+	<div><div>&#160;</div></div><div class="bg">&#160;</div>
+</div>
+
+<header>
 
 <div class="siteTitle">
 <?php
@@ -52,7 +52,7 @@ if ($sClass = Page::getBodyClass()) {
 	}
 	?>
 </div>
-<div class="category">
+<nav>
 	<div><?PHP
 
 if (Page::inAdmin()) {
@@ -118,7 +118,7 @@ if (Page::inAdmin()) {
 
 		$sURL = "/category_".$iKey;
 		if ($iKey == 13) {
-			$sURL = "/tweets.php";
+			$sURL = "/tweets";
 		}
 
 		echo "<li".(($iKey == 7 || $iKey == 13 || $iKey == 2) ? " class=\"hr\"" : "").">"
@@ -128,9 +128,8 @@ if (Page::inAdmin()) {
 	}
 	echo "</ul>";
 }
-	?><div>
-</div>
-</div>
-</div>
+?><div>
+</nav>
+</header>
 
 <div class="outBox">
