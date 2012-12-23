@@ -228,6 +228,14 @@ class Page {
 			return $sBody;
 		}
 
+		if (
+			strpos($sBody, 'class="monospace"')
+			|| strpos($sBody, 'class="code"')
+			|| strpos($sBody, 'class="php"')
+		) {
+			PageHeader::setWebfont();
+		}
+
 		ob_start();
 		require_once("header.php");
 		$sHeader = ob_get_clean();

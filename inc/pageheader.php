@@ -25,6 +25,16 @@ class PageHeader {
 	protected static $_aCSS = array();
 	protected static $_aJS = array();
 
+	protected static $_bWebfont = FALSE;
+
+	public static function setWebfont() {
+		self::$_bWebfont = TRUE;
+	}
+
+	public static function getWebfont() {
+		return self::$_bWebfont;
+	}
+
 	public static function addCSS($sCSS) {
 		self::$_aCSS[] = $sCSS;
 	}

@@ -4,10 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="zh-CN" />
 <title><?php
-	echo BlogMenu::getTitle();
+echo BlogMenu::getTitle();
 ?></title><?php
-	echo PageHeader::get();
-?><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" type="text/css" />
+echo PageHeader::get();
+
+if (PageHeader::getWebfont()) {
+	?><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" type="text/css" /><?php
+}
+?>
 <link rel="alternate" href="http://soulogic.com/rss" type="application/rss+xml" title="RSS" />
 <?php
 if ($sCanonical = Page::getCanonical()) {
