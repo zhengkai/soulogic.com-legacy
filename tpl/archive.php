@@ -17,7 +17,7 @@ Page::setCanonical($sURL);
 <h1<?php
 	if ($aArchive["original_tag"] !== "Y") { echo " class=\"copy\""; }
 ?>><?php echo $aArchive["title"]; ?></h1>
-<time class="<?=date('Y-m-d', $aArchive['date_p']);?>">Posted on <?php echo date("F j, Y h:i A", $aArchive["date_p"]); ?></time>
+<time datetime="<?=date('Y-m-d', $aArchive['date_p']);?>">Posted on <?php echo date("F j, Y h:i A", $aArchive["date_p"]); ?></time>
 <?php
 if ($aArchive["original_tag"] === "Y") {
 	?>
