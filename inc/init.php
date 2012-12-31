@@ -5,7 +5,6 @@ settype($_SERVER["HTTP_REFERER"], "string");
 settype($_SERVER["REQUEST_URI"], "string");
 settype($_SERVER["REMOTE_ADDR"], "string");
 settype($_SERVER["SERVER_ADDR"], "string");
-settype($_SERVER["TANGO_DEV"], "string");
 
 define("LOCAL_ACCESS", in_array($_SERVER["SERVER_ADDR"], ["127.0.0.1", "::ffff:127.0.0.1"]));
 

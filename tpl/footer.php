@@ -32,13 +32,13 @@ foreach ($aDBLog as $aInfo) {
 
 <footer class="highlight"><div><div>
 
-<p>2001 - <?php echo date("Y"); ?> <a href="http://creativecommons.org/licenses/by/3.0/deed.zh" class="footer">Some Rights Reserved</a>, Template referenced from <a href="http://www.themelab.com/2008/04/01/colourise-free-wordpress-theme-38/">Colourise</a></p>
+<p>2001 - <?= date("Y"); ?> <a href="http://creativecommons.org/licenses/by/3.0/deed.zh" class="footer">Some Rights Reserved</a>, Template referenced from <a href="http://www.themelab.com/2008/04/01/colourise-free-wordpress-theme-38/">Colourise</a></p>
 
 </div></div></footer>
 
 <?php
-if ($_SERVER["TANGO_DEV"] || LOCAL_ACCESS) {
-	?><!-- Server: <?= ucwords($_SERVER["TANGO_DEV"]); ?>, Time: <?= Page::getTimeCost(); ?> --><?php
+if (TANGO_DEV || LOCAL_ACCESS) {
+	?><!-- <?= TANGO_DEV ? 'Server: '.ucwords(TANGO_DEV).', ' : ''; ?>Time: <?= Page::getTimeCost(); ?> --><?php
 }
 ?>
 
