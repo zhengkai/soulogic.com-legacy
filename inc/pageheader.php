@@ -103,7 +103,8 @@ class PageHeader {
 		$sReturn = "\n";
 
 		if (TANGO_DEV) {
-			$aCSS = scandir(dirname(__DIR__)."/res/");
+			$sResPath = dirname(__DIR__)."/res/";
+			$aCSS = scandir($sResPath);
 			$aFirst = array(
 				"init.css",
 				"common.css",
@@ -119,15 +120,13 @@ class PageHeader {
 			});
 			$aCSS = array_merge($aFirst, $aCSS);
 
-			$fTime = microtime(TRUE);
-
 			foreach ($aCSS as $sCSS) {
-				$sReturn .= "<link rel=\"stylesheet\" href=\"//".self::getResDomain()."/".$sCSS."?tmp=".$fTime."\" type=\"text/css\" />\n";
+				$sReturn .= "<link rel=\"stylesheet\" href=\"//".self::getResDomain()."/".$sCSS."?tmp=".md5_file($sResPath.$sCSS)."\" type=\"text/css\" />\n";
 			}
 
 			if (!empty($aJS)) {
 				foreach ($aJS as $sJS) {
-					$sReturn .= "<script type=\"text/javascript\" src=\"//".self::getResDomain()."/".$sJS."?tmp=".$fTime."\"></script>\n";
+					$sReturn .= "<script type=\"text/javascript\" src=\"//".self::getResDomain()."/".$sJS."?tmp=".md5_file($sResPath.$sCSS)."\"></script>\n";
 				}
 			}
 		} else {

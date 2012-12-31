@@ -13,7 +13,7 @@ class Link {
 
 	public static function get() {
 
-		$sURLBase = TANGO_DEV ? "soulogic.blog" : "soulogic.com";
+		$sURLBase = "soulogic.com";
 
 		$aArg = func_get_args();
 		$sType = array_shift($aArg);

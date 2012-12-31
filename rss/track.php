@@ -4,6 +4,10 @@ Page::noSend();
 header('Content-Type: image/png');
 header('X-Accel-Redirect: /icon.png');
 
+if (LOCAL_ACCESS) {
+	exit;
+}
+
 fastcgi_finish_request();
 
 $lMatch = [];

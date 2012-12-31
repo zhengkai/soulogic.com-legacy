@@ -128,7 +128,7 @@ if (Page::inAdmin()) {
 	}
 	echo "</ul>";
 }
-?></div>
+?><div class="fill"></div></div>
 </nav>
 </header>
 

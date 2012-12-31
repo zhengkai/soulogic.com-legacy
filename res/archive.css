@@ -30,6 +30,7 @@ body.archive h2 {
 	margin: 0;
 	margin-left: -20px;
 	background-image: url("/img/h2_icon.png");
+	background-repeat: no-repeat;
 	background-position: 10px center;
 	background-color: rgba(0, 153, 255, 0.15);
 }
@@ -51,6 +52,7 @@ body.archive aside.cc_copyright a.self {
 body.archive div.content {
 	width: 640px;
 	background-image: url("/img/eof.png");
+	background-repeat: no-repeat;
 	padding: 0 0 20px;
 	background-position: left bottom;
 	margin: 0;
@@ -140,6 +142,7 @@ body.archive p.commentTitle {
 
 body.archive div#comment div.loading {
 	background-image: url("/img/loading.gif");
+	background-repeat: no-repeat;
 	height: 43px;
 	padding: 23px 0 0;
 	margin: 0 0 0 100px;
@@ -238,6 +241,12 @@ body.archive #commentForm button {
 	margin: 4px 5px;
 }
 
+body.archive #commentForm button:hover {
+	background-color: #1A435F;
+	border: 1px solid #1A5F8D;
+	color: #FFF;
+}
+
 body.archive #commentForm table {
 	width: 100%;
 }
@@ -255,6 +264,7 @@ body.archive #commentForm textarea {
 	height: 150px;
 	width: 550px;
 	background-image: url("/img/logo_bg.png");
+	background-repeat: no-repeat;
 	background-position: 90% 80%;
 }
 
@@ -290,6 +300,7 @@ body.archive aside.sidebar {
 	padding-left: 30px;
 	min-height: 500px;
 	background-image: url("/img/line.png");
+	background-repeat: no-repeat;
 	background-position: left top;
 }
 

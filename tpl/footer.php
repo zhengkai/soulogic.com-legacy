@@ -37,8 +37,8 @@ foreach ($aDBLog as $aInfo) {
 </div></div></footer>
 
 <?php
-if (!empty($_SERVER["TANGO_DEV"])) {
-	?><!-- Server <?= ucwords($_SERVER["TANGO_DEV"]); ?> --><?php
+if ($_SERVER["TANGO_DEV"] || LOCAL_ACCESS) {
+	?><!-- Server: <?= ucwords($_SERVER["TANGO_DEV"]); ?>, Time: <?= Page::getTimeCost(); ?> --><?php
 }
 ?>
 

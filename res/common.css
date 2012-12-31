@@ -70,6 +70,7 @@ div.siteTitle h1, div.siteTitle a {
 	margin: 10px 0 0;
 	font-weight: normal;
 	background-image: url("/img/site_title.png");
+	background-repeat: no-repeat;
 	display: block;
 	border-width: 0;
 	background-position: 20px center;
@@ -103,7 +104,7 @@ nav ul li {
 
 nav a,
 nav li.hr,
-nav div div {
+nav div.fill {
 	background-image: url("/img/menu_bg.png");
 }
 
@@ -116,6 +117,7 @@ nav a {
 	border-width: 0;
 	font-size: 20px;
 	background-position: left top;
+	background-repeat: no-repeat;
 }
 
 nav a.select {
@@ -129,6 +131,7 @@ nav a:hover {
 
 nav li.hr {
 	background-position: -100px 0;
+	background-repeat: no-repeat;
 }
 
 nav li.hr a {
@@ -150,7 +153,7 @@ nav > div {
 	width: 1500px;
 }
 
-nav div div {
+nav div.fill {
 	float: left;
 	height: 53px;
 	background-repeat: repeat-x;

@@ -12,13 +12,12 @@ class Page {
 	protected static $_bAjax; // ajax 页面
 	protected static $_bTemplate = TRUE; // 是否可以加载模板
 	protected static $_bSend = TRUE; // 用于 shutdown
-	protected static $_fBeginTime; // 用于 shutdown
 	protected static $_aTitle = ""; // html title
 	protected static $_sBodyClass = ""; // html title
 	protected static $_bEscapeHTML = TRUE; // www 的变量传到 template 时是否转意
 	protected static $_sCanonical = FALSE; // SEO 原始链接
 	protected static $_bFollowOnly = FALSE; // SEO head 里的标签 <meta name="robots" content="noindex,follow" />
-	protected static $_bAdmin = FALSE; // 只有开发模式可见
+	protected static $_bAdmin = FALSE; // 后台模式
 
 	public static $aData = array();
 
@@ -40,12 +39,6 @@ class Page {
 
 	public static function isSent() {
 		return self::$_bSent;
-	}
-
-	public static function setBeginTime() {
-		if (empty(self::$_fBeginTime)) {
-			self::$_fBeginTime = microtime(TRUE);
-		}
 	}
 
 	public static function setBodyClass($sClass = FALSE) {
@@ -104,7 +97,7 @@ class Page {
 	}
 
 	public static function getTimeCost() {
-		return microtime(TRUE) - self::$_fBeginTime;
+		return sprintf('%.02f', (microtime(TRUE) - $_SERVER['REQUEST_TIME_FLOAT']) * 1000).' ms';
 	}
 
 	public static function getDirRoot() {

@@ -1,5 +1,5 @@
 <?php
-Page::setBeginTime();
+// define('TANGO_DEV', 'Freya'); // 仅限开发时打开
 
 DBz::setServer(
 	"Blog",
@@ -23,4 +23,7 @@ DBz::setServer(
 
 MCz::setServer();
 
-define("COMMENT_TOKEN_SALT", "yHoB7vhNRRWzcsbiGbheYh7g9wl8gDChylBGYZ6q1aimeGUtsGvtHSTtnnbmz8Gj7wnP1nrE5pe");
+// 不要使用默认的，去掉注释时重新生成个
+// 可使用 pwgen -cns 70 1 来生成
+
+// define("COMMENT_TOKEN_SALT", "yHoB7vhNRRWzcsbiGbheYh7g9wl8gDChylBGYZ6q1aimeGUtsGvtHSTtnnbmz8Gj7wnP1nrE5pe");

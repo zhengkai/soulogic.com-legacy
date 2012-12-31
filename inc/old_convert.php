@@ -73,8 +73,8 @@ function old_convert($string, $p_tag = true) {
 	$replacearray = array(
 		$paragraph_end."<h2>\\1</h2>".$paragraph_begin,
 		"<span class=\"monospace\">\\1</span>",
-		TANGO_DEV ? "https://soulogic.blog/upload/\\1" : "https://soulogic.com/upload/\\1",
-		TANGO_DEV ? "https://soulogic.blog/archives/\\1" : "https://soulogic.com/archives/\\1",
+		"https://soulogic.com/upload/\\1",
+		"https://soulogic.com/archives/\\1",
 		$paragraph_end.str_replace(">", " style=\"text-align: center\">", $paragraph_begin)."\\1".$paragraph_end.$paragraph_begin,
 		"<sub>\\1</sub>",
 		"<sup>\\1</sup>",
@@ -91,7 +91,7 @@ function old_convert($string, $p_tag = true) {
 		"<a href=\"\\2\">\\2</a>",
 		$paragraph_end."<blockquote>".$paragraph_begin."\\1".$paragraph_end."</blockquote>".$paragraph_begin,
 		$paragraph_end."<blockquote class=\"code\">".$paragraph_begin."\\1".$paragraph_end."</blockquote>".$paragraph_begin
-		);
+	);
     $string = preg_replace($searcharray, $replacearray, $string);
 
 	// 替换标签 [phpcode]
@@ -111,7 +111,7 @@ function old_convert($string, $p_tag = true) {
 		$value = trim($value);
 
 		if (strpos($value, "<?php") === FALSE) {
-			$value = "<?php\n".$value."\n?>";
+			$value = "<"."?php\n".$value."\n?".">";
 		}
 
 		$t = token_get_all($value);

@@ -7,8 +7,7 @@ settype($_SERVER["REMOTE_ADDR"], "string");
 settype($_SERVER["SERVER_ADDR"], "string");
 settype($_SERVER["TANGO_DEV"], "string");
 
-define("LOCAL_ACCESS", $_SERVER["SERVER_ADDR"] === "127.0.0.1" || $_SERVER["SERVER_ADDR"] === "::ffff:127.0.0.1");
-define("TANGO_DEV", ($_SERVER["TANGO_DEV"] === "freya") && LOCAL_ACCESS);
+define("LOCAL_ACCESS", in_array($_SERVER["SERVER_ADDR"], ["127.0.0.1", "::ffff:127.0.0.1"]));
 
 $sPathLib = dirname(__DIR__)."/lib/";
 
@@ -28,6 +27,9 @@ require_once(__DIR__."/page.php");
 require_once(__DIR__."/link.php");
 
 require_once(__DIR__."/config.php");
+if (!defined('TANGO_DEV')) {
+	define("TANGO_DEV", FALSE);
+}
 
 Page::checkScriptFile();
 
